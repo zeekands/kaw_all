@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/welcome_controller.dart';
 
 class WelcomeView extends GetView<WelcomeController> {
@@ -81,29 +82,32 @@ class WelcomeView extends GetView<WelcomeController> {
                 ),
               ),
               30.verticalSpace,
-              Container(
-                width: 259.w,
-                height: 46.h,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 3),
+              GestureDetector(
+                onTap: () => Get.toNamed(Routes.PILIH_PSIKOLOG),
+                child: Container(
+                  width: 259.w,
+                  height: 46.h,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.white,
+                  ),
+                  child: const Text(
+                    "Masuk",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Montserrat',
                     ),
-                  ],
-                  borderRadius: BorderRadius.circular(50),
-                  color: Colors.white,
-                ),
-                child: const Text(
-                  "Masuk",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Montserrat',
                   ),
                 ),
               ),

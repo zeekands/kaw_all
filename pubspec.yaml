@@ -2,28 +2,30 @@ name: kaw_all
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
-  sdk: '>=2.18.0 <3.0.0'
+environment:
+  sdk: ">=2.18.0 <3.0.0"
 
-dependencies: 
+dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
   flutter_native_splash: 2.2.9
   flutter_screenutil: 5.5.4
-  flutter: 
+  flutter:
     sdk: flutter
+  scroll_snap_list: ^0.9.1
+  splash_screen_view: ^2.0.1
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^2.0.0
-  flutter_test: 
+  flutter_test:
     sdk: flutter
 
-flutter: 
+flutter:
   uses-material-design: true
   assets:
     - assets/images/
   fonts:
-    - family:  Montserrat
+    - family: Montserrat
       fonts:
         - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
         - asset: assets/fonts/montserrat/Montserrat-Bold.ttf
@@ -44,9 +46,8 @@ flutter:
         - asset: assets/fonts/montserrat/Montserrat-Black.ttf
         - asset: assets/fonts/montserrat/Montserrat-BlackItalic.ttf
 
-flutter_native_splash: 
-  color: '#FFFFFF'
+flutter_native_splash:
+  color: "#FFFFFF"
   image: assets/images/splash_screen.png
   android: true
   ios: true
-
