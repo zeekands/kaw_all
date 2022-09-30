@@ -12,8 +12,6 @@ dependencies:
   flutter_screenutil: 5.5.4
   flutter:
     sdk: flutter
-  scroll_snap_list: ^0.9.1
-  splash_screen_view: ^2.0.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0

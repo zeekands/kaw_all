@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:splash_screen_view/SplashScreenView.dart';
 
 import 'package:get/get.dart';
 

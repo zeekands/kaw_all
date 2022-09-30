@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
+import '../../../utils/Color.dart';
 import '../controllers/welcome_controller.dart';
 
 class WelcomeView extends GetView<WelcomeController> {
@@ -11,7 +12,7 @@ class WelcomeView extends GetView<WelcomeController> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.transparent,
+      statusBarColor: statusBarColor,
     ));
     return Scaffold(
         body: Container(
@@ -63,27 +64,31 @@ class WelcomeView extends GetView<WelcomeController> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
-                      offset: const Offset(0, 4),
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 0,
                       blurRadius: 4,
-                    ),
+                      offset: const Offset(0, 4),
+                    )
                   ],
                   borderRadius: BorderRadius.circular(50),
                   color: const Color(0xff676C65),
                 ),
-                child: const Text(
-                  "Buat Akun",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Montserrat',
+                child: GestureDetector(
+                  onTap: () => Get.toNamed(Routes.REGISTER),
+                  child: const Text(
+                    "Buat Akun",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 13,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Montserrat',
+                    ),
                   ),
                 ),
               ),
               30.verticalSpace,
               GestureDetector(
-                onTap: () => Get.toNamed(Routes.PILIH_PSIKOLOG),
+                onTap: () => Get.toNamed(Routes.LOGIN),
                 child: Container(
                   width: 259.w,
                   height: 46.h,
@@ -92,10 +97,10 @@ class WelcomeView extends GetView<WelcomeController> {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: const Offset(0, 3),
-                      ),
+                        spreadRadius: 0,
+                        blurRadius: 4,
+                        offset: const Offset(0, 4),
+                      )
                     ],
                     borderRadius: BorderRadius.circular(50),
                     color: Colors.white,
@@ -120,10 +125,10 @@ class WelcomeView extends GetView<WelcomeController> {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: const Offset(0, 3),
-                    ),
+                      spreadRadius: 0,
+                      blurRadius: 4,
+                      offset: const Offset(0, 4),
+                    )
                   ],
                   borderRadius: BorderRadius.circular(50),
                   color: const Color(0xffAFC5A5),
