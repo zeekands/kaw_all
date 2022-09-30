@@ -100,7 +100,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
             ),
           ),
           child: Stack(
-            alignment: AlignmentDirectional.center,
+            fit: StackFit.expand,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
