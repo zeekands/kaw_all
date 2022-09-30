@@ -1,34 +1,13 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:get/get.dart';
-
 import '../controllers/pilih_psikolog_controller.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 class PilihPsikologView extends GetView<PilihPsikologController> {
   const PilihPsikologView({Key? key}) : super(key: key);
 
-  // const PilihPsikologC = Get.put(PilihPsikologController());
-
-  static const List<String> data = [
-    "data1",
-    "data2",
-    "data3",
-    "data4",
-    "data5",
-    "data6",
-    "data7",
-    "data8",
-    "data9",
-    "data10"
-  ];
-
-  Widget _buildItemList(BuildContext context, int index) {
-    // if (index == data.length) {
-    //   return CircularProgressIndicator();
-    // }
-
+  Widget _buildItemList() {
     return Container(
       padding: const EdgeInsets.symmetric(
         vertical: 40,
@@ -43,10 +22,10 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 0,
             blurRadius: 4,
-            offset: Offset(0, 4), // changes position of shadow
+            offset: const Offset(0, 4), // changes position of shadow
           ),
         ],
-        color: Color(0xffDCE3D9),
+        color: const Color(0xffDCE3D9),
       ),
       child: Column(
         children: [
@@ -70,12 +49,12 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 0,
                     blurRadius: 4,
-                    offset: Offset(0, 4), // changes position of shadow
+                    offset: const Offset(0, 4), // changes position of shadow
                   ),
                 ],
                 image: DecorationImage(
-                  image: NetworkImage(
-                      "https://picsum.photos/id/${index + 1000}/200/300"),
+                  image: const NetworkImage(
+                      'https://picsum.photos/id/237/200/300'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -93,14 +72,16 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
         child: Container(
           width: 1.sw,
           height: 1.sh,
-          decoration: BoxDecoration(
+          alignment: Alignment.center,
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/background_pilih_psikolog.png'),
               fit: BoxFit.cover,
             ),
           ),
           child: Stack(
-            fit: StackFit.expand,
+            alignment: AlignmentDirectional.center,
+            fit: StackFit.loose,
             children: [
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -117,7 +98,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                           ),
                           Row(
                             children: [
-                              Icon(Icons.menu),
+                              const Icon(Icons.menu),
                               10.horizontalSpace,
                               Image.asset(
                                 'assets/images/profile_picture.png',
@@ -133,7 +114,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                           fontWeight: FontWeight.bold,
                           fontSize: 20.sp,
                           fontFamily: 'Montserrat',
-                          color: Color(0xff646060),
+                          color: const Color(0xff646060),
                         ),
                       ),
                     ],
@@ -223,7 +204,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                                             0, 4), // changes position of shadow
                                       ),
                                     ],
-                                    color: Color(0xffFAF3EB),
+                                    color: const Color(0xffFAF3EB),
                                     shape: BoxShape.circle,
                                   ),
                                   child: const Text(
@@ -276,7 +257,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                           ),
                           child: InkWell(
                             onTap: () {},
-                            child: Container(
+                            child: SizedBox(
                               width: 1.sw,
                               height: 50.h,
                               child: Align(
@@ -294,54 +275,38 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                             ),
                           ),
                         ).paddingSymmetric(horizontal: 16.w),
-                        // Container(
-                        //   width: 1.sw,
-                        //   height: 50.h,
-                        //   alignment: Alignment.center,
-                        //   decoration: BoxDecoration(
-                        //     borderRadius: BorderRadius.circular(50.r),
-                        //     boxShadow: const [
-                        //       BoxShadow(
-                        //         color: Color(0xff4E524C),
-                        //         spreadRadius: 0,
-                        //         blurRadius: 1,
-                        //         offset:
-                        //             Offset(0, 2), // changes position of shadow
-                        //       ),
-                        //     ],
-                        //   ),
-                        //   child: Text(
-                        //     "Pesan Sekarang",
-                        //     style: TextStyle(
-                        //       color: Colors.white,
-                        //       fontFamily: 'Montserrat',
-                        //       fontWeight: FontWeight.bold,
-                        //       fontSize: 14.sp,
-                        //     ),
-                        //   ),
-                        // ).paddingSymmetric(horizontal: 16.w),
                         16.verticalSpace,
                       ],
                     ),
                   ),
                 ],
               ),
-              Column(
-                children: [
-                  120.verticalSpace,
-                  Expanded(
-                    child: ScrollSnapList(
-                      itemBuilder: _buildItemList,
-                      itemCount: data.length,
-                      itemSize: 150,
-                      onItemFocus: (index) {
-                        print(index);
-                      },
-                      dynamicItemSize: true,
+              Container(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    120.verticalSpace,
+                    Expanded(
+                      child: PageView.builder(
+                        itemCount: controller.data.length,
+                        controller: PageController(viewportFraction: 0.7),
+                        onPageChanged: (int index) {
+                          controller.focusItemCard(index);
+                        },
+                        itemBuilder: (_, i) {
+                          return Obx(
+                            () => Transform.scale(
+                              scale:
+                                  controller.focusItemCard.value == i ? 1 : 0.7,
+                              child: _buildItemList(),
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                  320.verticalSpace
-                ],
+                    320.verticalSpace
+                  ],
+                ),
               )
             ],
           ),
@@ -350,65 +315,3 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
     );
   }
 }
-
-// class ItemCard extends StatelessWidget {
-//   const ItemCard({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       padding: EdgeInsets.symmetric(
-//         vertical: 40,
-//         horizontal: 26,
-//       ),
-//       width: 266.w,
-//       height: 437.h,
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(20.r),
-//         boxShadow: [
-//           BoxShadow(
-//             color: Colors.grey.withOpacity(0.5),
-//             spreadRadius: 0,
-//             blurRadius: 4,
-//             offset: Offset(0, 4), // changes position of shadow
-//           ),
-//         ],
-//         color: Color(0xffDCE3D9),
-//       ),
-//       child: Column(
-//         children: [
-//           Text(
-//             "Tri Heniyati Subekti, S.Psi",
-//             style: TextStyle(
-//               fontFamily: 'Montserrat',
-//               fontWeight: FontWeight.bold,
-//               fontSize: 20.sp,
-//             ),
-//           ),
-//           25.verticalSpace,
-//           Expanded(
-//             child: Container(
-//               width: 212.w,
-//               height: 200.h,
-//               decoration: BoxDecoration(
-//                 borderRadius: BorderRadius.circular(20.r),
-//                 boxShadow: [
-//                   BoxShadow(
-//                     color: Colors.grey.withOpacity(0.5),
-//                     spreadRadius: 0,
-//                     blurRadius: 4,
-//                     offset: Offset(0, 4), // changes position of shadow
-//                   ),
-//                 ],
-//                 image: DecorationImage(
-//                   image: NetworkImage("https://picsum.photos/id/1005/200/300"),
-//                   fit: BoxFit.cover,
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
