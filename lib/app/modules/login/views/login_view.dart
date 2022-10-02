@@ -19,102 +19,104 @@ class LoginView extends GetView<LoginController> {
       body: SafeArea(
         top: false,
         bottom: false,
-        child: SingleChildScrollView(
-          child: Container(
-            padding:
-                EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top),
-            width: 1.sw,
-            height: 1.sh,
-            decoration: const BoxDecoration(
-              color: loginBackgroudColor,
-            ),
-            child: Stack(
-              children: [
-                Image.asset(
-                  'assets/images/maskot_welcome.png',
-                  width: 120.w,
-                  height: 82.h,
-                ).paddingOnly(top: 74.h, left: 32.w),
-                Container(
-                  width: 414.w,
-                  height: 610.h,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: const Color(0xFFD9D9D9),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Login",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
-                          fontFamily: 'Montserrat',
-                        ),
+        child: Container(
+          padding: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top),
+          width: 1.sw,
+          height: 1.sh,
+          decoration: const BoxDecoration(
+            color: loginBackgroudColor,
+          ),
+          child: Stack(
+            children: [
+              Image.asset(
+                'assets/images/maskot_welcome.png',
+                width: 120.w,
+                height: 82.h,
+              ).paddingOnly(top: 74.h, left: 32.w),
+              Container(
+                width: 1.sw,
+                height: 1.sh,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40.r),
+                      topRight: Radius.circular(40.r)),
+                  color: const Color(0xFFD9D9D9),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Login",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        fontFamily: 'Montserrat',
                       ),
-                      const Text(
-                        "Email Address",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          fontFamily: 'Montserrat',
-                        ),
-                      ).paddingOnly(top: 38.h, bottom: 12.h),
-                      TextField(
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                            borderSide: const BorderSide(
-                              color: Colors.white,
-                            ),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          isDense: true,
-                          contentPadding: EdgeInsets.all(12),
-                        ),
+                    ),
+                    const Text(
+                      "Email Address",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        fontFamily: 'Montserrat',
                       ),
-                      const Text(
-                        "Password",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                          fontFamily: 'Montserrat',
-                        ),
-                      ).paddingOnly(top: 30.h, bottom: 8.h),
-                      TextField(
-                        obscureText: true,
-                        obscuringCharacter: "*",
-                        decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          filled: true,
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                            borderSide: const BorderSide(
-                              color: Colors.white,
-                            ),
+                    ).paddingOnly(top: 38.h, bottom: 12.h),
+                    TextField(
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(40),
+                          borderSide: const BorderSide(
+                            color: Colors.white,
                           ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          isDense: true,
-                          contentPadding: EdgeInsets.all(12),
                         ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        isDense: true,
+                        contentPadding: EdgeInsets.all(12),
                       ),
-                      const Text(
-                        "Forgot password?",
-                        style: TextStyle(
-                          color: Color(0xFF585656),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                          fontFamily: 'Montserrat',
+                    ),
+                    const Text(
+                      "Password",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        fontFamily: 'Montserrat',
+                      ),
+                    ).paddingOnly(top: 30.h, bottom: 8.h),
+                    TextField(
+                      obscureText: true,
+                      obscuringCharacter: "*",
+                      decoration: InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(40),
+                          borderSide: const BorderSide(
+                            color: Colors.white,
+                          ),
                         ),
-                      ).paddingOnly(top: 11.h, bottom: 50.h),
-                      Container(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        isDense: true,
+                        contentPadding: EdgeInsets.all(12),
+                      ),
+                    ),
+                    const Text(
+                      "Forgot password?",
+                      style: TextStyle(
+                        color: Color(0xFF585656),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12,
+                        fontFamily: 'Montserrat',
+                      ),
+                    ).paddingOnly(top: 11.h, bottom: 50.h),
+                    GestureDetector(
+                      onTap: () => Get.toNamed(Routes.DASHBOARD),
+                      child: Container(
                         width: 1.sw,
                         height: 45.h,
                         decoration: BoxDecoration(
@@ -141,86 +143,86 @@ class LoginView extends GetView<LoginController> {
                           ),
                         ),
                       ),
-                      Center(
-                        child: const Text(
-                          "or",
+                    ),
+                    Center(
+                      child: const Text(
+                        "or",
+                        style: TextStyle(
+                          color: Color(0xFF585656),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          fontFamily: 'Montserrat',
+                        ),
+                      ).paddingOnly(top: 7.h, bottom: 7.h),
+                    ),
+                    Container(
+                      width: 1.sw,
+                      height: 45.h,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 0,
+                            blurRadius: 4,
+                            offset: const Offset(0, 4),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(40),
+                        color: const Color(0xFFF5C3B3),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Login with",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                fontFamily: 'Montserrat',
+                              ),
+                            ),
+                            10.horizontalSpace,
+                            Image.asset(
+                              'assets/images/google.png',
+                              width: 20,
+                              height: 20,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Don’t have an account?",
                           style: TextStyle(
                             color: Color(0xFF585656),
                             fontWeight: FontWeight.bold,
-                            fontSize: 15,
+                            fontSize: 12,
                             fontFamily: 'Montserrat',
                           ),
-                        ).paddingOnly(top: 7.h, bottom: 7.h),
-                      ),
-                      Container(
-                        width: 1.sw,
-                        height: 45.h,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 0,
-                              blurRadius: 4,
-                              offset: const Offset(0, 4),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(40),
-                          color: const Color(0xFFF5C3B3),
                         ),
-                        child: Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Login with",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                  fontFamily: 'Montserrat',
-                                ),
-                              ),
-                              10.horizontalSpace,
-                              Image.asset(
-                                'assets/images/google.png',
-                                width: 20,
-                                height: 20,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Don’t have an account?",
+                        GestureDetector(
+                          onTap: () => Get.toNamed(Routes.REGISTER),
+                          child: const Text(
+                            " Create new account",
                             style: TextStyle(
-                              color: Color(0xFF585656),
+                              color: Color(0xFFEC9F87),
                               fontWeight: FontWeight.bold,
                               fontSize: 12,
                               fontFamily: 'Montserrat',
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () => Get.toNamed(Routes.REGISTER),
-                            child: const Text(
-                              " Create new account",
-                              style: TextStyle(
-                                color: Color(0xFFEC9F87),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                                fontFamily: 'Montserrat',
-                              ),
-                            ),
-                          ),
-                        ],
-                      ).paddingOnly(top: 45.h),
-                    ],
-                  ).paddingSymmetric(horizontal: 36.w, vertical: 22.h),
-                ).paddingSymmetric(vertical: 143.h),
-              ],
-            ),
+                        ),
+                      ],
+                    ).paddingOnly(top: 45.h),
+                  ],
+                ).paddingSymmetric(horizontal: 36.w, vertical: 22.h),
+              ).paddingOnly(top: 143.h),
+            ],
           ),
         ),
       ),

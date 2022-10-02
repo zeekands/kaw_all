@@ -12,6 +12,7 @@ dependencies:
   flutter_screenutil: 5.5.4
   flutter:
     sdk: flutter
+  animated_bottom_navigation_bar: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
