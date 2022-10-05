@@ -45,6 +45,23 @@ flutter:
         - asset: assets/fonts/montserrat/Montserrat-Black.ttf
         - asset: assets/fonts/montserrat/Montserrat-BlackItalic.ttf
 
+    - family: JosefinSans
+      fonts:
+        - asset: assets/fonts/josefin_sans/JosefinSans-Bold.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-BoldItalic.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-Italic.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-Light.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-LightItalic.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-Regular.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-SemiBold.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-SemiBoldItalic.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-Thin.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-ThinItalic.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-ExtraLight.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-ExtraLightItalic.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-Medium.ttf
+        - asset: assets/fonts/josefin_sans/JosefinSans-MediumItalic.ttf
+
 flutter_native_splash:
   color: "#FFFFFF"
   image: assets/images/splash_screen.png
