@@ -9,6 +9,9 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const REGISTER = _Paths.REGISTER;
   static const DASHBOARD = _Paths.DASHBOARD;
+  static const NAVIGATION_BAR = _Paths.NAVIGATION_BAR;
+  static const COURSE = _Paths.COURSE;
+  static const MENTIMETER = _Paths.MENTIMETER;
 }
 
 abstract class _Paths {
@@ -19,4 +22,7 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const REGISTER = '/register';
   static const DASHBOARD = '/dashboard';
+  static const NAVIGATION_BAR = '/navigation-bar';
+  static const COURSE = '/course';
+  static const MENTIMETER = '/mentimeter';
 }

@@ -1,11 +1,17 @@
 import 'package:get/get.dart';
 
+import '../modules/course/bindings/course_binding.dart';
+import '../modules/course/views/course_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/mentimeter/bindings/mentimeter_binding.dart';
+import '../modules/mentimeter/views/mentimeter_view.dart';
+import '../modules/navigation_bar/bindings/navigation_bar_binding.dart';
+import '../modules/navigation_bar/views/navigation_bar_view.dart';
 import '../modules/pilih_psikolog/bindings/pilih_psikolog_binding.dart';
 import '../modules/pilih_psikolog/views/pilih_psikolog_view.dart';
 import '../modules/register/bindings/register_binding.dart';
@@ -50,6 +56,21 @@ class AppPages {
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.NAVIGATION_BAR,
+      page: () => const NavigationBarView(),
+      binding: NavigationBarBinding(),
+    ),
+    GetPage(
+      name: _Paths.COURSE,
+      page: () => const CourseView(),
+      binding: CourseBinding(),
+    ),
+    GetPage(
+      name: _Paths.MENTIMETER,
+      page: () => const MentimeterView(),
+      binding: MentimeterBinding(),
     ),
   ];
 }

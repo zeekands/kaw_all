@@ -13,6 +13,8 @@ dependencies:
   animated_bottom_navigation_bar: ^1.1.0
   firebase_core: 1.24.0
   firebase_auth: 3.11.2
+  custom_navigation_bar: ^0.8.2
+  google_nav_bar: ^5.0.6
   flutter: 
     sdk: flutter
 
