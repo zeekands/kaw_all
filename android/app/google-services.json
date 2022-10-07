@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1091930546505",
+    "project_id": "kawall",
+    "storage_bucket": "kawall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091930546505:android:028a9c45313dcc9968ba98",
+        "android_client_info": {
+          "package_name": "com.example.kaw_all"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091930546505-jb03o6od5g1j104p6qhvem768ng98t4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2EwqS3aSC6T0x7kMdREN_IrWOAt8gKT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091930546505-jb03o6od5g1j104p6qhvem768ng98t4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -316,26 +316,44 @@ class DashboardView extends GetView<DashboardController> {
         ),
       ),
       bottomNavigationBar: Obx(
-        () => AnimatedBottomNavigationBar(
-          icons: const [
-            Icons.home,
-            Icons.search,
-            Icons.add,
-            Icons.favorite,
-          ],
+        () => AnimatedBottomNavigationBar.builder(
+          tabBuilder: (index, isActive) {
+            final iconList = <IconData>[
+              Icons.brightness_5,
+              Icons.brightness_4,
+              Icons.brightness_6,
+              Icons.brightness_7,
+            ];
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  iconList[index],
+                  color: isActive ? const Color(0xffA14D4D) : Colors.grey,
+                ),
+                Text(
+                  "a",
+                  style: TextStyle(
+                    color: isActive ? const Color(0xffA14D4D) : Colors.grey,
+                    fontSize: 10.sp,
+                    fontFamily: 'JosefinSans',
+                  ),
+                ),
+              ],
+            );
+          },
+          itemCount: 4,
           gapWidth: 10.w,
           gapLocation: GapLocation.none,
           leftCornerRadius: 32.r,
           rightCornerRadius: 32.r,
           activeIndex: controller.bottomNavIndex.value,
-          activeColor: const Color(0xFF5B6656),
-          inactiveColor: Colors.grey.shade400,
           shadow: const Shadow(
             color: Colors.grey,
             offset: Offset(0, 0),
             blurRadius: 3,
           ),
-          iconSize: 30.sp,
           notchSmoothness: NotchSmoothness.verySmoothEdge,
           onTap: (index) => controller.bottomNavIndex.value = index,
         ),
