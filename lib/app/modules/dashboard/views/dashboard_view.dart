@@ -101,45 +101,272 @@ class DashboardView extends GetView<DashboardController> {
                   ],
                 ),
               ],
-            ),
-            Text(
-              "Jalan Yuk",
-              style: TextStyle(
-                color: Color(0xffA14D4D),
-                fontSize: 20.sp,
-                fontFamily: 'JosefinSans',
-                shadows: [
-                  Shadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    offset: Offset(1, 2),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
-            ).paddingOnly(top: 20.h, left: 36.w, bottom: 10.h),
-            Center(
-              child: Container(
-                width: 370.w,
-                height: 138.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xffDBEAD5),
-                  borderRadius: BorderRadius.circular(20.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 0,
-                      blurRadius: 4,
-                      offset: const Offset(2, 4),
-                    ),
-                  ],
-                ),
-                child: Row(
+            ).paddingOnly(bottom: 20.h),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text(
+                      "Jalan Yuk",
+                      style: TextStyle(
+                        color: Color(0xffA14D4D),
+                        fontSize: 20.sp,
+                        fontFamily: 'JosefinSans',
+                        shadows: [
+                          Shadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            offset: Offset(1, 2),
+                            blurRadius: 4,
+                          ),
+                        ],
+                      ),
+                    ).paddingOnly(top: 5.h, left: 36.w, bottom: 10.h),
+                    Center(
+                      child: Container(
+                        width: 370.w,
+                        height: 138.h,
+                        decoration: BoxDecoration(
+                          color: const Color(0xffDBEAD5),
+                          borderRadius: BorderRadius.circular(20.r),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 0,
+                              blurRadius: 4,
+                              offset: const Offset(2, 4),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 102.w,
+                              height: 107.h,
+                              decoration: BoxDecoration(
+                                color: const Color(0xffD9D9D9),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.5),
+                                    spreadRadius: 0,
+                                    blurRadius: 4,
+                                    offset: const Offset(2, 4),
+                                  ),
+                                ],
+                              ),
+                              child: Image.asset(
+                                'assets/images/call_dashboard.png',
+                              ),
+                            ).paddingSymmetric(
+                                horizontal: 23.w, vertical: 19.h),
+                            Flexible(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Mau jalan sendirian tapi takut?",
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontFamily: 'JosefinSans',
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  30.verticalSpace,
+                                  Text(
+                                    "Yuk kami temani!",
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      fontFamily: 'JosefinSans',
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ).paddingOnly(
+                                top: 25,
+                                right: 59.w,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "What's New?",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.sp,
+                        fontFamily: 'JosefinSans',
+                        shadows: [
+                          Shadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            offset: Offset(1, 2),
+                            blurRadius: 4,
+                          ),
+                        ],
+                      ),
+                    ).paddingOnly(top: 25.h, left: 36.w, bottom: 10.h),
+                    SizedBox(
+                      width: 1.sw,
+                      height: 180.h,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Container(
+                            width: 150.w,
+                            height: 170.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffFAEBE6),
+                              borderRadius: BorderRadius.circular(20.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 0,
+                                  blurRadius: 4,
+                                  offset: const Offset(2, 4),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  controller.whatsNewList[0]['title']
+                                      .toString(),
+                                  style: TextStyle(
+                                    color: Color(0xffB6411C),
+                                    fontSize: 20.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(top: 15.h, bottom: 7.h),
+                                Text(
+                                  controller.whatsNewList[0]['description']
+                                      .toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color(0xff877878),
+                                    fontSize: 12.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(bottom: 12.h),
+                                Image.asset(
+                                  controller.whatsNewList[0]['image']
+                                      .toString(),
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(left: 25.w, right: 20.w, bottom: 5.h),
+                          Container(
+                            width: 150.w,
+                            height: 170.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffFAEBE6),
+                              borderRadius: BorderRadius.circular(20.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 0,
+                                  blurRadius: 4,
+                                  offset: const Offset(2, 4),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  controller.whatsNewList[0]['title']
+                                      .toString(),
+                                  style: TextStyle(
+                                    color: Color(0xffB6411C),
+                                    fontSize: 20.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(top: 15.h, bottom: 7.h),
+                                Text(
+                                  controller.whatsNewList[0]['description']
+                                      .toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color(0xff877878),
+                                    fontSize: 12.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(bottom: 12.h),
+                                Image.asset(
+                                  controller.whatsNewList[0]['image']
+                                      .toString(),
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(right: 20.w, bottom: 5.h),
+                          Container(
+                            width: 150.w,
+                            height: 170.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffFAEBE6),
+                              borderRadius: BorderRadius.circular(20.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 0,
+                                  blurRadius: 4,
+                                  offset: const Offset(2, 4),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  controller.whatsNewList[0]['title']
+                                      .toString(),
+                                  style: TextStyle(
+                                    color: Color(0xffB6411C),
+                                    fontSize: 20.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(top: 15.h, bottom: 7.h),
+                                Text(
+                                  controller.whatsNewList[0]['description']
+                                      .toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color(0xff877878),
+                                    fontSize: 12.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(bottom: 12.h),
+                                Image.asset(
+                                  controller.whatsNewList[0]['image']
+                                      .toString(),
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(right: 25.w, bottom: 5.h),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      "Konseling",
+                      style: TextStyle(
+                        color: Color(0xffA14D4D),
+                        fontSize: 20.sp,
+                        fontFamily: 'JosefinSans',
+                        shadows: [
+                          Shadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            offset: Offset(1, 2),
+                            blurRadius: 4,
+                          ),
+                        ],
+                      ),
+                    ).paddingOnly(top: 20.h, left: 36.w, bottom: 10.h),
                     Container(
-                      width: 102.w,
-                      height: 107.h,
+                      width: 1.sw,
+                      height: 135.h,
                       decoration: BoxDecoration(
-                        color: const Color(0xffD9D9D9),
+                        color: const Color(0xffF5C3B3),
+                        borderRadius: BorderRadius.circular(20.r),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
@@ -149,122 +376,11 @@ class DashboardView extends GetView<DashboardController> {
                           ),
                         ],
                       ),
-                      child: Image.asset(
-                        'assets/images/call_dashboard.png',
-                      ),
-                    ).paddingSymmetric(horizontal: 23.w, vertical: 19.h),
-                    Flexible(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Mau jalan sendirian tapi takut?",
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'JosefinSans',
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          30.verticalSpace,
-                          Text(
-                            "Yuk kami temani!",
-                            style: const TextStyle(
-                              fontSize: 10,
-                              fontFamily: 'JosefinSans',
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ).paddingOnly(
-                        top: 25,
-                        right: 59.w,
-                      ),
-                    ),
+                    ).paddingOnly(right: 20.w, left: 35.w, bottom: 25.h),
                   ],
                 ),
               ),
             ),
-            Text(
-              "What's New?",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 20.sp,
-                fontFamily: 'JosefinSans',
-                shadows: [
-                  Shadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    offset: Offset(1, 2),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
-            ).paddingOnly(top: 25.h, left: 36.w, bottom: 10.h),
-            Flexible(
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: controller.whatsNewList.length,
-                padding: EdgeInsets.symmetric(horizontal: 20.w),
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 150.w,
-                    height: 170.h,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffFAEBE6),
-                      borderRadius: BorderRadius.circular(20.r),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 0,
-                          blurRadius: 4,
-                          offset: const Offset(2, 4),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          controller.whatsNewList[index]['title'].toString(),
-                          style: TextStyle(
-                            color: Color(0xffB6411C),
-                            fontSize: 20.sp,
-                            fontFamily: 'JosefinSans',
-                          ),
-                        ).paddingOnly(top: 15.h, bottom: 7.h),
-                        Text(
-                          controller.whatsNewList[index]['description']
-                              .toString(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Color(0xff877878),
-                            fontSize: 12.sp,
-                            fontFamily: 'JosefinSans',
-                          ),
-                        ).paddingOnly(bottom: 12.h),
-                        Image.asset(
-                          controller.whatsNewList[index]['image'].toString(),
-                        ),
-                      ],
-                    ),
-                  ).paddingOnly(right: 20.w);
-                },
-              ),
-            ),
-            Text(
-              "Jalan Yuk",
-              style: TextStyle(
-                color: Color(0xffA14D4D),
-                fontSize: 20.sp,
-                fontFamily: 'JosefinSans',
-                shadows: [
-                  Shadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    offset: Offset(1, 2),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
-            ).paddingOnly(top: 20.h, left: 36.w, bottom: 10.h),
           ],
         ),
       ),
