@@ -120,7 +120,7 @@ class LoginView extends GetView<LoginController> {
                               ),
                             ).paddingOnly(top: 11.h, bottom: 50.h),
                             GestureDetector(
-                              onTap: () => Get.toNamed(Routes.DASHBOARD),
+                              onTap: () => Get.toNamed(Routes.NAVIGATION_BAR),
                               child: Container(
                                 width: 1.sw,
                                 height: 45.h,
