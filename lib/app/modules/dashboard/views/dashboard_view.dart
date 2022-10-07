@@ -1,4 +1,3 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -313,49 +312,6 @@ class DashboardView extends GetView<DashboardController> {
               ),
             ],
           ),
-        ),
-      ),
-      bottomNavigationBar: Obx(
-        () => AnimatedBottomNavigationBar.builder(
-          tabBuilder: (index, isActive) {
-            final iconList = <IconData>[
-              Icons.brightness_5,
-              Icons.brightness_4,
-              Icons.brightness_6,
-              Icons.brightness_7,
-            ];
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  iconList[index],
-                  color: isActive ? const Color(0xffA14D4D) : Colors.grey,
-                ),
-                Text(
-                  "a",
-                  style: TextStyle(
-                    color: isActive ? const Color(0xffA14D4D) : Colors.grey,
-                    fontSize: 10.sp,
-                    fontFamily: 'JosefinSans',
-                  ),
-                ),
-              ],
-            );
-          },
-          itemCount: 4,
-          gapWidth: 10.w,
-          gapLocation: GapLocation.none,
-          leftCornerRadius: 32.r,
-          rightCornerRadius: 32.r,
-          activeIndex: controller.bottomNavIndex.value,
-          shadow: const Shadow(
-            color: Colors.grey,
-            offset: Offset(0, 0),
-            blurRadius: 3,
-          ),
-          notchSmoothness: NotchSmoothness.verySmoothEdge,
-          onTap: (index) => controller.bottomNavIndex.value = index,
         ),
       ),
     );
