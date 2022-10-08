@@ -12,6 +12,7 @@ abstract class Routes {
   static const NAVIGATION_BAR = _Paths.NAVIGATION_BAR;
   static const COURSE = _Paths.COURSE;
   static const MENTIMETER = _Paths.MENTIMETER;
+  static const CHAT = _Paths.CHAT;
 }
 
 abstract class _Paths {
@@ -25,4 +26,5 @@ abstract class _Paths {
   static const NAVIGATION_BAR = '/navigation-bar';
   static const COURSE = '/course';
   static const MENTIMETER = '/mentimeter';
+  static const CHAT = '/chat';
 }

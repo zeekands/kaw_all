@@ -211,59 +211,66 @@ class DashboardView extends GetView<DashboardController> {
                   itemCount: controller.whatsNewList.length,
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   itemBuilder: (context, index) {
-                    return Container(
-                      width: 120.w,
-                      height: 150.h,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffFAEBE6),
-                        borderRadius: BorderRadius.circular(30.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 0,
-                            blurRadius: 4,
-                            offset: const Offset(2, 4),
-                          ),
-                        ],
-                      ),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Image.asset(
-                              controller.whatsNewList[index]['image']
-                                  .toString(),
+                    return GestureDetector(
+                      onTap: () {
+                        Get.toNamed(
+                          Routes.CHAT,
+                        );
+                      },
+                      child: Container(
+                        width: 120.w,
+                        height: 150.h,
+                        decoration: BoxDecoration(
+                          color: const Color(0xffFAEBE6),
+                          borderRadius: BorderRadius.circular(30.r),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 0,
+                              blurRadius: 4,
+                              offset: const Offset(2, 4),
                             ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                controller.whatsNewList[index]['title']
+                          ],
+                        ),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Align(
+                              alignment: Alignment.bottomCenter,
+                              child: Image.asset(
+                                controller.whatsNewList[index]['image']
                                     .toString(),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: const Color(0xffB6411C),
-                                  fontSize: 14.sp,
-                                  fontFamily: 'JosefinSans',
-                                ),
-                              ).paddingOnly(top: 15.h, bottom: 7.h),
-                              Text(
-                                controller.whatsNewList[index]['description']
-                                    .toString(),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: const Color(0xff877878),
-                                  fontSize: 8.sp,
-                                  fontFamily: 'JosefinSans',
-                                ),
-                              ).paddingOnly(bottom: 12.h),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ).paddingOnly(right: 10.w, bottom: 10.h);
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  controller.whatsNewList[index]['title']
+                                      .toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: const Color(0xffB6411C),
+                                    fontSize: 14.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(top: 15.h, bottom: 7.h),
+                                Text(
+                                  controller.whatsNewList[index]['description']
+                                      .toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: const Color(0xff877878),
+                                    fontSize: 8.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(bottom: 12.h),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ).paddingOnly(right: 10.w, bottom: 10.h),
+                    );
                   },
                 ),
               ),

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/chat/bindings/chat_binding.dart';
+import '../modules/chat/views/chat_view.dart';
 import '../modules/course/bindings/course_binding.dart';
 import '../modules/course/views/course_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -71,6 +73,11 @@ class AppPages {
       name: _Paths.MENTIMETER,
       page: () => const MentimeterView(),
       binding: MentimeterBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT,
+      page: () => const ChatView(),
+      binding: ChatBinding(),
     ),
   ];
 }

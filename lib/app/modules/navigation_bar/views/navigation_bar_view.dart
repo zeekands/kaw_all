@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,7 @@ class NavigationBarView extends GetView<NavigationBarController> {
               child: GNav(
                 rippleColor: Colors.grey[300]!,
                 hoverColor: Colors.grey[100]!,
-                gap: 8,
+                gap: 8.w,
                 activeColor: Colors.black,
                 iconSize: 24,
                 padding:
