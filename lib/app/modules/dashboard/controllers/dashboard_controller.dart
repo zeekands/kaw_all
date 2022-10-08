@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
   final count = 0.obs;
   var bottomNavIndex = 0.obs;
+  late User user;
+  var nama = '';
   final whatsNewList = [
     {
       'title': 'KoLaK',
@@ -25,16 +27,8 @@ class DashboardController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
+    user = FirebaseAuth.instance.currentUser!;
+    nama = user.displayName!.split(' ')[0];
   }
 
   void increment() => count.value++;

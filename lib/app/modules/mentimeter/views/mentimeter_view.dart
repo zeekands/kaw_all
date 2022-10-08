@@ -45,14 +45,18 @@ class MentimeterView extends GetView<MentimeterController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(
-                        "assets/images/fake_call.png",
-                      ).paddingOnly(left: 20.w),
-                      Image.asset(
-                        "assets/images/berani_melapor.png",
+                      Flexible(
+                        child: Image.asset(
+                          "assets/images/fake_call.png",
+                        ),
+                      ),
+                      Flexible(
+                        child: Image.asset(
+                          "assets/images/berani_melapor.png",
+                        ),
                       ),
                     ],
-                  ),
+                  ).paddingOnly(left: 10.w),
                 ),
               ],
             ),
