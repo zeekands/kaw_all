@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/chat/bindings/chat_binding.dart';
+import '../modules/chat/views/chat_view.dart';
 import '../modules/course/bindings/course_binding.dart';
 import '../modules/course/views/course_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -16,6 +18,8 @@ import '../modules/pilih_psikolog/bindings/pilih_psikolog_binding.dart';
 import '../modules/pilih_psikolog/views/pilih_psikolog_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/ticketing/bindings/ticketing_binding.dart';
+import '../modules/ticketing/views/ticketing_view.dart';
 import '../modules/welcome/bindings/welcome_binding.dart';
 import '../modules/welcome/views/welcome_view.dart';
 
@@ -71,6 +75,16 @@ class AppPages {
       name: _Paths.MENTIMETER,
       page: () => const MentimeterView(),
       binding: MentimeterBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT,
+      page: () => const ChatView(),
+      binding: ChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.TICKETING,
+      page: () => const TicketingView(),
+      binding: TicketingBinding(),
     ),
   ];
 }

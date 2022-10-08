@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaw_all/app/utils/color.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/pilih_psikolog_controller.dart';
 import '../models/psikolog_model.dart';
 
@@ -260,7 +261,9 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                               borderRadius: BorderRadius.circular(50.r),
                             ),
                             child: InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                Get.toNamed(Routes.TICKETING);
+                              },
                               child: SizedBox(
                                 width: 1.sw,
                                 height: 50.h,
