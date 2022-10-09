@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
-  final count = 0.obs;
   var bottomNavIndex = 0.obs;
   final whatsNewList = [
     {
@@ -37,5 +36,13 @@ class DashboardController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  Color getCardColor(int index) {
+    if (index == 0) {
+      return const Color(0xffFAEBE6);
+    } else if (index == 1) {
+      return const Color(0xffDCE3D9);
+    } else {
+      return const Color(0xffEDD4D4);
+    }
+  }
 }

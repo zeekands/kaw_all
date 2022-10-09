@@ -42,17 +42,29 @@ class DashboardView extends GetView<DashboardController> {
                       width: 360.w,
                     ),
                   ),
+                  // AppBar Section
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(Icons.menu),
-                      10.horizontalSpace,
                       Image.asset(
-                        'assets/images/profile_picture.png',
+                        'assets/images/logo.png',
                         width: 42.w,
                       ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/images/icon_more_appbar.png',
+                            width: 24.w,
+                          ),
+                          10.horizontalSpace,
+                          Image.asset(
+                            'assets/images/profile_picture.png',
+                            width: 42.w,
+                          ),
+                        ],
+                      ),
                     ],
-                  ).paddingSymmetric(horizontal: 12.w, vertical: 10.h),
+                  ).paddingSymmetric(horizontal: 12.w, vertical: 14.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -115,7 +127,7 @@ class DashboardView extends GetView<DashboardController> {
                     ),
                   ],
                 ),
-              ).paddingOnly(left: 36.w, bottom: 10.h),
+              ).paddingOnly(left: 36.w, top: 15.h, bottom: 10.h),
               Center(
                 child: Container(
                   width: 370.w,
@@ -221,7 +233,7 @@ class DashboardView extends GetView<DashboardController> {
                         width: 120.w,
                         height: 150.h,
                         decoration: BoxDecoration(
-                          color: const Color(0xffFAEBE6),
+                          color: controller.getCardColor(index),
                           borderRadius: BorderRadius.circular(30.r),
                           boxShadow: [
                             BoxShadow(
@@ -254,7 +266,7 @@ class DashboardView extends GetView<DashboardController> {
                                     fontSize: 14.sp,
                                     fontFamily: 'JosefinSans',
                                   ),
-                                ).paddingOnly(top: 15.h, bottom: 7.h),
+                                ).paddingOnly(top: 20.h, bottom: 7.h),
                                 Text(
                                   controller.whatsNewList[index]['description']
                                       .toString(),
@@ -264,7 +276,8 @@ class DashboardView extends GetView<DashboardController> {
                                     fontSize: 8.sp,
                                     fontFamily: 'JosefinSans',
                                   ),
-                                ).paddingOnly(bottom: 12.h),
+                                ).paddingOnly(
+                                    bottom: 12.h, left: 20.w, right: 20.w),
                               ],
                             ),
                           ],
@@ -288,9 +301,7 @@ class DashboardView extends GetView<DashboardController> {
                     ),
                   ],
                 ),
-              ).paddingOnly(
-                left: 36.w,
-              ),
+              ).paddingOnly(left: 36.w, top: 15.h),
               Stack(
                 alignment: Alignment.center,
                 children: [
@@ -300,21 +311,21 @@ class DashboardView extends GetView<DashboardController> {
                     height: 200.h,
                   ).paddingOnly(bottom: 10.h),
                   ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xffA14D4D),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.r),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 30.w,
-                              vertical: 10.h,
-                            ),
-                          ),
-                          onPressed: () {
-                            Get.toNamed(Routes.PILIH_PSIKOLOG);
-                          },
-                          child: const Text("Lihat List Psikolog"))
-                      .paddingOnly(bottom: 10.h, left: 36.w),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xffA14D4D),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.r),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 30.w,
+                        vertical: 10.h,
+                      ),
+                    ),
+                    onPressed: () {
+                      Get.toNamed(Routes.PILIH_PSIKOLOG);
+                    },
+                    child: const Text("Lihat List Psikolog"),
+                  ).paddingOnly(bottom: 10.h, left: 36.w),
                 ],
               ),
             ],

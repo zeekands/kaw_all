@@ -37,28 +37,28 @@ class NavigationBarView extends GetView<NavigationBarController> {
                 rippleColor: Colors.grey[300]!,
                 hoverColor: Colors.grey[100]!,
                 gap: 8.w,
-                activeColor: Colors.black,
+                activeColor: Color(0xff5B6656),
                 iconSize: 24,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 duration: const Duration(milliseconds: 400),
-                tabBackgroundColor: Colors.grey[100]!,
-                color: Colors.black,
+                tabBackgroundColor: Color(0xffD9D9D9),
+                color: Colors.grey,
                 tabs: const [
                   GButton(
-                    icon: Icons.home,
+                    icon: Icons.home_rounded,
                     text: 'Home',
                   ),
                   GButton(
                     icon: Icons.roller_skating_rounded,
-                    text: 'Likes',
+                    text: 'Mentimeter',
                   ),
                   GButton(
                     icon: Icons.history_edu_rounded,
-                    text: 'Search',
+                    text: 'Course',
                   ),
                   GButton(
-                    icon: Icons.volume_down_rounded,
+                    icon: Icons.volume_up_rounded,
                     text: 'Profile',
                   ),
                 ],
