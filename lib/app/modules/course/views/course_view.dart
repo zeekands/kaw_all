@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../../../utils/color.dart';
 import '../controllers/course_controller.dart';
 
@@ -95,14 +96,15 @@ class CourseView extends GetView<CourseController> {
                           ),
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.search,
                                 color: Color.fromARGB(255, 172, 162, 162),
                               ).paddingOnly(left: 16.w),
                               Text(
                                 "Search Course",
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 172, 162, 162),
+                                  color:
+                                      const Color.fromARGB(255, 172, 162, 162),
                                   fontSize: 16.sp,
                                   fontFamily: 'JosefinSans',
                                 ),
@@ -259,42 +261,47 @@ class CourseView extends GetView<CourseController> {
                       "assets/images/img_course_konsul.png",
                       height: 180.h,
                     ).paddingOnly(left: 115.w),
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Dok, jadi gini...",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20.sp,
-                                fontFamily: 'JosefinSans',
-                                shadows: [
-                                  Shadow(
-                                    color: const Color(0xff000000)
-                                        .withOpacity(0.25),
-                                    offset: const Offset(1, 2),
-                                    blurRadius: 4.r,
-                                  ),
-                                ],
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.CHAT);
+                      },
+                      child: Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Dok, jadi gini...",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20.sp,
+                                  fontFamily: 'JosefinSans',
+                                  shadows: [
+                                    Shadow(
+                                      color: const Color(0xff000000)
+                                          .withOpacity(0.25),
+                                      offset: const Offset(1, 2),
+                                      blurRadius: 4.r,
+                                    ),
+                                  ],
+                                ),
+                              ).paddingOnly(top: 30.h, bottom: 16.h),
+                              Text(
+                                "Dari pada bingung, yuk tanya\nlangsung ke ahlinya!",
+                                style: TextStyle(
+                                  color: const Color(0xffB6411C),
+                                  fontSize: 10.sp,
+                                  fontFamily: 'JosefinSans',
+                                ),
                               ),
-                            ).paddingOnly(top: 30.h, bottom: 16.h),
-                            Text(
-                              "Dari pada bingung, yuk tanya\nlangsung ke ahlinya!",
-                              style: TextStyle(
-                                color: const Color(0xffB6411C),
-                                fontSize: 10.sp,
-                                fontFamily: 'JosefinSans',
-                              ),
-                            ),
-                          ],
-                        ),
-                        Image.asset(
-                          "assets/images/arrow_2.png",
-                        ).paddingOnly(top: 30.h, left: 10.w),
-                      ],
-                    ).paddingOnly(left: 215.w),
+                            ],
+                          ),
+                          Image.asset(
+                            "assets/images/arrow_2.png",
+                          ).paddingOnly(top: 30.h, left: 10.w),
+                        ],
+                      ).paddingOnly(left: 215.w),
+                    ),
                   ],
                 ).paddingOnly(bottom: 5.h),
               ],

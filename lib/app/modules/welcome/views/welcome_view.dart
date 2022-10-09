@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../utils/Color.dart';
+import '../../../utils/auth.dart';
 import '../controllers/welcome_controller.dart';
 
 class WelcomeView extends GetView<WelcomeController> {
@@ -117,23 +118,20 @@ class WelcomeView extends GetView<WelcomeController> {
                 ),
               ),
               30.verticalSpace,
-              Container(
-                width: 259.w,
-                height: 46.h,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 0,
-                      blurRadius: 4,
-                      offset: const Offset(0, 4),
-                    )
-                  ],
-                  borderRadius: BorderRadius.circular(50),
-                  color: const Color(0xffAFC5A5),
-                ),
-                child: Image.asset("assets/images/google.png"),
+              FutureBuilder(
+                future: Authentication.initializeFirebase(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return const Text('Error initializing Firebase');
+                  } else if (snapshot.connectionState == ConnectionState.done) {
+                    return const GoogleSignInButton();
+                  }
+                  return const CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Colors.orange,
+                    ),
+                  );
+                },
               ),
             ],
           )

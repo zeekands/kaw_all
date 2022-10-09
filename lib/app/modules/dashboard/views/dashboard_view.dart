@@ -79,7 +79,7 @@ class DashboardView extends GetView<DashboardController> {
                         children: [
                           70.verticalSpace,
                           Text(
-                            "Hi, Ja! How are\nyou?",
+                            "Hi, ${controller.nama}!\nHow are you?",
                             style: TextStyle(
                               fontSize: 24.sp,
                               fontFamily: 'Montserrat',
