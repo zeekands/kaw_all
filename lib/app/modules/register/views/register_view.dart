@@ -36,11 +36,11 @@ class RegisterView extends GetView<RegisterController> {
               Container(
                 width: 1.sw,
                 height: 1.sh,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)),
-                  color: const Color(0xFFD9D9D9),
+                  color: Color(0xFFD9D9D9),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,6 +67,7 @@ class RegisterView extends GetView<RegisterController> {
                               ),
                             ).paddingOnly(bottom: 12.h),
                             TextField(
+                              controller: controller.nameController,
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
@@ -80,7 +81,7 @@ class RegisterView extends GetView<RegisterController> {
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 isDense: true,
-                                contentPadding: EdgeInsets.all(12),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                             const Text(
@@ -95,6 +96,7 @@ class RegisterView extends GetView<RegisterController> {
                               children: [
                                 Flexible(
                                   child: TextField(
+                                    controller: controller.ageController,
                                     keyboardType: TextInputType.number,
                                     decoration: InputDecoration(
                                       fillColor: Colors.white,
@@ -156,6 +158,7 @@ class RegisterView extends GetView<RegisterController> {
                               ),
                             ).paddingOnly(top: 30.h, bottom: 12.h),
                             TextField(
+                              controller: controller.phoneNumberController,
                               keyboardType: TextInputType.phone,
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
@@ -170,7 +173,7 @@ class RegisterView extends GetView<RegisterController> {
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 isDense: true,
-                                contentPadding: EdgeInsets.all(12),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                             const Text(
@@ -182,6 +185,7 @@ class RegisterView extends GetView<RegisterController> {
                               ),
                             ).paddingOnly(top: 30.h, bottom: 12.h),
                             TextField(
+                              controller: controller.emailController,
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
@@ -195,7 +199,7 @@ class RegisterView extends GetView<RegisterController> {
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 isDense: true,
-                                contentPadding: EdgeInsets.all(12),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                             const Text(
@@ -207,6 +211,7 @@ class RegisterView extends GetView<RegisterController> {
                               ),
                             ).paddingOnly(top: 30.h, bottom: 12.h),
                             TextField(
+                              controller: controller.userNameController,
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
@@ -220,7 +225,7 @@ class RegisterView extends GetView<RegisterController> {
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 isDense: true,
-                                contentPadding: EdgeInsets.all(12),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                             const Text(
@@ -232,6 +237,7 @@ class RegisterView extends GetView<RegisterController> {
                               ),
                             ).paddingOnly(top: 30.h, bottom: 12.h),
                             TextField(
+                              controller: controller.passwordController,
                               obscureText: true,
                               obscuringCharacter: "*",
                               decoration: InputDecoration(
@@ -247,7 +253,7 @@ class RegisterView extends GetView<RegisterController> {
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 isDense: true,
-                                contentPadding: EdgeInsets.all(12),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
                             const Text(
@@ -259,6 +265,7 @@ class RegisterView extends GetView<RegisterController> {
                               ),
                             ).paddingOnly(top: 30.h, bottom: 12.h),
                             TextField(
+                              controller: controller.confirmPasswordController,
                               obscureText: true,
                               obscuringCharacter: "*",
                               decoration: InputDecoration(
@@ -274,28 +281,44 @@ class RegisterView extends GetView<RegisterController> {
                                   borderRadius: BorderRadius.circular(40),
                                 ),
                                 isDense: true,
-                                contentPadding: EdgeInsets.all(12),
+                                contentPadding: const EdgeInsets.all(12),
                               ),
                             ),
-                            Container(
-                              width: 1.sw,
-                              height: 45.h,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(40),
-                                color: const Color(0xFF99AB91),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  "Create Account",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                    fontFamily: 'Montserrat',
+                            GestureDetector(
+                              onTap: () {
+                                controller.register(
+                                    name: controller.nameController.text,
+                                    email: controller.emailController.text,
+                                    password:
+                                        controller.passwordController.text,
+                                    age: int.parse(
+                                        controller.ageController.text),
+                                    sex: controller.sexController.text,
+                                    phoneNumber:
+                                        controller.phoneNumberController.text,
+                                    userName:
+                                        controller.userNameController.text);
+                              },
+                              child: Container(
+                                width: 1.sw,
+                                height: 45.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(40),
+                                  color: const Color(0xFF99AB91),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Create Account",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      fontFamily: 'Montserrat',
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ).paddingOnly(top: 50.h),
+                              ).paddingOnly(top: 50.h),
+                            ),
                             Center(
                               child: const Text(
                                 "or",
@@ -326,7 +349,7 @@ class RegisterView extends GetView<RegisterController> {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
+                                    const Text(
                                       "Login with",
                                       style: TextStyle(
                                         color: Colors.white,

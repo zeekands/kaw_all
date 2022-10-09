@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -7,12 +8,79 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kaw_all/app/routes/app_pages.dart';
 
 class Authentication {
+  static final docRef = FirebaseFirestore.instance.collection('users');
+
   static Future<FirebaseApp> initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
-
-    // TODO: Add auto login logic
-
     return firebaseApp;
+  }
+
+  static Future<void> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then((value) => Get.offAllNamed(Routes.NAVIGATION_BAR));
+
+      //return userCredential.user;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        Get.snackbar('Error', 'No user found for that email.',
+            snackPosition: SnackPosition.BOTTOM,
+            colorText: Colors.white,
+            backgroundColor: Colors.red);
+      } else if (e.code == 'wrong-password') {
+        Get.snackbar('Error', 'Wrong password provided for that user.',
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.red,
+            colorText: Colors.white);
+      } else {
+        Get.snackbar('Error', e.message.toString(),
+            snackPosition: SnackPosition.BOTTOM,
+            backgroundColor: Colors.red,
+            colorText: Colors.white);
+      }
+    }
+    // return null;
+  }
+
+  static Future<void> signUpWithEmailAndPassword(
+      {required String name,
+      required String email,
+      required String password,
+      required int age,
+      required String sex,
+      required String phoneNumber,
+      required String userName}) async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      await docRef.doc(userCredential.user!.uid).set({
+        'name': name,
+        'email': email,
+        'password': password,
+        'age': age,
+        'sex': sex,
+        'phoneNumber': phoneNumber,
+        'userName': userName,
+      }).then((value) => Get.snackbar('Success', 'User created successfully',
+          snackStyle: SnackStyle.FLOATING,
+          colorText: Colors.white,
+          backgroundColor: Colors.green,
+          snackPosition: SnackPosition.BOTTOM));
+      Get.offAllNamed(Routes.LOGIN);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        Get.snackbar('Error', 'The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        Get.snackbar('Error', 'The account already exists for that email.');
+      }
+    } catch (e) {
+      Get.snackbar('Error', e.toString());
+    }
+    return;
   }
 
   static Future<User?> signInWithGoogle({required BuildContext context}) async {
@@ -40,31 +108,40 @@ class Authentication {
         user = userCredential.user;
       } on FirebaseAuthException catch (e) {
         if (e.code == 'account-exists-with-different-credential') {
-          ScaffoldMessenger.of(context).showSnackBar(
-            Authentication.customSnackBar(
-              content: 'The account already exists with a different credential',
-            ),
-          );
+          Get.snackbar('Error',
+              'The account already exists with a different credential.',
+              colorText: Colors.white,
+              backgroundColor: Colors.red,
+              snackPosition: SnackPosition.BOTTOM);
         } else if (e.code == 'invalid-credential') {
-          ScaffoldMessenger.of(context).showSnackBar(
-            Authentication.customSnackBar(
-              content: 'Error occurred while accessing credentials. Try again.',
-            ),
-          );
+          Get.snackbar(
+              'Error', 'Error occurred while accessing credentials. Try again.',
+              colorText: Colors.white,
+              backgroundColor: Colors.red,
+              snackPosition: SnackPosition.BOTTOM);
         }
       } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          Authentication.customSnackBar(
-            content: 'Error occurred using Google Sign In. Try again.',
-          ),
-        );
+        Get.snackbar('Error', 'Error occurred using Google Sign In. Try again.',
+            colorText: Colors.white,
+            backgroundColor: Colors.red,
+            snackPosition: SnackPosition.BOTTOM);
       }
     }
+    await docRef.doc(user!.uid).set({
+      'name': user.displayName,
+      'email': user.email,
+      'password': "",
+      'age': 0,
+      'sex': "",
+      'phoneNumber': user.phoneNumber,
+      'userName': user.displayName,
+    });
+    Get.offAllNamed(Routes.LOGIN);
 
     return user;
   }
 
-  static Future<void> signOut({required BuildContext context}) async {
+  static Future<void> signOut() async {
     final GoogleSignIn googleSignIn = GoogleSignIn();
 
     try {
@@ -72,11 +149,12 @@ class Authentication {
         await googleSignIn.signOut();
       }
       await FirebaseAuth.instance.signOut();
+      Get.offAllNamed(Routes.WELCOME);
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        Authentication.customSnackBar(
-          content: 'Error signing out. Try again.',
-        ),
+      Get.snackbar(
+        'Error',
+        'Error signing out',
+        snackPosition: SnackPosition.BOTTOM,
       );
     }
   }

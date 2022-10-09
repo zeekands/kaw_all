@@ -1,8 +1,7 @@
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../utils/color.dart';
@@ -66,13 +65,15 @@ class DashboardView extends GetView<DashboardController> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           70.verticalSpace,
-                          Text(
-                            "Hi, ${controller.nama}!\nHow are you?",
-                            style: TextStyle(
-                              fontSize: 24.sp,
-                              fontFamily: 'Montserrat',
-                            ),
-                          ),
+                          Obx(() {
+                            return Text(
+                              "Hi, ${controller.nama.value}!\nHow are you?",
+                              style: TextStyle(
+                                fontSize: 24.sp,
+                                fontFamily: 'Montserrat',
+                              ),
+                            );
+                          }),
                           15.verticalSpace,
                           Image.asset(
                             'assets/images/dots_dashboard.png',

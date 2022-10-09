@@ -1,11 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class DashboardController extends GetxController {
   final count = 0.obs;
   var bottomNavIndex = 0.obs;
-  late User user;
-  var nama = '';
+  late User? user;
+  var nama = ''.obs;
+  var email = '';
+  var username = '';
+  var age = 0;
+
+  final docRef = FirebaseFirestore.instance.collection('users');
   final whatsNewList = [
     {
       'title': 'KoLaK',
@@ -25,10 +31,21 @@ class DashboardController extends GetxController {
   ];
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
-    user = FirebaseAuth.instance.currentUser!;
-    nama = user.displayName!.split(' ')[0];
+    user = FirebaseAuth.instance.currentUser;
+
+    await getUserDetail();
+    // nama = user?.displayName?.split(' ')[0] ?? "";
+  }
+
+  Future<void> getUserDetail() async {
+    await docRef.doc(user!.uid).get().then((value) {
+      nama.value = value['name'].split(' ')[0] ?? "";
+      email = value['email'];
+      username = value['userName'];
+      age = value['age'];
+    });
   }
 
   void increment() => count.value++;
