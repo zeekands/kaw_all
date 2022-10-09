@@ -14,6 +14,10 @@ abstract class Routes {
   static const MENTIMETER = _Paths.MENTIMETER;
   static const CHAT = _Paths.CHAT;
   static const TICKETING = _Paths.TICKETING;
+  static const PROFILE_RELAWAN = _Paths.PROFILE_RELAWAN;
+  static const PROFILE_DOKTER = _Paths.PROFILE_DOKTER;
+  static const COMING_SOON = _Paths.COMING_SOON;
+  static const VOLUNTEER_HIRING = _Paths.VOLUNTEER_HIRING;
 }
 
 abstract class _Paths {
@@ -29,4 +33,8 @@ abstract class _Paths {
   static const MENTIMETER = '/mentimeter';
   static const CHAT = '/chat';
   static const TICKETING = '/ticketing';
+  static const PROFILE_RELAWAN = '/profile-relawan';
+  static const PROFILE_DOKTER = '/profile-dokter';
+  static const COMING_SOON = '/coming-soon';
+  static const VOLUNTEER_HIRING = '/volunteer-hiring';
 }

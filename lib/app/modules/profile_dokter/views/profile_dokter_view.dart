@@ -1,16 +1,16 @@
-import 'package:get/get.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaw_all/app/utils/color.dart';
+
+import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
-import '../controllers/pilih_psikolog_controller.dart';
-import '../models/psikolog_model.dart';
+import '../../../utils/Color.dart';
+import '../../pilih_psikolog/models/psikolog_model.dart';
+import '../controllers/profile_dokter_controller.dart';
 
-class PilihPsikologView extends GetView<PilihPsikologController> {
-  const PilihPsikologView({Key? key}) : super(key: key);
-
+class ProfileDokterView extends GetView<ProfileDokterController> {
+  const ProfileDokterView({Key? key}) : super(key: key);
   Widget _buildItemList(Psikolog psikolog, int index) {
     return Container(
       padding: EdgeInsets.symmetric(
@@ -267,13 +267,13 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                           ),
                           20.verticalSpace,
                           Material(
-                            color: const Color(0xff4E524C),
+                            color: const Color(0xffB6411C),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50.r),
                             ),
                             child: InkWell(
                               onTap: () {
-                                Get.toNamed(Routes.TICKETING);
+                                Get.toNamed(Routes.CHAT);
                               },
                               child: SizedBox(
                                 width: 246.w,
@@ -281,7 +281,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                                 child: Align(
                                   alignment: Alignment.center,
                                   child: Text(
-                                    "Pesan Sekarang",
+                                    "Chat Sekarang",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: 'Montserrat',

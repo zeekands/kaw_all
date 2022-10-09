@@ -96,17 +96,19 @@ class TicketingView extends GetView<TicketingController> {
               initialDate: DateTime.now().subtract(const Duration(days: 2)),
               textColor: Colors.black,
               backgroundColor: Colors.white,
-              selectedColor: const Color(0xffF5C3B3),
+              selectedColor: const Color(0xffA39E9E),
               onDateSelected: (date) {
                 controller.date.value = DateTime.parse(date);
+                controller.day.value = DateFormat('EEEE, d MMM yyyy')
+                    .format(controller.date.value);
+                controller.dayName.value =
+                    DateFormat('EEEE').format(controller.date.value);
               },
             ),
             20.verticalSpace,
             Obx(() {
-              var data =
-                  DateFormat('EEEE, d MMM yyyy').format(controller.date.value);
               return Text(
-                data,
+                controller.day.value,
                 style: TextStyle(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
@@ -115,74 +117,79 @@ class TicketingView extends GetView<TicketingController> {
               );
             }),
             const Spacer(),
-            Container(
-              height: 414.h,
-              width: 1.sw,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/images/bottom_ticketing.png',
+            Obx(
+              () => Container(
+                height: 414.h,
+                width: 1.sw,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      'assets/images/bottom_ticketing.png',
+                    ),
+                    fit: BoxFit.fill,
                   ),
-                  fit: BoxFit.fill,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
+                  ),
                 ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                ),
-              ),
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      3,
-                      (index) => Container(
-                        height: 60.h,
-                        width: 150.w,
-                        decoration: const BoxDecoration(
-                          color: Color(0xff9ECC88),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            '1$index:00 - 1${index + 1}:00',
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                child: (controller.dayName.value == "Sunday" ||
+                        controller.dayName.value == "Saturday")
+                    ? Center(child: Text("Tidak ada jadwal"))
+                    : Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: List.generate(
+                              3,
+                              (index) => Container(
+                                height: 60.h,
+                                width: 150.w,
+                                decoration: const BoxDecoration(
+                                  color: Color(0xff9ECC88),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10),
+                                  ),
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    '1:00 - 1${index + 1}:00',
+                                    style: TextStyle(
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ).paddingOnly(top: 20.h),
                             ),
-                          ),
-                        ),
-                      ).paddingOnly(top: 20.h),
-                    ),
-                  ).paddingOnly(bottom: 60.h),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: 60.h,
-                      width: 200.w,
-                      decoration: const BoxDecoration(
-                        color: Color(0xff647C59),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
+                          ).paddingOnly(bottom: 60.h),
+                          Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Container(
+                              height: 60.h,
+                              width: 200.w,
+                              decoration: const BoxDecoration(
+                                color: Color(0xff647C59),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(20),
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Schedule Now',
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ).paddingOnly(bottom: 20.h),
+                        ],
                       ),
-                      child: Center(
-                        child: Text(
-                          'Schedule Now',
-                          style: TextStyle(
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ).paddingOnly(bottom: 20.h),
-                ],
               ),
             )
           ],

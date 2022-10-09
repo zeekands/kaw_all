@@ -33,7 +33,7 @@ class ChatView extends GetView<ChatController> {
                   ),
                   const CircleAvatar(
                     backgroundImage: NetworkImage(
-                        "<https://randomuser.me/api/portraits/men/5.jpg>"),
+                        "https://randomuser.me/api/portraits/men/5.jpg"),
                     maxRadius: 20,
                   ),
                   const SizedBox(
@@ -45,7 +45,7 @@ class ChatView extends GetView<ChatController> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         const Text(
-                          "Kriss Benwat",
+                          "dr. Muhammad Habibul Ihsan",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w600),
                         ),
@@ -94,10 +94,10 @@ class ChatView extends GetView<ChatController> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        color: (controller.messages[index].messageType ==
+                        color: (controller.messages[index].messageType !=
                                 "receiver"
-                            ? Colors.grey.shade200
-                            : Colors.blue[200]),
+                            ? Color(0xffDCE3D9)
+                            : Color(0xffFAEBE6)),
                       ),
                       padding: const EdgeInsets.all(16),
                       child: Text(

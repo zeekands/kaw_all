@@ -47,18 +47,22 @@ class NavigationBarView extends GetView<NavigationBarController> {
                 tabs: const [
                   GButton(
                     icon: Icons.home,
+                    iconColor: Color(0xff5B6656),
                     text: 'Home',
                   ),
                   GButton(
                     icon: Icons.roller_skating_rounded,
-                    text: 'Likes',
+                    iconColor: Color(0xff5B6656),
+                    text: 'Jalan Yuk!',
                   ),
                   GButton(
-                    icon: Icons.history_edu_rounded,
-                    text: 'Search',
+                    icon: Icons.search_rounded,
+                    iconColor: Color(0xff5B6656),
+                    text: 'Cari Tahu',
                   ),
                   GButton(
                     icon: Icons.volume_down_rounded,
+                    iconColor: Color(0xff5B6656),
                     text: 'Profile',
                   ),
                 ],

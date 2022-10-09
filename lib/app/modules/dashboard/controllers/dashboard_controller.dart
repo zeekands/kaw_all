@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:kaw_all/app/routes/app_pages.dart';
 
 class DashboardController extends GetxController {
   final count = 0.obs;
@@ -12,21 +13,24 @@ class DashboardController extends GetxController {
   var age = 0;
 
   final docRef = FirebaseFirestore.instance.collection('users');
-  final whatsNewList = [
+  final whatsNewList = <Map<String, dynamic>>[
     {
       'title': 'KoLaK',
       'description': 'Konseling Serasa Jajan Ayam Geprek',
       'image': 'assets/images/img_kolak_dashboard.png',
+      'onTap': "",
     },
     {
       'title': 'Yuk Volunteer!',
       'description': 'Ingin Ikut Berkontribusi?',
       'image': 'assets/images/img_volunteer_dashboard.png',
+      'onTap': Routes.VOLUNTEER_HIRING,
     },
     {
       'title': 'PaNaS',
       'description': 'Paket Nanya Sepuasnya',
       'image': 'assets/images/img_panas_dashboard.png',
+      'onTap': Routes.COMING_SOON,
     },
   ];
 

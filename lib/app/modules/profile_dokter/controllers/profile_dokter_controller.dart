@@ -1,8 +1,9 @@
-import 'package:flutter/animation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kaw_all/app/modules/pilih_psikolog/models/psikolog_model.dart';
 
-class PilihPsikologController extends GetxController {
+import '../../pilih_psikolog/models/psikolog_model.dart';
+
+class ProfileDokterController extends GetxController {
   final focusItemCard = 0.obs;
   final color = Color(0xFF000000).obs;
 
@@ -32,18 +33,7 @@ class PilihPsikologController extends GetxController {
 
   final data = [
     Psikolog(
-      name: "Letkol Kes Aryanto, M.Psi. ",
-      price: 200000,
-      image: "https://picsum.photos/id/237/200/300",
-      satisfied: 95,
-      unsatisfied: 10,
-      totalFeedBack: 105,
-      age: 30,
-      specialist: "Psikolog",
-      experience: "10 Tahun",
-    ),
-    Psikolog(
-      name: "Tri Heniyati Subekti, S.Psi.",
+      name: "Dr. Habibul Ihsan, S.Ked",
       price: 300000,
       image: "https://picsum.photos/id/100/200/300",
       satisfied: 35,

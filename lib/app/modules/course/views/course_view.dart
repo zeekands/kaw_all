@@ -263,7 +263,7 @@ class CourseView extends GetView<CourseController> {
                     ).paddingOnly(left: 115.w),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(Routes.CHAT);
+                        Get.toNamed(Routes.PROFILE_DOKTER);
                       },
                       child: Row(
                         children: [

@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/chat/bindings/chat_binding.dart';
 import '../modules/chat/views/chat_view.dart';
+import '../modules/coming_soon/bindings/coming_soon_binding.dart';
+import '../modules/coming_soon/views/coming_soon_view.dart';
 import '../modules/course/bindings/course_binding.dart';
 import '../modules/course/views/course_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -16,10 +18,16 @@ import '../modules/navigation_bar/bindings/navigation_bar_binding.dart';
 import '../modules/navigation_bar/views/navigation_bar_view.dart';
 import '../modules/pilih_psikolog/bindings/pilih_psikolog_binding.dart';
 import '../modules/pilih_psikolog/views/pilih_psikolog_view.dart';
+import '../modules/profile_dokter/bindings/profile_dokter_binding.dart';
+import '../modules/profile_dokter/views/profile_dokter_view.dart';
+import '../modules/profile_relawan/bindings/profile_relawan_binding.dart';
+import '../modules/profile_relawan/views/profile_relawan_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/ticketing/bindings/ticketing_binding.dart';
 import '../modules/ticketing/views/ticketing_view.dart';
+import '../modules/volunteer_hiring/bindings/volunteer_hiring_binding.dart';
+import '../modules/volunteer_hiring/views/volunteer_hiring_view.dart';
 import '../modules/welcome/bindings/welcome_binding.dart';
 import '../modules/welcome/views/welcome_view.dart';
 
@@ -85,6 +93,26 @@ class AppPages {
       name: _Paths.TICKETING,
       page: () => const TicketingView(),
       binding: TicketingBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE_RELAWAN,
+      page: () => const ProfileRelawanView(),
+      binding: ProfileRelawanBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE_DOKTER,
+      page: () => const ProfileDokterView(),
+      binding: ProfileDokterBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMING_SOON,
+      page: () => const ComingSoonView(),
+      binding: ComingSoonBinding(),
+    ),
+    GetPage(
+      name: _Paths.VOLUNTEER_HIRING,
+      page: () => const VolunteerHiringView(),
+      binding: VolunteerHiringBinding(),
     ),
   ];
 }
