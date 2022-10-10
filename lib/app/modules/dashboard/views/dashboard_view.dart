@@ -47,20 +47,30 @@ class DashboardView extends GetView<DashboardController> {
                         alignment: Alignment.topRight,
                         child: Image.asset(
                           'assets/images/item_background_dashboard.png',
+                          fit: BoxFit.fill,
                           width: 360.w,
+                          height: 268.h,
                         ),
                       ),
+                      // AppBar Section
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          const Icon(Icons.menu),
-                          10.horizontalSpace,
-                          Image.asset(
-                            'assets/images/profile_picture.png',
-                            width: 42.w,
+                          Row(
+                            children: [
+                              Image.asset(
+                                'assets/images/icon_more_appbar.png',
+                                width: 24.w,
+                              ),
+                              10.horizontalSpace,
+                              Image.asset(
+                                'assets/images/profile_picture.png',
+                                width: 42.w,
+                              ),
+                            ],
                           ),
                         ],
-                      ).paddingSymmetric(horizontal: 12.w, vertical: 10.h),
+                      ).paddingSymmetric(horizontal: 12.w, vertical: 14.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -111,7 +121,7 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                     ],
                   ),
-                  5.verticalSpace,
+                  15.verticalSpace,
                   Text(
                     "Jalan Yuk",
                     style: TextStyle(
@@ -191,7 +201,7 @@ class DashboardView extends GetView<DashboardController> {
                                 ),
                               ],
                             ).paddingOnly(
-                              top: 25,
+                              top: 10,
                               right: 59.w,
                             ),
                           ),
@@ -251,6 +261,7 @@ class DashboardView extends GetView<DashboardController> {
                                   child: Image.asset(
                                     controller.whatsNewList[index]['image']
                                         .toString(),
+                                    height: 88.h,
                                   ),
                                 ),
                                 Column(
@@ -276,7 +287,8 @@ class DashboardView extends GetView<DashboardController> {
                                         fontSize: 8.sp,
                                         fontFamily: 'JosefinSans',
                                       ),
-                                    ).paddingOnly(bottom: 12.h),
+                                    ).paddingOnly(
+                                        bottom: 15.h, left: 10.w, right: 10.w),
                                   ],
                                 ),
                               ],
@@ -300,9 +312,7 @@ class DashboardView extends GetView<DashboardController> {
                         ),
                       ],
                     ),
-                  ).paddingOnly(
-                    left: 36.w,
-                  ),
+                  ).paddingOnly(left: 36.w, top: 10.h, bottom: 5.h),
                   Stack(
                     alignment: Alignment.center,
                     children: [
