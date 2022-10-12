@@ -156,7 +156,7 @@ class DashboardView extends GetView<DashboardController> {
                       child: Row(
                         children: [
                           Container(
-                            width: 102.w,
+                            width: 100.w,
                             height: 107.h,
                             decoration: BoxDecoration(
                               color: const Color(0xffD9D9D9),
@@ -170,7 +170,7 @@ class DashboardView extends GetView<DashboardController> {
                               ],
                             ),
                             child: Align(
-                              alignment: Alignment.topRight,
+                              alignment: Alignment.center,
                               child: Image.asset(
                                 'assets/images/call_dashboard.png',
                                 width: 78.w,
@@ -324,39 +324,45 @@ class DashboardView extends GetView<DashboardController> {
                       Column(
                         children: [
                           ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xffA14D4D),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30.r),
-                                    ),
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 30.w,
-                                      vertical: 10.h,
-                                    ),
-                                    minimumSize: Size(200.w, 33.h),
-                                  ),
-                                  onPressed: () {
-                                    Get.toNamed(Routes.PILIH_PSIKOLOG);
-                                  },
-                                  child: const Text("Lihat List Psikolog"))
-                              .paddingOnly(left: 36.w),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xffA14D4D),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.r),
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 30.w,
+                                vertical: 15.h,
+                              ),
+                              minimumSize: Size(200.w, 33.h),
+                            ),
+                            onPressed: () {
+                              Get.toNamed(Routes.PILIH_PSIKOLOG);
+                            },
+                            child: const Text(
+                              "Lihat List Psikolog",
+                              style: TextStyle(fontFamily: 'JosefinSans'),
+                            ),
+                          ).paddingOnly(left: 36.w),
                           ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xffA14D4D),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30.r),
-                                    ),
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 30.w,
-                                      vertical: 10.h,
-                                    ),
-                                    minimumSize: Size(200.w, 33.h),
-                                  ),
-                                  onPressed: () {
-                                    Get.toNamed(Routes.PROFILE_RELAWAN);
-                                  },
-                                  child: const Text("Lihat Konselor Relawan"))
-                              .paddingOnly(left: 36.w),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xffA14D4D),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30.r),
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 30.w,
+                                vertical: 15.h,
+                              ),
+                              minimumSize: Size(200.w, 33.h),
+                            ),
+                            onPressed: () {
+                              Get.toNamed(Routes.PROFILE_RELAWAN);
+                            },
+                            child: const Text(
+                              "Lihat Konselor Relawan",
+                              style: TextStyle(fontFamily: 'JosefinSans'),
+                            ),
+                          ).paddingOnly(left: 36.w),
                         ],
                       ).paddingOnly(top: 10.h),
                     ],
