@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:kaw_all/app/modules/course/views/course_view.dart';
 import 'package:kaw_all/app/modules/mentimeter/views/mentimeter_view.dart';
 import 'package:kaw_all/app/utils/auth.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 import '../../dashboard/views/dashboard_view.dart';
 
@@ -21,7 +23,7 @@ class NavigationBarController extends GetxController {
   ];
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
     FlutterNativeSplash.remove();
   }

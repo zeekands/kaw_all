@@ -9,10 +9,7 @@ class NavigationBarBinding extends Bindings {
   @override
   void dependencies() {
     Get.put<DashboardController>(DashboardController());
-
-    Get.put<NavigationBarController>(
-      NavigationBarController(),
-    );
+    Get.put<NavigationBarController>(NavigationBarController());
     Get.put(MentimeterController());
     Get.put(CourseController());
   }

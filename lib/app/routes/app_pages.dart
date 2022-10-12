@@ -8,6 +8,10 @@ import '../modules/course/bindings/course_binding.dart';
 import '../modules/course/views/course_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/dokter_chat_page/bindings/dokter_chat_page_binding.dart';
+import '../modules/dokter_chat_page/views/dokter_chat_page_view.dart';
+import '../modules/dokter_home/bindings/dokter_home_binding.dart';
+import '../modules/dokter_home/views/dokter_home_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -113,6 +117,16 @@ class AppPages {
       name: _Paths.VOLUNTEER_HIRING,
       page: () => const VolunteerHiringView(),
       binding: VolunteerHiringBinding(),
+    ),
+    GetPage(
+      name: _Paths.DOKTER_HOME,
+      page: () => const DokterHomeView(),
+      binding: DokterHomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.DOKTER_CHAT_PAGE,
+      page: () => const DokterChatPageView(),
+      binding: DokterChatPageBinding(),
     ),
   ];
 }

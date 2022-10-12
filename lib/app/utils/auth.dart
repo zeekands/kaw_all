@@ -15,16 +15,16 @@ class Authentication {
     return firebaseApp;
   }
 
-  static Future<void> signInWithEmailAndPassword({
+  static Future<User?> signInWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
     try {
-      await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password)
-          .then((value) => Get.offAllNamed(Routes.NAVIGATION_BAR));
+      User? user = (await FirebaseAuth.instance
+              .signInWithEmailAndPassword(email: email, password: password))
+          .user;
 
-      //return userCredential.user;
+      return user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         Get.snackbar('Error', 'No user found for that email.',
@@ -43,7 +43,7 @@ class Authentication {
             colorText: Colors.white);
       }
     }
-    // return null;
+    return null;
   }
 
   static Future<void> signUpWithEmailAndPassword(

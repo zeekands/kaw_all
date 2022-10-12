@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/chat_controller.dart';
+import '../controllers/dokter_chat_page_controller.dart';
 
-class ChatView extends GetView<ChatController> {
-  const ChatView({Key? key}) : super(key: key);
+class DokterChatPageView extends GetView<DokterChatPageController> {
+  const DokterChatPageView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,8 +88,8 @@ class ChatView extends GetView<ChatController> {
                   return ListView.builder(
                     itemCount: snapshot.data!.data()!['messages'].length,
                     shrinkWrap: true,
-                    padding:
-                        EdgeInsets.only(top: 10, bottom: Get.bottomBarHeight),
+                    padding: EdgeInsets.only(
+                        top: 10, bottom: Get.statusBarHeight + 10),
                     itemBuilder: (context, index) {
                       return Container(
                         padding: const EdgeInsets.only(

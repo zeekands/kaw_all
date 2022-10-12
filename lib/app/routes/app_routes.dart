@@ -18,6 +18,8 @@ abstract class Routes {
   static const PROFILE_DOKTER = _Paths.PROFILE_DOKTER;
   static const COMING_SOON = _Paths.COMING_SOON;
   static const VOLUNTEER_HIRING = _Paths.VOLUNTEER_HIRING;
+  static const DOKTER_HOME = _Paths.DOKTER_HOME;
+  static const DOKTER_CHAT_PAGE = _Paths.DOKTER_CHAT_PAGE;
 }
 
 abstract class _Paths {
@@ -37,4 +39,6 @@ abstract class _Paths {
   static const PROFILE_DOKTER = '/profile-dokter';
   static const COMING_SOON = '/coming-soon';
   static const VOLUNTEER_HIRING = '/volunteer-hiring';
+  static const DOKTER_HOME = '/dokter-home';
+  static const DOKTER_CHAT_PAGE = '/dokter-chat-page';
 }

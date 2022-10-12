@@ -272,8 +272,10 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
                               borderRadius: BorderRadius.circular(50.r),
                             ),
                             child: InkWell(
-                              onTap: () {
-                                Get.toNamed(Routes.CHAT);
+                              onTap: () async {
+                                await controller.uploadChat();
+                                Get.toNamed(Routes.CHAT,
+                                    arguments: controller.chatId);
                               },
                               child: SizedBox(
                                 width: 246.w,

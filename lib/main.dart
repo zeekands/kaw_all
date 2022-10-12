@@ -17,13 +17,25 @@ void main() async {
   );
   User? user = FirebaseAuth.instance.currentUser;
 
+  String routesLogin() {
+    if (user == null) {
+      return AppPages.INITIAL;
+    } else {
+      if (user.email == "dokter@gmail.com") {
+        return Routes.DOKTER_HOME;
+      } else {
+        return Routes.NAVIGATION_BAR;
+      }
+    }
+  }
+
   runApp(
     ScreenUtilInit(
       designSize: const Size(414, 896),
       builder: (_, __) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Application",
-        initialRoute: user == null ? AppPages.INITIAL : Routes.NAVIGATION_BAR,
+        initialRoute: routesLogin(),
         getPages: AppPages.routes,
         theme: ThemeData(
           primarySwatch: Colors.blue,

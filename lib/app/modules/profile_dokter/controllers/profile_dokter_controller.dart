@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,6 +8,7 @@ import '../../pilih_psikolog/models/psikolog_model.dart';
 class ProfileDokterController extends GetxController {
   final focusItemCard = 0.obs;
   final color = Color(0xFF000000).obs;
+  final chatId = "chatId".obs;
 
   final name = "".obs;
   final price = 0.obs;
@@ -44,4 +47,27 @@ class ProfileDokterController extends GetxController {
       experience: "15 Tahun",
     ),
   ].obs;
+
+  final docRef = FirebaseFirestore.instance.collection('users');
+  User? user = FirebaseAuth.instance.currentUser;
+  uploadChat() async {
+    List<dynamic> messages = [];
+    List<String?> users = [];
+
+    users = [user?.email, "dokter@gmail.com"];
+    var id = "${user?.email}|dokter@gmail.com";
+
+    Map<String, dynamic> chatMap = {
+      'users': users,
+      'messages': messages,
+      'id': id,
+    };
+    chatId.value = id;
+    var chat =
+        await FirebaseFirestore.instance.collection('chats').doc(id).get();
+
+    if (!chat.exists) {
+      FirebaseFirestore.instance.collection('chats').doc(id).set(chatMap);
+    }
+  }
 }
