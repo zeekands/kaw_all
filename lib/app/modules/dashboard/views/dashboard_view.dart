@@ -242,7 +242,7 @@ class DashboardView extends GetView<DashboardController> {
                             width: 120.w,
                             height: 150.h,
                             decoration: BoxDecoration(
-                              color: const Color(0xffFAEBE6),
+                              color: controller.whatsNewList[index]['bgColor'],
                               borderRadius: BorderRadius.circular(30.r),
                               boxShadow: [
                                 BoxShadow(
@@ -272,7 +272,8 @@ class DashboardView extends GetView<DashboardController> {
                                           .toString(),
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: const Color(0xffB6411C),
+                                        color: controller.whatsNewList[index]
+                                            ['titleColor'],
                                         fontSize: 14.sp,
                                         fontFamily: 'JosefinSans',
                                       ),
@@ -283,7 +284,8 @@ class DashboardView extends GetView<DashboardController> {
                                           .toString(),
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: const Color(0xff877878),
+                                        color: controller.whatsNewList[index]
+                                            ['descColor'],
                                         fontSize: 8.sp,
                                         fontFamily: 'JosefinSans',
                                       ),

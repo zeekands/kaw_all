@@ -74,6 +74,16 @@ class MentimeterView extends GetView<MentimeterController> {
                           decoration: BoxDecoration(
                             color: const Color(0xffF7F7F7),
                             borderRadius: BorderRadius.circular(25),
+                            boxShadow: [
+                              BoxShadow(
+                                color:
+                                    const Color(0xff000000).withOpacity(0.25),
+                                spreadRadius: 0,
+                                blurRadius: 2,
+                                offset: const Offset(
+                                    0, 2), // changes position of shadow
+                              ),
+                            ],
                           ),
                           child: Row(
                             children: [

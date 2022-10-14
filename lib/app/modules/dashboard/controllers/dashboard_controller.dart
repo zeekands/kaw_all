@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
@@ -19,18 +21,36 @@ class DashboardController extends GetxController {
       'description': 'Konseling Serasa Jajan Ayam Geprek',
       'image': 'assets/images/img_kolak_dashboard.png',
       'onTap': "",
+      'bgColor': const Color(0xFFFAEBE6),
+      'titleColor': const Color(0xFFB6411C),
+      'descColor': const Color(0xFF877878),
     },
     {
       'title': 'Yuk Volunteer!',
       'description': 'Ingin Ikut Berkontribusi?',
       'image': 'assets/images/img_volunteer_dashboard.png',
       'onTap': Routes.VOLUNTEER_HIRING,
+      'bgColor': const Color(0xFFDCE3D9),
+      'titleColor': const Color(0xFF4B4848),
+      'descColor': const Color(0xFF877878),
     },
     {
       'title': 'PaNaS',
       'description': 'Paket Nanya Sepuasnya',
       'image': 'assets/images/img_panas_dashboard.png',
       'onTap': Routes.COMING_SOON,
+      'bgColor': const Color(0xFFEDD4D4),
+      'titleColor': const Color(0xFFB6411C),
+      'descColor': const Color(0xFF877878),
+    },
+    {
+      'title': 'Donasi',
+      'description': 'Ingin membantu tapi ga ada waktu?',
+      'image': 'assets/images/img_donasi_dashboard.png',
+      'onTap': Routes.COMING_SOON,
+      'bgColor': const Color(0xFFDA8383),
+      'titleColor': const Color(0xFF4B4848),
+      'descColor': const Color(0xFFFFFEFE),
     },
   ];
 
