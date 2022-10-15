@@ -12,8 +12,12 @@ import '../modules/dokter_chat_page/bindings/dokter_chat_page_binding.dart';
 import '../modules/dokter_chat_page/views/dokter_chat_page_view.dart';
 import '../modules/dokter_home/bindings/dokter_home_binding.dart';
 import '../modules/dokter_home/views/dokter_home_view.dart';
+import '../modules/donasi/bindings/donasi_binding.dart';
+import '../modules/donasi/views/donasi_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/kolak/bindings/kolak_binding.dart';
+import '../modules/kolak/views/kolak_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/mentimeter/bindings/mentimeter_binding.dart';
@@ -127,6 +131,16 @@ class AppPages {
       name: _Paths.DOKTER_CHAT_PAGE,
       page: () => const DokterChatPageView(),
       binding: DokterChatPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.DONASI,
+      page: () => const DonasiView(),
+      binding: DonasiBinding(),
+    ),
+    GetPage(
+      name: _Paths.KOLAK,
+      page: () => const KolakView(),
+      binding: KolakBinding(),
     ),
   ];
 }

@@ -3,55 +3,72 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/volunteer_hiring_controller.dart';
+import '../controllers/donasi_controller.dart';
 
-class VolunteerHiringView extends GetView<VolunteerHiringController> {
-  const VolunteerHiringView({Key? key}) : super(key: key);
+class DonasiView extends GetView<DonasiController> {
+  const DonasiView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          height: 1.sh,
           width: 1.sw,
+          height: 1.sh,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/background_volunteer.png"),
+              image: AssetImage("assets/images/background_donasi.png"),
               fit: BoxFit.fill,
             ),
           ),
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.topLeft,
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  width: 42.w,
-                ),
-              ).paddingOnly(top: 20.h, left: 20.w),
-              50.verticalSpace,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset(
+                    'assets/images/logo.png',
+                    width: 42.w,
+                  ),
+                  Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/icon_more_appbar.png',
+                        width: 24.w,
+                      ),
+                      10.horizontalSpace,
+                      Image.asset(
+                        'assets/images/profile_picture.png',
+                        width: 42.w,
+                      ),
+                    ],
+                  ),
+                ],
+              ).paddingSymmetric(horizontal: 12.w, vertical: 14.h),
+              37.verticalSpace,
               Text(
-                "Yuk Volunteer!",
+                "Let’s Donate to Support!",
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white,
+                  fontFamily: 'Montserrat',
                   fontSize: 35.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                   shadows: [
                     Shadow(
-                      blurRadius: 10.0,
-                      color: Colors.grey,
-                      offset: const Offset(1.0, 5.0),
+                      blurRadius: 4,
+                      color: Colors.black.withOpacity(0.25),
+                      offset: const Offset(0, 4),
                     ),
                   ],
-                  fontWeight: FontWeight.w700,
                 ),
               ),
-              45.verticalSpace,
+              57.verticalSpace,
               Image.asset(
-                "assets/images/volunteer_img.png",
-                width: 322.w,
-                height: 353.h,
+                "assets/images/donasi_img.png",
+                width: 277.w,
+                height: 301.h,
               ),
-              25.verticalSpace,
+              47.verticalSpace,
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
@@ -59,53 +76,44 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
                     TextSpan(
                       text: "Ingin ",
                       style: TextStyle(
-                        color: const Color(0xff292D32),
                         fontFamily: 'Montserrat',
                         fontSize: 14.sp,
+                        color: const Color(0xff292D32),
                       ),
                     ),
                     TextSpan(
-                      text: "berkontribusi",
+                      text: "berkontribusi ",
                       style: TextStyle(
-                        color: const Color(0xff292D32),
                         fontFamily: 'Montserrat',
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
+                        color: const Color(0xff292D32),
                       ),
                     ),
                     TextSpan(
                       text:
-                          " tapi nggak tahu bagaimana? Nah, KawAll punya solusinya nih. Yuk ikuti program",
+                          " tapi belum cukup umur untuk volunteer atau ga ada waktu? Yuk berikan ",
                       style: TextStyle(
-                        color: const Color(0xff292D32),
                         fontFamily: 'Montserrat',
                         fontSize: 14.sp,
+                        color: const Color(0xff292D32),
                       ),
                     ),
                     TextSpan(
-                      text: " volunteer",
+                      text: "donasimu!",
                       style: TextStyle(
-                        color: const Color(0xff292D32),
                         fontFamily: 'Montserrat',
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextSpan(
-                      text:
-                          " KawAll dan dapatkan berbagai pengalaman yang menarik!",
-                      style: TextStyle(
                         color: const Color(0xff292D32),
-                        fontFamily: 'Montserrat',
-                        fontSize: 14.sp,
                       ),
                     ),
                   ],
                 ),
-              ).paddingOnly(left: 51.w, right: 51.w),
+              ).paddingSymmetric(horizontal: 51.w),
               const Spacer(),
               Container(
-                width: 246.w,
+                width: 165.w,
                 height: 50.h,
                 decoration: BoxDecoration(
                   color: const Color(0xffBE5F5F),
@@ -122,7 +130,7 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    "Daftar Sekarang",
+                    "Donate here",
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: "Montserrat",
@@ -139,7 +147,7 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
                   ),
                 ),
               ),
-              40.verticalSpace,
+              100.verticalSpace,
             ],
           ),
         ),

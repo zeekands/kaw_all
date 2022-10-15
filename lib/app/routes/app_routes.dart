@@ -20,6 +20,8 @@ abstract class Routes {
   static const VOLUNTEER_HIRING = _Paths.VOLUNTEER_HIRING;
   static const DOKTER_HOME = _Paths.DOKTER_HOME;
   static const DOKTER_CHAT_PAGE = _Paths.DOKTER_CHAT_PAGE;
+  static const DONASI = _Paths.DONASI;
+  static const KOLAK = _Paths.KOLAK;
 }
 
 abstract class _Paths {
@@ -41,4 +43,6 @@ abstract class _Paths {
   static const VOLUNTEER_HIRING = '/volunteer-hiring';
   static const DOKTER_HOME = '/dokter-home';
   static const DOKTER_CHAT_PAGE = '/dokter-chat-page';
+  static const DONASI = '/donasi';
+  static const KOLAK = '/kolak';
 }
