@@ -12,22 +12,40 @@ class TicketingView extends GetView<TicketingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffDCE3D9),
       body: SafeArea(
         child: Column(
           children: [
             Stack(
               children: [
                 Container(
-                  height: 300.h,
+                  height: 315.h,
                   width: 1.sw,
-                  decoration: const BoxDecoration(
-                    color: Color(0xffF5C3B3),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30),
+                  decoration: BoxDecoration(
+                    color: const Color(0xffF5C3B3),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(40),
+                      bottomRight: Radius.circular(40),
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.25),
+                        blurRadius: 4,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                ).paddingOnly(bottom: 10.h),
+                Positioned(
+                  top: 77.h,
+                  right: 0.w,
+                  left: 0.w,
+                  child: Image.asset(
+                    'assets/images/top_ticketing_bg.png',
+                    fit: BoxFit.fill,
                   ),
                 ),
+                // AppBar Section
                 Align(
                   alignment: Alignment.topLeft,
                   child: Image.asset(
@@ -40,16 +58,27 @@ class TicketingView extends GetView<TicketingController> {
                   child: Text(
                     'Konseling Psikolog',
                     style: TextStyle(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
                       color: Colors.white,
+                      fontFamily: 'Montserrat',
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.bold,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black.withOpacity(0.25),
+                          offset: const Offset(0, 4),
+                          blurRadius: 4,
+                        ),
+                      ],
                     ),
                   ).paddingOnly(top: 20.h),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    const Icon(Icons.menu),
+                    Image.asset(
+                      'assets/images/icon_more_appbar.png',
+                      width: 24.w,
+                    ),
                     10.horizontalSpace,
                     Image.asset(
                       'assets/images/profile_picture.png',
@@ -57,13 +86,14 @@ class TicketingView extends GetView<TicketingController> {
                     ),
                   ],
                 ).paddingSymmetric(horizontal: 12.w, vertical: 10.h),
+                // Detail Psikolog
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Column(
                     children: [
                       Container(
-                        width: 140.w,
-                        height: 180.h,
+                        width: 151.w,
+                        height: 194.h,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20.r),
                           boxShadow: [
@@ -81,21 +111,22 @@ class TicketingView extends GetView<TicketingController> {
                       Text(
                         'Dr. Rizki Ramadhan',
                         style: TextStyle(
-                          fontSize: 20.sp,
+                          fontFamily: 'Montserrat',
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Color(0xff444941),
                         ),
-                      ).paddingOnly(top: 10.h),
+                      ).paddingOnly(top: 11.h),
                     ],
                   ),
-                ).marginOnly(top: 60.h),
+                ).marginOnly(top: 70.h),
               ],
             ),
             HorizontalCalendar(
               date: DateTime.now().add(const Duration(days: 1)),
               initialDate: DateTime.now().subtract(const Duration(days: 2)),
-              textColor: Colors.black,
-              backgroundColor: Colors.white,
+              textColor: Colors.black54,
+              backgroundColor: const Color(0xffDCE3D9),
               selectedColor: const Color(0xffA39E9E),
               onDateSelected: (date) {
                 controller.date.value = DateTime.parse(date);
@@ -110,16 +141,24 @@ class TicketingView extends GetView<TicketingController> {
               return Text(
                 controller.day.value,
                 style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w600,
                   color: Colors.black,
+                  fontFamily: 'Montserrat',
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      color: Colors.black.withOpacity(0.25),
+                      offset: const Offset(0, 3),
+                      blurRadius: 4,
+                    ),
+                  ],
                 ),
               );
             }),
             const Spacer(),
             Obx(
               () => Container(
-                height: 414.h,
+                height: 400.h,
                 width: 1.sw,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
@@ -135,10 +174,20 @@ class TicketingView extends GetView<TicketingController> {
                 ),
                 child: (controller.dayName.value == "Sunday" ||
                         controller.dayName.value == "Saturday")
-                    ? Center(child: Text("Tidak ada jadwal"))
-                    : Stack(
-                        alignment: Alignment.center,
+                    ? const Center(
+                        child: Text(
+                          "Tidak ada jadwal",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontFamily: 'Montserrat',
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
+                    : Column(
                         children: [
+                          const Spacer(),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: List.generate(
@@ -146,44 +195,60 @@ class TicketingView extends GetView<TicketingController> {
                               (index) => Container(
                                 height: 60.h,
                                 width: 150.w,
-                                decoration: const BoxDecoration(
-                                  color: Color(0xff9ECC88),
-                                  borderRadius: BorderRadius.all(
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff9ECC88),
+                                  border: Border.all(
+                                      color: Colors.white, width: 2.w),
+                                  borderRadius: const BorderRadius.all(
                                     Radius.circular(10),
                                   ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.25),
+                                      blurRadius: 4,
+                                      offset: const Offset(0, 4),
+                                    ),
+                                  ],
                                 ),
                                 child: Center(
                                   child: Text(
                                     '1:00 - 1${index + 1}:00',
                                     style: TextStyle(
+                                      fontFamily: 'Montserrat',
                                       fontSize: 20.sp,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
                                     ),
                                   ),
                                 ),
-                              ).paddingOnly(top: 20.h),
+                              ).paddingOnly(bottom: 15.h),
                             ),
-                          ).paddingOnly(bottom: 60.h),
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Container(
-                              height: 60.h,
-                              width: 200.w,
-                              decoration: const BoxDecoration(
-                                color: Color(0xff647C59),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(20),
-                                ),
+                          ),
+                          const Spacer(),
+                          Container(
+                            height: 53.h,
+                            width: 230.w,
+                            decoration: BoxDecoration(
+                              color: const Color(0xff647C59),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(30),
                               ),
-                              child: Center(
-                                child: Text(
-                                  'Schedule Now',
-                                  style: TextStyle(
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
-                                  ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.25),
+                                  blurRadius: 4,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'Schedule Now',
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),

@@ -2,10 +2,10 @@ name: kaw_all
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
-  sdk: '>=2.18.0 <3.0.0'
+environment:
+  sdk: ">=2.18.0 <3.0.0"
 
-dependencies: 
+dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
   flutter_native_splash: 2.2.9
@@ -20,20 +20,20 @@ dependencies:
   intl: ^0.17.0
   cloud_firestore: 3.5.1
   stream_chat_flutter: 5.0.1
-  flutter: 
+  flutter:
     sdk: flutter
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^2.0.0
-  flutter_test: 
+  flutter_test:
     sdk: flutter
 
-flutter: 
-  assets: 
+flutter:
+  assets:
     - assets/images/
-  fonts: 
+  fonts:
     - family: Montserrat
-      fonts: 
+      fonts:
         - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
         - asset: assets/fonts/montserrat/Montserrat-Bold.ttf
         - asset: assets/fonts/montserrat/Montserrat-Italic.ttf
@@ -53,7 +53,7 @@ flutter:
         - asset: assets/fonts/montserrat/Montserrat-Black.ttf
         - asset: assets/fonts/montserrat/Montserrat-BlackItalic.ttf
     - family: JosefinSans
-      fonts: 
+      fonts:
         - asset: assets/fonts/josefin_sans/JosefinSans-Bold.ttf
         - asset: assets/fonts/josefin_sans/JosefinSans-BoldItalic.ttf
         - asset: assets/fonts/josefin_sans/JosefinSans-Italic.ttf
@@ -70,9 +70,8 @@ flutter:
         - asset: assets/fonts/josefin_sans/JosefinSans-MediumItalic.ttf
   uses-material-design: true
 
-flutter_native_splash: 
-  color: '#FFFFFF'
+flutter_native_splash:
+  color: "#FFFFFF"
   image: assets/images/splash_screen.png
   android: true
   ios: true
-
