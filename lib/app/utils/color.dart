@@ -6,4 +6,5 @@ const thirdColor = Color(0xFFEC9F87);
 
 const statusBarColor = Color(0xFFFAEBE6);
 const pilihPsikologBackgroudColor = Color(0xFFFAF3EB);
+const pilihKonselorBackgroundColor = Color(0xffD8E6D2);
 const loginBackgroudColor = Color(0xFFDAB5A9);
