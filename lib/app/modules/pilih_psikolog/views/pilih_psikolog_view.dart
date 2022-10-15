@@ -23,7 +23,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.black.withOpacity(0.25),
             spreadRadius: 0,
             blurRadius: 4,
             offset: const Offset(0, 4), // changes position of shadow
@@ -65,7 +65,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
           ),
         ],
       ),
-    );
+    ).paddingOnly(bottom: 10.h);
   }
 
   @override
@@ -102,7 +102,10 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                           ),
                           Row(
                             children: [
-                              const Icon(Icons.menu),
+                              Image.asset(
+                                'assets/images/icon_more_appbar.png',
+                                width: 24.w,
+                              ),
                               10.horizontalSpace,
                               Image.asset(
                                 'assets/images/profile_picture.png',

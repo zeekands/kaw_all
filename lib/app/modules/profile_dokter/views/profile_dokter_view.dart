@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
-import '../../../utils/Color.dart';
+import '../../../utils/color.dart';
 import '../../pilih_psikolog/models/psikolog_model.dart';
 import '../controllers/profile_dokter_controller.dart';
 
@@ -23,7 +23,7 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
         borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.black.withOpacity(0.25),
             spreadRadius: 0,
             blurRadius: 4,
             offset: const Offset(0, 4), // changes position of shadow
@@ -65,7 +65,7 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
           ),
         ],
       ),
-    );
+    ).paddingOnly(bottom: 5.h);
   }
 
   @override
@@ -81,7 +81,7 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
           height: 1.sh,
           alignment: Alignment.center,
           decoration: const BoxDecoration(
-            color: pilihPsikologBackgroudColor,
+            color: pilihDokterBackgroundColor,
           ),
           child: Stack(
             alignment: AlignmentDirectional.center,
@@ -102,7 +102,10 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
                           ),
                           Row(
                             children: [
-                              const Icon(Icons.menu),
+                              Image.asset(
+                                'assets/images/icon_more_appbar.png',
+                                width: 24.w,
+                              ),
                               10.horizontalSpace,
                               Image.asset(
                                 'assets/images/profile_picture.png',
@@ -127,7 +130,7 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
                   Container(
                     width: 1.sw,
                     decoration: BoxDecoration(
-                      color: const Color(0xffACBCA5),
+                      color: const Color(0xffEC9F87),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(50.r),
                         topRight: Radius.circular(50.r),
