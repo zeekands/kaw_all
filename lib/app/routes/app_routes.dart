@@ -22,6 +22,7 @@ abstract class Routes {
   static const DOKTER_CHAT_PAGE = _Paths.DOKTER_CHAT_PAGE;
   static const DONASI = _Paths.DONASI;
   static const KOLAK = _Paths.KOLAK;
+  static const PANAS = _Paths.PANAS;
 }
 
 abstract class _Paths {
@@ -45,4 +46,5 @@ abstract class _Paths {
   static const DOKTER_CHAT_PAGE = '/dokter-chat-page';
   static const DONASI = '/donasi';
   static const KOLAK = '/kolak';
+  static const PANAS = '/panas';
 }

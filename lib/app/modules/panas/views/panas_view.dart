@@ -3,10 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
-import '../controllers/kolak_controller.dart';
+import '../controllers/panas_controller.dart';
 
-class KolakView extends GetView<KolakController> {
-  const KolakView({Key? key}) : super(key: key);
+class PanasView extends GetView<PanasController> {
+  const PanasView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +15,7 @@ class KolakView extends GetView<KolakController> {
           width: 1.sw,
           height: 1.sh,
           decoration: BoxDecoration(
-            color: const Color(0xffF2E9C8).withOpacity(0.5),
+            color: const Color(0xffE2C55E).withOpacity(0.5),
           ),
           child: SingleChildScrollView(
             child: Column(
@@ -24,12 +24,12 @@ class KolakView extends GetView<KolakController> {
                 Container(
                   width: 1.sw,
                   height: 240.h,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40),
                     ),
-                    color: Color(0xff2D9F76).withOpacity(0.8),
+                    color: Color(0xffEC9F87),
                   ),
                   child: Column(
                     children: [
@@ -122,12 +122,12 @@ class KolakView extends GetView<KolakController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Image.asset(
-                              'assets/images/img_card_kolak.png',
+                              'assets/images/img_card_panas.png',
                               width: 307.w,
                               height: 244.h,
                             ).paddingOnly(top: 54.h, left: 25.w, right: 25.w),
                             Text(
-                              "KoLaK",
+                              "PaNaS",
                               style: TextStyle(
                                 fontFamily: 'JosefinSans',
                                 fontSize: 30.sp,
@@ -147,7 +147,7 @@ class KolakView extends GetView<KolakController> {
                                 children: [
                                   TextSpan(
                                     text:
-                                        "Sobat KawAll, kira-kira KoLak tuh apa ya?? Nah, buat kalian yang belum tahu KoLak itu singkatan ",
+                                        "Tahu ga apa yang lebih panas dari matahari? Yup, semangat ingin tahu sobat KawAll yang membara! Nah, maka dari itu pada pukul ",
                                     style: TextStyle(
                                       fontFamily: 'JosefinSans',
                                       fontSize: 16.sp,
@@ -155,7 +155,7 @@ class KolakView extends GetView<KolakController> {
                                     ),
                                   ),
                                   TextSpan(
-                                    text: "Konseling seharga Ayam Geprek",
+                                    text: "9.00 ",
                                     style: TextStyle(
                                       fontFamily: 'JosefinSans',
                                       fontSize: 16.sp,
@@ -164,11 +164,38 @@ class KolakView extends GetView<KolakController> {
                                   ),
                                   TextSpan(
                                     text:
-                                        ". Yup, hanya dengan modal 25k rupiah kalian dapat mendapatkan pengalaman konseling yang bermutu loh. Kami mengerti bahwa konseling kadang menguras dompet kalian, maka dari itu yuk claim voucher kalian! Mental sehat, uang hemat!",
+                                        "sampai pukul 10.00 Cupin mau kasih promo ",
                                     style: TextStyle(
                                       fontFamily: 'JosefinSans',
                                       fontSize: 16.sp,
                                       color: const Color(0xff000000),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: "PaNaS, Paket Nanya Sepuasnya",
+                                    style: TextStyle(
+                                      fontFamily: 'JosefinSans',
+                                      fontSize: 16.sp,
+                                      color: const Color(0xffB6411C),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text:
+                                        ". Pasti kalian mau tahu lebih banyak hal bukan? Yuk tanyakan langsung ke Dokter KawAll ",
+                                    style: TextStyle(
+                                      fontFamily: 'JosefinSans',
+                                      fontSize: 16.sp,
+                                      color: const Color(0xff000000),
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: "GRATIS!",
+                                    style: TextStyle(
+                                      fontFamily: 'JosefinSans',
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color(0xffB52E2E),
+                                      decoration: TextDecoration.underline,
                                     ),
                                   ),
                                 ],

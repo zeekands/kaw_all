@@ -24,6 +24,8 @@ import '../modules/mentimeter/bindings/mentimeter_binding.dart';
 import '../modules/mentimeter/views/mentimeter_view.dart';
 import '../modules/navigation_bar/bindings/navigation_bar_binding.dart';
 import '../modules/navigation_bar/views/navigation_bar_view.dart';
+import '../modules/panas/bindings/panas_binding.dart';
+import '../modules/panas/views/panas_view.dart';
 import '../modules/pilih_psikolog/bindings/pilih_psikolog_binding.dart';
 import '../modules/pilih_psikolog/views/pilih_psikolog_view.dart';
 import '../modules/profile_dokter/bindings/profile_dokter_binding.dart';
@@ -141,6 +143,11 @@ class AppPages {
       name: _Paths.KOLAK,
       page: () => const KolakView(),
       binding: KolakBinding(),
+    ),
+    GetPage(
+      name: _Paths.PANAS,
+      page: () => const PanasView(),
+      binding: PanasBinding(),
     ),
   ];
 }

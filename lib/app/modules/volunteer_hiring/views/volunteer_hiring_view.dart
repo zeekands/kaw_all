@@ -35,11 +35,11 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 35.sp,
-                  shadows: [
+                  shadows: const [
                     Shadow(
                       blurRadius: 10.0,
                       color: Colors.grey,
-                      offset: const Offset(1.0, 5.0),
+                      offset: Offset(1.0, 5.0),
                     ),
                   ],
                   fontWeight: FontWeight.w700,

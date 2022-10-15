@@ -38,7 +38,7 @@ class DashboardController extends GetxController {
       'title': 'PaNaS',
       'description': 'Paket Nanya Sepuasnya',
       'image': 'assets/images/img_panas_dashboard.png',
-      'onTap': Routes.COMING_SOON,
+      'onTap': Routes.PANAS, // Routes.COMING_SOON
       'bgColor': const Color(0xFFEDD4D4),
       'titleColor': const Color(0xFFB6411C),
       'descColor': const Color(0xFF877878),
