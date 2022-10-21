@@ -136,7 +136,7 @@ class TicketingView extends GetView<TicketingController> {
                     DateFormat('EEEE').format(controller.date.value);
               },
             ),
-            20.verticalSpace,
+            const Spacer(),
             Obx(() {
               return Text(
                 controller.day.value,
@@ -225,6 +225,7 @@ class TicketingView extends GetView<TicketingController> {
                             ),
                           ),
                           const Spacer(),
+                          // Schedule button
                           Container(
                             height: 53.h,
                             width: 230.w,
@@ -246,13 +247,14 @@ class TicketingView extends GetView<TicketingController> {
                                 'Schedule Now',
                                 style: TextStyle(
                                   fontFamily: 'Montserrat',
-                                  fontSize: 18.sp,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
                               ),
                             ),
-                          ).paddingOnly(bottom: 20.h),
+                          ),
+                          const Spacer(),
                         ],
                       ),
               ),
