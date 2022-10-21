@@ -58,8 +58,11 @@ class PanasView extends GetView<PanasController> {
                       Row(
                         children: [
                           35.horizontalSpace,
-                          Image.asset(
-                            'assets/images/arrow_back.png',
+                          GestureDetector(
+                            onTap: () => Get.back(),
+                            child: Image.asset(
+                              'assets/images/arrow_back.png',
+                            ),
                           ),
                           45.horizontalSpace,
                           Text(
@@ -104,7 +107,7 @@ class PanasView extends GetView<PanasController> {
                     Center(
                       child: Container(
                         width: 357.w,
-                        height: 680.h,
+                        height: 700.h,
                         decoration: const BoxDecoration(
                           boxShadow: [
                             BoxShadow(
@@ -237,11 +240,11 @@ class PanasView extends GetView<PanasController> {
                             ),
                           ],
                         ),
-                      ).paddingOnly(bottom: 35.h),
+                      ).paddingOnly(bottom: 50.h),
                     ),
                     Positioned(
-                      top: 605.h,
-                      left: 55.w,
+                      top: 630.h,
+                      left: 40.w,
                       child: Image.asset(
                         'assets/images/maskot2.png',
                         width: 129.w,

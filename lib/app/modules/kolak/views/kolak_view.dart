@@ -25,11 +25,11 @@ class KolakView extends GetView<KolakController> {
                   width: 1.sw,
                   height: 240.h,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40),
                     ),
-                    color: Color(0xff2D9F76).withOpacity(0.8),
+                    color: const Color(0xff2D9F76).withOpacity(0.8),
                   ),
                   child: Column(
                     children: [
@@ -58,8 +58,13 @@ class KolakView extends GetView<KolakController> {
                       Row(
                         children: [
                           35.horizontalSpace,
-                          Image.asset(
-                            'assets/images/arrow_back.png',
+                          GestureDetector(
+                            onTap: () {
+                              Get.back();
+                            },
+                            child: Image.asset(
+                              'assets/images/arrow_back.png',
+                            ),
                           ),
                           45.horizontalSpace,
                           Text(
@@ -104,7 +109,7 @@ class KolakView extends GetView<KolakController> {
                     Center(
                       child: Container(
                         width: 357.w,
-                        height: 680.h,
+                        height: 720.h,
                         decoration: const BoxDecoration(
                           boxShadow: [
                             BoxShadow(
@@ -210,11 +215,11 @@ class KolakView extends GetView<KolakController> {
                             ),
                           ],
                         ),
-                      ).paddingOnly(bottom: 35.h),
+                      ).paddingOnly(bottom: 50.h),
                     ),
                     Positioned(
-                      top: 605.h,
-                      left: 55.w,
+                      top: 655.h,
+                      left: 40.w,
                       child: Image.asset(
                         'assets/images/maskot2.png',
                         width: 129.w,
