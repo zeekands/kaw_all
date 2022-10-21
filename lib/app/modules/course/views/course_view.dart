@@ -139,6 +139,7 @@ class CourseView extends GetView<CourseController> {
                     itemCount: controller.courseList.length,
                     itemBuilder: (context, index) {
                       return Container(
+                        padding: EdgeInsets.only(left: 10.w, right: 10.w),
                         width: 130.w,
                         height: 159.h,
                         decoration: BoxDecoration(
@@ -151,20 +152,29 @@ class CourseView extends GetView<CourseController> {
                           ),
                         ),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               controller.courseList[index]['courseTitle']
                                   .toString(),
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 15,
+                              style: TextStyle(
+                                fontSize: 14,
                                 fontFamily: 'JosefinSans',
+                                shadows: [
+                                  Shadow(
+                                    color: const Color(0xff000000)
+                                        .withOpacity(0.25),
+                                    offset: const Offset(1, 2),
+                                    blurRadius: 4,
+                                  ),
+                                ],
                               ),
                             ).paddingOnly(left: 15.w, right: 30.w),
                             Image.asset(
                               controller.courseList[index]['courseIcon']
                                   .toString(),
+                              height: 110.h,
                             ).paddingOnly(top: 10.h),
                           ],
                         ),
