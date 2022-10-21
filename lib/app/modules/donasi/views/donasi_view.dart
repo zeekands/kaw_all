@@ -112,7 +112,7 @@ class DonasiView extends GetView<DonasiController> {
               const Spacer(),
               Container(
                 width: 165.w,
-                height: 50.h,
+                height: 60.h,
                 decoration: BoxDecoration(
                   color: const Color(0xffBE5F5F),
                   borderRadius: BorderRadius.circular(30.r),

@@ -29,7 +29,7 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
                   width: 42.w,
                 ),
               ).paddingOnly(top: 20.h, left: 20.w),
-              50.verticalSpace,
+              const Spacer(),
               Text(
                 "Yuk Volunteer!",
                 style: TextStyle(
@@ -45,7 +45,7 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              45.verticalSpace,
+              const Spacer(),
               Image.asset(
                 "assets/images/volunteer_img.png",
                 width: 322.w,
@@ -105,8 +105,8 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
               ).paddingOnly(left: 51.w, right: 51.w),
               const Spacer(),
               Container(
-                width: 246.w,
-                height: 50.h,
+                width: 225.w,
+                height: 60.h,
                 decoration: BoxDecoration(
                   color: const Color(0xffBE5F5F),
                   borderRadius: BorderRadius.circular(30.r),
@@ -126,7 +126,7 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: "Montserrat",
-                      fontSize: 18.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                       shadows: [
                         Shadow(
@@ -139,7 +139,7 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
                   ),
                 ),
               ),
-              40.verticalSpace,
+              const Spacer(),
             ],
           ),
         ),
