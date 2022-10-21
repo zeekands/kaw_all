@@ -137,76 +137,239 @@ class DashboardView extends GetView<DashboardController> {
                       ],
                     ),
                   ).paddingOnly(left: 36.w, bottom: 10.h),
-                  Center(
-                    child: Container(
-                      width: 370.w,
-                      height: 138.h,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffDBEAD5),
-                        borderRadius: BorderRadius.circular(20.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 0,
-                            blurRadius: 4,
-                            offset: const Offset(2, 4),
+                  SizedBox(
+                    height: 150.h,
+                    child: ListView(
+                      children: [
+                        Container(
+                          width: 370.w,
+                          height: 138.h,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffDBEAD5),
+                            borderRadius: BorderRadius.circular(20.r),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 0,
+                                blurRadius: 4,
+                                offset: const Offset(1, 4),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 100.w,
-                            height: 107.h,
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 100.w,
+                                height: 107.h,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xffD9D9D9),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.5),
+                                      spreadRadius: 0,
+                                      blurRadius: 4,
+                                      offset: const Offset(2, 4),
+                                    ),
+                                  ],
+                                ),
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: Image.asset(
+                                    'assets/images/call_dashboard.png',
+                                    width: 78.w,
+                                    height: 78.h,
+                                  ),
+                                ),
+                              ).paddingSymmetric(
+                                  horizontal: 23.w, vertical: 19.h),
+                              Flexible(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: const [
+                                    Text(
+                                      "Mau jalan sendirian tapi takut?",
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontFamily: 'JosefinSans',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Yuk kami temani!",
+                                      style: TextStyle(
+                                        fontSize: 10,
+                                        fontFamily: 'JosefinSans',
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ).paddingOnly(
+                                  top: 10,
+                                  right: 59.w,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ).paddingSymmetric(horizontal: 16.w),
+                        20.verticalSpace,
+                        Container(
+                          width: 370.w,
+                          height: 138.h,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffB7E3A2),
+                            borderRadius: BorderRadius.circular(20.r),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.25),
+                                spreadRadius: 0,
+                                blurRadius: 4,
+                                offset: const Offset(1, 4),
+                              ),
+                            ],
+                          ),
+                          child: Container(
+                            width: 328.w,
+                            height: 130.h,
                             decoration: BoxDecoration(
-                              color: const Color(0xffD9D9D9),
+                              color: const Color(0xffF7F7F7),
+                              borderRadius: BorderRadius.circular(25),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
+                                  color:
+                                      const Color(0xff000000).withOpacity(0.25),
                                   spreadRadius: 0,
-                                  blurRadius: 4,
-                                  offset: const Offset(2, 4),
+                                  blurRadius: 2,
+                                  offset: const Offset(
+                                      0, 2), // changes position of shadow
                                 ),
                               ],
                             ),
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Image.asset(
-                                'assets/images/call_dashboard.png',
-                                width: 78.w,
-                                height: 78.h,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(10),
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xffACBCA5),
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(25),
+                                        bottomLeft: Radius.circular(25),
+                                      ),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/img_card_daerah_rawan.png',
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 2,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      10.verticalSpace,
+                                      Text(
+                                        "Tau daerah yang rawan? Share it here!",
+                                        style: TextStyle(
+                                          fontFamily: 'JosefinSans',
+                                          fontSize: 14.sp,
+                                        ),
+                                      ),
+                                    ],
+                                  ).paddingOnly(
+                                    top: 10.h,
+                                    bottom: 10.h,
+                                    left: 15.w,
+                                    right: 20.w,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ).paddingAll(15.w),
+                        ).paddingSymmetric(horizontal: 16.w),
+                        20.verticalSpace,
+                        Container(
+                          width: 370.w,
+                          height: 138.h,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffF2C2B3),
+                            borderRadius: BorderRadius.circular(20.r),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black38,
+                                spreadRadius: 0,
+                                blurRadius: 4,
+                                offset: Offset(1, 4),
                               ),
+                            ],
+                          ),
+                          child: Container(
+                            width: 328.w,
+                            height: 130.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffF7F7F7),
+                              borderRadius: BorderRadius.circular(25),
+                              boxShadow: [
+                                BoxShadow(
+                                  color:
+                                      const Color(0xff000000).withOpacity(0.25),
+                                  spreadRadius: 0,
+                                  blurRadius: 2,
+                                  offset: const Offset(
+                                      0, 2), // changes position of shadow
+                                ),
+                              ],
                             ),
-                          ).paddingSymmetric(horizontal: 23.w, vertical: 19.h),
-                          Flexible(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: const [
-                                Text(
-                                  "Mau jalan sendirian tapi takut?",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: 'JosefinSans',
-                                    fontWeight: FontWeight.bold,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(10),
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xffEC9F87),
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(25),
+                                        bottomLeft: Radius.circular(25),
+                                      ),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/img_card_berani_melapor.png',
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "Yuk kami temani!",
-                                  style: TextStyle(
-                                    fontSize: 10,
-                                    fontFamily: 'JosefinSans',
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  flex: 2,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      10.verticalSpace,
+                                      Text(
+                                        "Experiencing something weird? Yuk Lapor!!",
+                                        style: TextStyle(
+                                          fontFamily: 'JosefinSans',
+                                          fontSize: 14.sp,
+                                        ),
+                                      ),
+                                    ],
+                                  ).paddingOnly(
+                                    top: 10.h,
+                                    bottom: 10.h,
+                                    left: 15.w,
+                                    right: 20.w,
                                   ),
                                 ),
                               ],
-                            ).paddingOnly(
-                              top: 10,
-                              right: 59.w,
                             ),
-                          ),
-                        ],
-                      ),
+                          ).paddingAll(15.w),
+                        ).paddingOnly(right: 16.w, left: 16.w, bottom: 10.h),
+                      ],
                     ),
                   ),
                   Text(

@@ -26,7 +26,7 @@ class MentimeterView extends GetView<MentimeterController> {
                 children: [
                   Container(
                     width: 1.sw,
-                    height: 247.h,
+                    height: 250.h,
                     decoration: BoxDecoration(
                       color: const Color(0xffE7D69C),
                       borderRadius: const BorderRadius.only(
@@ -45,6 +45,7 @@ class MentimeterView extends GetView<MentimeterController> {
                     ),
                     child: Column(
                       children: [
+                        // AppBar
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -66,11 +67,11 @@ class MentimeterView extends GetView<MentimeterController> {
                               ],
                             ),
                           ],
-                        ).paddingSymmetric(horizontal: 12.w, vertical: 14.h),
-                        13.verticalSpace,
+                        ).paddingOnly(left: 12.w, right: 12.w, top: 12.h),
+                        const Spacer(),
                         Container(
                           width: 328.w,
-                          height: 120.h,
+                          height: 130.h,
                           decoration: BoxDecoration(
                             color: const Color(0xffF7F7F7),
                             borderRadius: BorderRadius.circular(25),
@@ -90,7 +91,6 @@ class MentimeterView extends GetView<MentimeterController> {
                               Expanded(
                                 flex: 1,
                                 child: Container(
-                                  height: 120.h,
                                   decoration: const BoxDecoration(
                                     color: Color(0xffACBCA5),
                                     borderRadius: BorderRadius.only(
@@ -100,7 +100,6 @@ class MentimeterView extends GetView<MentimeterController> {
                                   ),
                                   child: Image.asset(
                                     'assets/images/img_card_daerah_rawan.png',
-                                    height: 30.h,
                                   ),
                                 ),
                               ),
@@ -108,6 +107,7 @@ class MentimeterView extends GetView<MentimeterController> {
                                 flex: 2,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
                                       "Rawan, Kawan!",
@@ -115,9 +115,17 @@ class MentimeterView extends GetView<MentimeterController> {
                                         fontFamily: 'JosefinSans',
                                         fontSize: 20.sp,
                                         fontWeight: FontWeight.bold,
+                                        shadows: [
+                                          Shadow(
+                                            color: const Color(0xff000000)
+                                                .withOpacity(0.25),
+                                            offset: const Offset(1, 3),
+                                            blurRadius: 4,
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                    5.verticalSpace,
+                                    10.verticalSpace,
                                     Text(
                                       "Tau daerah yang rawan? Share it here!",
                                       style: TextStyle(
@@ -131,11 +139,17 @@ class MentimeterView extends GetView<MentimeterController> {
                                       width: 24.w,
                                     ),
                                   ],
-                                ).paddingAll(10),
+                                ).paddingOnly(
+                                  top: 10.h,
+                                  bottom: 10.h,
+                                  left: 15.w,
+                                  right: 25.w,
+                                ),
                               ),
                             ],
                           ),
                         ),
+                        const Spacer(),
                       ],
                     ),
                   ),

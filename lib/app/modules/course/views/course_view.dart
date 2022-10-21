@@ -190,7 +190,7 @@ class CourseView extends GetView<CourseController> {
                 Center(
                   child: Container(
                     width: 381.w,
-                    height: 178.h,
+                    height: 200.h,
                     decoration: BoxDecoration(
                       color: const Color(0xffF5C3B3),
                       borderRadius: BorderRadius.circular(20.r),
@@ -241,7 +241,7 @@ class CourseView extends GetView<CourseController> {
                       alignment: Alignment.centerRight,
                       child: Container(
                         width: 300.w,
-                        height: 115.h,
+                        height: 130.h,
                         decoration: BoxDecoration(
                           color: const Color(0xffF2E3D0),
                           borderRadius: const BorderRadius.only(
@@ -259,7 +259,7 @@ class CourseView extends GetView<CourseController> {
                     ),
                     Image.asset(
                       "assets/images/img_course_konsul.png",
-                      height: 180.h,
+                      height: 195.h,
                     ).paddingOnly(left: 115.w),
                     GestureDetector(
                       onTap: () {
