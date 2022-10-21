@@ -44,7 +44,6 @@ class DonasiView extends GetView<DonasiController> {
                   ),
                 ],
               ).paddingSymmetric(horizontal: 12.w, vertical: 14.h),
-              37.verticalSpace,
               Text(
                 "Let’s Donate to Support!",
                 textAlign: TextAlign.center,
@@ -62,13 +61,12 @@ class DonasiView extends GetView<DonasiController> {
                   ],
                 ),
               ),
-              57.verticalSpace,
+              const Spacer(),
               Image.asset(
                 "assets/images/donasi_img.png",
-                width: 277.w,
-                height: 301.h,
+                width: 260.w,
               ),
-              47.verticalSpace,
+              const Spacer(),
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
@@ -134,7 +132,7 @@ class DonasiView extends GetView<DonasiController> {
                     style: TextStyle(
                       color: Colors.white,
                       fontFamily: "Montserrat",
-                      fontSize: 18.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                       shadows: [
                         Shadow(
@@ -147,7 +145,7 @@ class DonasiView extends GetView<DonasiController> {
                   ),
                 ),
               ),
-              100.verticalSpace,
+              const Spacer(),
             ],
           ),
         ),
