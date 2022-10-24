@@ -23,6 +23,8 @@ abstract class Routes {
   static const DONASI = _Paths.DONASI;
   static const KOLAK = _Paths.KOLAK;
   static const PANAS = _Paths.PANAS;
+  static const PAYMENT = _Paths.PAYMENT;
+  static const PELAPORAN = _Paths.PELAPORAN;
 }
 
 abstract class _Paths {
@@ -47,4 +49,6 @@ abstract class _Paths {
   static const DONASI = '/donasi';
   static const KOLAK = '/kolak';
   static const PANAS = '/panas';
+  static const PAYMENT = '/payment';
+  static const PELAPORAN = '/pelaporan';
 }

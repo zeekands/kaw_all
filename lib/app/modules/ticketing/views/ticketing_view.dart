@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:horizontal_calendar/horizontal_calendar.dart';
 import 'package:intl/intl.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/ticketing_controller.dart';
 
 class TicketingView extends GetView<TicketingController> {
@@ -226,30 +227,33 @@ class TicketingView extends GetView<TicketingController> {
                           ),
                           const Spacer(),
                           // Schedule button
-                          Container(
-                            height: 53.h,
-                            width: 230.w,
-                            decoration: BoxDecoration(
-                              color: const Color(0xff647C59),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(30),
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.25),
-                                  blurRadius: 4,
-                                  offset: const Offset(0, 3),
+                          GestureDetector(
+                            onTap: () => Get.toNamed(Routes.PAYMENT),
+                            child: Container(
+                              height: 53.h,
+                              width: 230.w,
+                              decoration: BoxDecoration(
+                                color: const Color(0xff647C59),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(30),
                                 ),
-                              ],
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Schedule Now',
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.25),
+                                    blurRadius: 4,
+                                    offset: const Offset(0, 3),
+                                  ),
+                                ],
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Schedule Now',
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),

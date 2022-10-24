@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/mentimeter_controller.dart';
 
 class MentimeterView extends GetView<MentimeterController> {
@@ -317,29 +318,32 @@ class MentimeterView extends GetView<MentimeterController> {
                               ],
                             ),
                           ).paddingOnly(right: 19.w, top: 5.h, bottom: 10.h),
-                          Container(
-                            width: 200.w,
-                            height: 145.h,
-                            decoration: BoxDecoration(
-                              color: const Color(0xffF2E9C8),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(25),
-                                bottomLeft: Radius.circular(25),
-                              ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color:
-                                      const Color(0xff000000).withOpacity(0.25),
-                                  spreadRadius: 0,
-                                  blurRadius: 2,
-                                  offset: const Offset(
-                                      0, 2), // changes position of shadow
+                          GestureDetector(
+                            onTap: () => Get.toNamed(Routes.PELAPORAN),
+                            child: Container(
+                              width: 200.w,
+                              height: 145.h,
+                              decoration: BoxDecoration(
+                                color: const Color(0xffF2E9C8),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(25),
+                                  bottomLeft: Radius.circular(25),
                                 ),
-                              ],
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: const Color(0xff000000)
+                                        .withOpacity(0.25),
+                                    spreadRadius: 0,
+                                    blurRadius: 2,
+                                    offset: const Offset(
+                                        0, 2), // changes position of shadow
+                                  ),
+                                ],
+                              ),
+                              child: Image.asset(
+                                      "assets/images/img_card_berani_melapor.png")
+                                  .paddingOnly(top: 25.h),
                             ),
-                            child: Image.asset(
-                                    "assets/images/img_card_berani_melapor.png")
-                                .paddingOnly(top: 25.h),
                           ),
                         ],
                       ),

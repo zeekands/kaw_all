@@ -26,6 +26,10 @@ import '../modules/navigation_bar/bindings/navigation_bar_binding.dart';
 import '../modules/navigation_bar/views/navigation_bar_view.dart';
 import '../modules/panas/bindings/panas_binding.dart';
 import '../modules/panas/views/panas_view.dart';
+import '../modules/payment/bindings/payment_binding.dart';
+import '../modules/payment/views/payment_view.dart';
+import '../modules/pelaporan/bindings/pelaporan_binding.dart';
+import '../modules/pelaporan/views/pelaporan_view.dart';
 import '../modules/pilih_psikolog/bindings/pilih_psikolog_binding.dart';
 import '../modules/pilih_psikolog/views/pilih_psikolog_view.dart';
 import '../modules/profile_dokter/bindings/profile_dokter_binding.dart';
@@ -148,6 +152,16 @@ class AppPages {
       name: _Paths.PANAS,
       page: () => const PanasView(),
       binding: PanasBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAYMENT,
+      page: () => const PaymentView(),
+      binding: PaymentBinding(),
+    ),
+    GetPage(
+      name: _Paths.PELAPORAN,
+      page: () => const PelaporanView(),
+      binding: PelaporanBinding(),
     ),
   ];
 }

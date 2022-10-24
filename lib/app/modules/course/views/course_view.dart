@@ -182,25 +182,29 @@ class CourseView extends GetView<CourseController> {
                     },
                   ),
                 ).paddingOnly(left: 10.w, right: 10.w, bottom: 15.h),
-                Text(
-                  "Video Interaktif",
-                  style: TextStyle(
-                    color: const Color(0xffA14D4D),
-                    fontSize: 20.sp,
-                    fontFamily: 'JosefinSans',
-                    shadows: [
-                      Shadow(
-                        color: const Color(0xff000000).withOpacity(0.25),
-                        offset: const Offset(1, 2),
-                        blurRadius: 4.r,
-                      ),
-                    ],
-                  ),
-                ).paddingOnly(left: 36.w, top: 5.h, bottom: 15.h),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "Konten Interaktif",
+                    style: TextStyle(
+                      color: const Color(0xffA14D4D),
+                      fontSize: 20.sp,
+                      fontFamily: 'JosefinSans',
+                      shadows: [
+                        Shadow(
+                          color: const Color(0xff000000).withOpacity(0.25),
+                          offset: const Offset(1, 2),
+                          blurRadius: 4.r,
+                        ),
+                      ],
+                    ),
+                  ).paddingOnly(
+                      left: 30.w, right: 30.w, top: 5.h, bottom: 15.h),
+                ),
                 Center(
                   child: Container(
                     width: 381.w,
-                    height: 200.h,
+                    height: 210.h,
                     decoration: BoxDecoration(
                       color: const Color(0xffF5C3B3),
                       borderRadius: BorderRadius.circular(20.r),
@@ -213,6 +217,7 @@ class CourseView extends GetView<CourseController> {
                       ],
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           "Ingin tahu cara meng-smackdown predator? Yuk kita simak video di bawah!",
@@ -221,19 +226,17 @@ class CourseView extends GetView<CourseController> {
                             fontSize: 12.sp,
                             fontFamily: 'JosefinSans',
                           ),
-                        ).paddingOnly(
-                            left: 36.w, right: 36.w, top: 18.h, bottom: 15.h),
+                        ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Image.asset(
                               "assets/images/video_play_placeholder.png",
-                              width: 146.w,
-                            ).paddingOnly(right: 51.w),
+                              height: 120.w,
+                            ).paddingOnly(right: 20.w),
                             Image.asset(
                               "assets/images/maskot_dashboard.png",
                               width: 59.w,
-                              height: 89.h,
                             ).paddingOnly(right: 14.w),
                             Image.asset(
                               "assets/images/img_dot_three.png",
