@@ -57,7 +57,7 @@ class PaymentController extends GetxController {
             ],
           ).paddingOnly(top: 15, left: 15, right: 15),
           20.verticalSpace,
-          Text(
+          const Text(
             'Transfer Bank',
             style: TextStyle(
               color: Color(0xff5B6656),
@@ -66,23 +66,80 @@ class PaymentController extends GetxController {
               fontWeight: FontWeight.bold,
             ),
           ).paddingOnly(top: 10, left: 15, right: 15),
-          10.verticalSpace,
+          20.verticalSpace,
           Column(
             children: [
               ListTile(
-                leading: Image.asset('assets/images/logo.png'),
-                title: Text('BCA'),
+                leading: Image.asset(
+                  'assets/images/bri_logo.png',
+                  width: 90.w,
+                  height: 33.h,
+                ),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                title: const Text(
+                  'BRI Bank Transfer',
+                  style: TextStyle(
+                    color: Color(0xff5B6656),
+                    fontFamily: 'Montserrat',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
                 onTap: () {},
+                shape: const Border(
+                  top: BorderSide(
+                    color: Colors.black26,
+                  ),
+                ),
               ),
               ListTile(
-                leading: Image.asset('assets/images/logo.png'),
-                title: Text('BCA'),
+                leading: Image.asset(
+                  'assets/images/bni_logo.webp',
+                  width: 90.w,
+                  height: 33.h,
+                ),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                title: const Text(
+                  'BNI Bank Transfer',
+                  style: TextStyle(
+                    color: Color(0xff5B6656),
+                    fontFamily: 'Montserrat',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
                 onTap: () {},
+                shape: const Border(
+                  bottom: BorderSide(
+                    color: Colors.black26,
+                  ),
+                  top: BorderSide(
+                    color: Colors.black26,
+                  ),
+                ),
               ),
               ListTile(
-                leading: Image.asset('assets/images/logo.png'),
-                title: Text('BCA'),
+                leading: Image.asset(
+                  'assets/images/bca_logo.webp',
+                  width: 90.w,
+                  height: 33.h,
+                ),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                title: const Text(
+                  'BCA Bank Transfer',
+                  style: TextStyle(
+                    color: Color(0xff5B6656),
+                    fontFamily: 'Montserrat',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
                 onTap: () {},
+                shape: const Border(
+                  bottom: BorderSide(
+                    color: Colors.black26,
+                  ),
+                ),
               ),
             ],
           ),
