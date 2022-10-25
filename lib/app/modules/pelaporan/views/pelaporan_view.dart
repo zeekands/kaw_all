@@ -17,80 +17,98 @@ class PelaporanView extends GetView<PelaporanController> {
           decoration: const BoxDecoration(
             color: Color(0xffE5EAE3),
           ),
-          child: Column(
-            children: [
-              Container(
-                width: 1.sw,
-                height: 266.h,
-                decoration: BoxDecoration(
-                  color: Color(0xffEFCABE),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(40),
-                    bottomRight: Radius.circular(40),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xff000000).withOpacity(0.25),
-                      blurRadius: 4,
-                      offset: Offset(0, 4),
+          child: SingleChildScrollView(
+            child: Stack(
+              children: [
+                Container(
+                  width: 1.sw,
+                  height: 266.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffEFCABE),
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(40),
+                      bottomRight: Radius.circular(40),
                     ),
-                  ],
-                ),
-                child: Column(
-                  children: [
-                    // AppBar
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset(
-                          'assets/images/logo.png',
-                          width: 42.w,
-                        ),
-                        Row(
-                          children: [
-                            Image.asset(
-                              'assets/images/icon_more_appbar.png',
-                              width: 24.w,
-                            ),
-                            10.horizontalSpace,
-                            Image.asset(
-                              'assets/images/profile_picture.png',
-                              width: 42.w,
+                    boxShadow: [
+                      BoxShadow(
+                        color: const Color(0xff000000).withOpacity(0.25),
+                        blurRadius: 4,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      // AppBar
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(
+                            'assets/images/logo.png',
+                            width: 42.w,
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(
+                                'assets/images/icon_more_appbar.png',
+                                width: 24.w,
+                              ),
+                              10.horizontalSpace,
+                              Image.asset(
+                                'assets/images/profile_picture.png',
+                                width: 42.w,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ).paddingOnly(left: 12.w, right: 12.w, top: 12.h),
+                      const Spacer(),
+                      Text(
+                        "Let's Fill this Out!",
+                        style: TextStyle(
+                          fontFamily: 'JosefinSans',
+                          fontSize: 25.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xffA14D4D),
+                          shadows: [
+                            Shadow(
+                              blurRadius: 4,
+                              color: Colors.black.withOpacity(0.25),
+                              offset: const Offset(0, 2),
                             ),
                           ],
                         ),
-                      ],
-                    ).paddingOnly(left: 12.w, right: 12.w, top: 12.h),
-                    const Spacer(),
-                    Text(
-                      "Let's Fill this Out!",
-                      style: TextStyle(
-                        fontFamily: 'JosefinSans',
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffA14D4D),
-                        shadows: [
-                          Shadow(
-                            blurRadius: 4,
-                            color: Colors.black.withOpacity(0.25),
-                            offset: const Offset(0, 2),
-                          ),
-                        ],
                       ),
-                    ),
-                    const Spacer(),
-                  ],
+
+                      const Spacer(),
+                    ],
+                  ),
                 ),
-              ),
-              // Body Content
-              Column(
-                children: [
-                  CustomCard(),
-                  CustomCard(),
-                  CustomCard(),
-                ],
-              ),
-            ],
+                // Body Content
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Column(
+                    children: [
+                      CustomCard(
+                        title: controller.listDataCard[0]["title"],
+                        description: controller.listDataCard[0]["description"],
+                        bgColor: controller.listDataCard[0]["bgColor"],
+                      ),
+                      CustomCard(
+                        title: controller.listDataCard[1]["title"],
+                        description: controller.listDataCard[1]["description"],
+                        bgColor: controller.listDataCard[1]["bgColor"],
+                      ),
+                      CustomCard(
+                        title: controller.listDataCard[2]["title"],
+                        description: controller.listDataCard[2]["description"],
+                        bgColor: controller.listDataCard[2]["bgColor"],
+                      ),
+                    ],
+                  ),
+                ).paddingOnly(top: 220.h),
+              ],
+            ),
           ),
         ),
       ),
@@ -99,8 +117,15 @@ class PelaporanView extends GetView<PelaporanController> {
 }
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({
+  var title;
+  var description;
+  var bgColor;
+
+  CustomCard({
     Key? key,
+    this.title,
+    this.description,
+    this.bgColor,
   }) : super(key: key);
 
   @override
@@ -109,7 +134,7 @@ class CustomCard extends StatelessWidget {
       width: 351.w,
       height: 260.h,
       decoration: BoxDecoration(
-        color: const Color(0xffFAF3EB),
+        color: bgColor,
         borderRadius: const BorderRadius.all(
           Radius.circular(40),
         ),
@@ -126,7 +151,7 @@ class CustomCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-            "Family Member",
+            title,
             style: TextStyle(
               fontFamily: 'JosefinSans',
               fontSize: 20,
@@ -141,9 +166,9 @@ class CustomCard extends StatelessWidget {
               ],
             ),
           ).paddingOnly(top: 20.h, left: 26.w),
-          const Text(
-            "Apakah kamu mengalami pelecehan seksual oleh anggota keluargamu? Memang berat untuk melaporkan orang terdekatmu, tapi jangan khawatir karena Cupin akan bantu.",
-            style: TextStyle(
+          Text(
+            description,
+            style: const TextStyle(
               fontFamily: 'JosefinSans',
               fontSize: 16,
               color: Color(0xff585656),
@@ -173,6 +198,6 @@ class CustomCard extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ).paddingOnly(bottom: 20.h);
   }
 }
