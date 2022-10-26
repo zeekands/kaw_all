@@ -44,7 +44,7 @@ class PilihPsikologController extends GetxController {
     ),
     Psikolog(
       name: "Tri Heniyati Subekti, S.Psi.",
-      price: 300000,
+      price: 200000,
       image: "https://picsum.photos/id/100/200/300",
       satisfied: 35,
       unsatisfied: 65,

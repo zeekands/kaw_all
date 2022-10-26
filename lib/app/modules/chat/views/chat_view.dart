@@ -53,17 +53,8 @@ class ChatView extends GetView<ChatController> {
                         const SizedBox(
                           height: 6,
                         ),
-                        Text(
-                          "Online",
-                          style: TextStyle(
-                              color: Colors.grey.shade600, fontSize: 13),
-                        ),
                       ],
                     ),
-                  ),
-                  const Icon(
-                    Icons.settings,
-                    color: Colors.black54,
                   ),
                 ],
               ),
@@ -73,7 +64,7 @@ class ChatView extends GetView<ChatController> {
         body: Stack(
           children: [
             Image.asset(
-              'assets/images/fixbg.png',
+              'assets/images/background_course.png',
               fit: BoxFit.cover,
               height: 1.sh,
               width: 1.sw,

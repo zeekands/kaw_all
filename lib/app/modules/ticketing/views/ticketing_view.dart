@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -125,7 +126,7 @@ class TicketingView extends GetView<TicketingController> {
             ),
             HorizontalCalendar(
               date: DateTime.now().add(const Duration(days: 1)),
-              initialDate: DateTime.now().subtract(const Duration(days: 2)),
+              initialDate: DateTime.now(),
               textColor: Colors.black54,
               backgroundColor: const Color(0xffDCE3D9),
               selectedColor: const Color(0xffA39E9E),
@@ -193,36 +194,50 @@ class TicketingView extends GetView<TicketingController> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: List.generate(
                               3,
-                              (index) => Container(
-                                height: 60.h,
-                                width: 150.w,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xff9ECC88),
-                                  border: Border.all(
-                                      color: Colors.white, width: 2.w),
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(10),
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.25),
-                                      blurRadius: 4,
-                                      offset: const Offset(0, 4),
+                              (index) => Obx(() {
+                                return GestureDetector(
+                                  onTap: () {
+                                    controller.konselingTimeSelected.value =
+                                        index;
+                                  },
+                                  child: Container(
+                                    height: 60.h,
+                                    width: 150.w,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xff9ECC88),
+                                      border: controller.konselingTimeSelected
+                                                  .value ==
+                                              index
+                                          ? Border.all(
+                                              color: Colors.white,
+                                              width: 2,
+                                            )
+                                          : null,
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(10),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.25),
+                                          blurRadius: 4,
+                                          offset: const Offset(0, 4),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '1:00 - 1${index + 1}:00',
-                                    style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                                    child: Center(
+                                      child: Text(
+                                        controller.konselingTime[index],
+                                        style: TextStyle(
+                                          fontFamily: 'Montserrat',
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ).paddingOnly(bottom: 15.h),
+                                  ).paddingOnly(bottom: 15.h),
+                                );
+                              }).paddingOnly(bottom: 15.h),
                             ),
                           ),
                           const Spacer(),
