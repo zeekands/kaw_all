@@ -25,6 +25,8 @@ abstract class Routes {
   static const PANAS = _Paths.PANAS;
   static const PAYMENT = _Paths.PAYMENT;
   static const PELAPORAN = _Paths.PELAPORAN;
+  static const RECEIPT = _Paths.RECEIPT;
+  static const BAYAR_CHAT = _Paths.BAYAR_CHAT;
 }
 
 abstract class _Paths {
@@ -51,4 +53,6 @@ abstract class _Paths {
   static const PANAS = '/panas';
   static const PAYMENT = '/payment';
   static const PELAPORAN = '/pelaporan';
+  static const RECEIPT = '/receipt';
+  static const BAYAR_CHAT = '/bayar-chat';
 }

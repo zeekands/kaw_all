@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/bayar_chat/bindings/bayar_chat_binding.dart';
+import '../modules/bayar_chat/views/bayar_chat_view.dart';
 import '../modules/chat/bindings/chat_binding.dart';
 import '../modules/chat/views/chat_view.dart';
 import '../modules/coming_soon/bindings/coming_soon_binding.dart';
@@ -36,6 +38,8 @@ import '../modules/profile_dokter/bindings/profile_dokter_binding.dart';
 import '../modules/profile_dokter/views/profile_dokter_view.dart';
 import '../modules/profile_relawan/bindings/profile_relawan_binding.dart';
 import '../modules/profile_relawan/views/profile_relawan_view.dart';
+import '../modules/receipt/bindings/receipt_binding.dart';
+import '../modules/receipt/views/receipt_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/ticketing/bindings/ticketing_binding.dart';
@@ -162,6 +166,16 @@ class AppPages {
       name: _Paths.PELAPORAN,
       page: () => const PelaporanView(),
       binding: PelaporanBinding(),
+    ),
+    GetPage(
+      name: _Paths.RECEIPT,
+      page: () => const ReceiptView(),
+      binding: ReceiptBinding(),
+    ),
+    GetPage(
+      name: _Paths.BAYAR_CHAT,
+      page: () => const BayarChatView(),
+      binding: BayarChatBinding(),
     ),
   ];
 }
