@@ -85,7 +85,7 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () {},
+                onTap: () => Get.toNamed(Routes.RECEIPT),
                 shape: const Border(
                   top: BorderSide(
                     color: Colors.black26,
@@ -108,7 +108,7 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () {},
+                onTap: () => Get.toNamed(Routes.RECEIPT),
                 shape: const Border(
                   bottom: BorderSide(
                     color: Colors.black26,
@@ -134,7 +134,7 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () {},
+                onTap: () => Get.toNamed(Routes.RECEIPT),
                 shape: const Border(
                   bottom: BorderSide(
                     color: Colors.black26,

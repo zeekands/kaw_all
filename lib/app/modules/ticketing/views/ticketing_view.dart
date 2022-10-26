@@ -228,7 +228,7 @@ class TicketingView extends GetView<TicketingController> {
                           const Spacer(),
                           // Schedule button
                           GestureDetector(
-                            onTap: () => Get.toNamed(Routes.PAYMENT),
+                            onTap: () => Get.toNamed(Routes.BAYAR_CHAT),
                             child: Container(
                               height: 53.h,
                               width: 230.w,
