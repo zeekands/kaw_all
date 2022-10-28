@@ -92,6 +92,7 @@ class TicketingView extends GetView<TicketingController> {
                   alignment: Alignment.bottomCenter,
                   child: Column(
                     children: [
+                      // Psikolog Image
                       Container(
                         width: 151.w,
                         height: 194.h,
@@ -106,16 +107,21 @@ class TicketingView extends GetView<TicketingController> {
                                   0, 4), // changes position of shadow
                             ),
                           ],
-                          color: Colors.white,
+                          image: DecorationImage(
+                            image:
+                                AssetImage(controller.image), // Psikolog Image
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
+                      // Psikolog Name
                       Text(
-                        'Dr. Rizki Ramadhan',
+                        controller.name,
                         style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 18.sp,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xff444941),
+                          color: const Color(0xff444941),
                         ),
                       ).paddingOnly(top: 11.h),
                     ],
@@ -123,6 +129,7 @@ class TicketingView extends GetView<TicketingController> {
                 ).marginOnly(top: 70.h),
               ],
             ),
+            // Calendar Section
             HorizontalCalendar(
               date: DateTime.now().add(const Duration(days: 1)),
               initialDate: DateTime.now().subtract(const Duration(days: 2)),
@@ -138,6 +145,7 @@ class TicketingView extends GetView<TicketingController> {
               },
             ),
             const Spacer(),
+            // Date Section
             Obx(() {
               return Text(
                 controller.day.value,
@@ -157,6 +165,7 @@ class TicketingView extends GetView<TicketingController> {
               );
             }),
             const Spacer(),
+            // Ticket Section
             Obx(
               () => Container(
                 height: 400.h,
@@ -189,44 +198,50 @@ class TicketingView extends GetView<TicketingController> {
                     : Column(
                         children: [
                           const Spacer(),
+                          // Schedule Section
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(
-                              3,
-                              (index) => Container(
-                                height: 60.h,
-                                width: 150.w,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xff9ECC88),
-                                  border: Border.all(
-                                      color: Colors.white, width: 2.w),
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(10),
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.25),
-                                      blurRadius: 4,
-                                      offset: const Offset(0, 4),
-                                    ),
-                                  ],
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    '1:00 - 1${index + 1}:00',
-                                    style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ).paddingOnly(bottom: 15.h),
-                            ),
+                            children: [
+                              GestureDetector(
+                                onTap: () => controller.selectedVal.value = 0,
+                                child: ScheduleButton(
+                                  time: controller.consultTime[0],
+                                  color: controller.selectedVal.value == 0
+                                      ? const Color(0xffDCE3D9)
+                                      : const Color(0xff9ECC88),
+                                  textColor: controller.selectedVal.value == 0
+                                      ? const Color(0xff908784)
+                                      : Colors.black,
+                                ).paddingOnly(bottom: 15.h),
+                              ),
+                              GestureDetector(
+                                onTap: () => controller.selectedVal.value = 1,
+                                child: ScheduleButton(
+                                  time: controller.consultTime[1],
+                                  color: controller.selectedVal.value == 1
+                                      ? const Color(0xffDCE3D9)
+                                      : const Color(0xff9ECC88),
+                                  textColor: controller.selectedVal.value == 1
+                                      ? const Color(0xff908784)
+                                      : Colors.black,
+                                ).paddingOnly(bottom: 15.h),
+                              ),
+                              GestureDetector(
+                                onTap: () => controller.selectedVal.value = 2,
+                                child: ScheduleButton(
+                                  time: controller.consultTime[2],
+                                  color: controller.selectedVal.value == 2
+                                      ? const Color(0xffDCE3D9)
+                                      : const Color(0xff9ECC88),
+                                  textColor: controller.selectedVal.value == 2
+                                      ? const Color(0xff908784)
+                                      : Colors.black,
+                                ).paddingOnly(bottom: 15.h),
+                              ),
+                            ],
                           ),
                           const Spacer(),
-                          // Schedule button
+                          // Submit button
                           GestureDetector(
                             onTap: () => Get.toNamed(Routes.BAYAR_CHAT),
                             child: Container(
@@ -264,6 +279,52 @@ class TicketingView extends GetView<TicketingController> {
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ScheduleButton extends StatelessWidget {
+  final time;
+  final color;
+  final textColor;
+
+  const ScheduleButton({
+    Key? key,
+    required this.time,
+    required this.color,
+    required this.textColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 60.h,
+      width: 150.w,
+      decoration: BoxDecoration(
+        color: color,
+        border: Border.all(color: Colors.white, width: 2.w),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.25),
+            blurRadius: 4,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Center(
+        child: Text(
+          time,
+          style: TextStyle(
+            fontFamily: 'Montserrat',
+            fontSize: 20.sp,
+            fontWeight: FontWeight.bold,
+            color: textColor,
+          ),
         ),
       ),
     );

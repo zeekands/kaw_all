@@ -106,8 +106,8 @@ class DokterChatPageView extends GetView<DokterChatPageController> {
                             color: (snapshot.data?['messages'][index]
                                         ['sender_email'] !=
                                     controller.user?.email
-                                ? Color(0xffDCE3D9)
-                                : Color(0xffFAEBE6)),
+                                ? const Color(0xffDCE3D9)
+                                : const Color(0xffFAEBE6)),
                           ),
                           padding: const EdgeInsets.all(16),
                           child: Text(

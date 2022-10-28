@@ -24,6 +24,8 @@ class PelaporanController extends GetxController {
     },
   ];
 
+  var currentStep = 0.obs;
+
   @override
   void onInit() {
     super.onInit();

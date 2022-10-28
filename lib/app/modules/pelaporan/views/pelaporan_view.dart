@@ -79,7 +79,6 @@ class PelaporanView extends GetView<PelaporanController> {
                           ],
                         ),
                       ),
-
                       const Spacer(),
                     ],
                   ),

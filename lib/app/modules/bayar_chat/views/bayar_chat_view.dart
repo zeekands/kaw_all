@@ -78,7 +78,22 @@ class BayarChatView extends GetView<BayarChatController> {
                       height: 160.h,
                       child: ListView.builder(
                         itemCount: 5,
-                        itemBuilder: (context, index) => CardHargaPerKata(),
+                        itemBuilder: (context, index) => Obx(
+                          () => GestureDetector(
+                            onTap: () => controller.selectedVal.value = index,
+                            child: CardHargaPerKata(
+                              jmlKata:
+                                  controller.data[index]['jmlKata'].toString(),
+                              harga: controller.data[index]['harga'].toString(),
+                              cardColor: controller.selectedVal.value == index
+                                  ? const Color(0xffA2BB96)
+                                  : const Color(0xffFFFFFF),
+                              borderColor: controller.selectedVal.value == index
+                                  ? const Color(0xff44563C)
+                                  : const Color(0xffFFFFFF),
+                            ),
+                          ),
+                        ),
                         scrollDirection: Axis.horizontal,
                       ),
                     ),
@@ -118,8 +133,17 @@ class BayarChatView extends GetView<BayarChatController> {
 }
 
 class CardHargaPerKata extends StatelessWidget {
+  final String jmlKata;
+  final String harga;
+  final cardColor;
+  final borderColor;
+
   const CardHargaPerKata({
     Key? key,
+    required this.jmlKata,
+    required this.harga,
+    required this.cardColor,
+    required this.borderColor,
   }) : super(key: key);
 
   @override
@@ -129,7 +153,11 @@ class CardHargaPerKata extends StatelessWidget {
       width: 144.w,
       height: 147.h,
       decoration: BoxDecoration(
-        color: const Color(0xffFFFFFF),
+        color: cardColor,
+        border: Border.all(
+          color: borderColor,
+          width: 1.w,
+        ),
         borderRadius: const BorderRadius.all(
           Radius.circular(40),
         ),
@@ -145,7 +173,7 @@ class CardHargaPerKata extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "100",
+            jmlKata,
             style: TextStyle(
               color: const Color(0xffB55D5D),
               fontFamily: 'Montserrat',
@@ -153,8 +181,8 @@ class CardHargaPerKata extends StatelessWidget {
               fontWeight: FontWeight.w700,
               shadows: [
                 Shadow(
-                  color: Color(0xff000000).withOpacity(0.25),
-                  offset: Offset(0, 4),
+                  color: const Color(0xff000000).withOpacity(0.25),
+                  offset: const Offset(0, 4),
                   blurRadius: 4,
                 ),
               ],
@@ -169,16 +197,16 @@ class CardHargaPerKata extends StatelessWidget {
               fontWeight: FontWeight.w700,
               shadows: [
                 Shadow(
-                  color: Color(0xff000000).withOpacity(0.25),
-                  offset: Offset(0, 4),
+                  color: const Color(0xff000000).withOpacity(0.25),
+                  offset: const Offset(0, 4),
                   blurRadius: 4,
                 ),
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Text(
-            "Rp 40.000",
+            harga,
             style: TextStyle(
               color: const Color(0xffC26161),
               fontFamily: 'Montserrat',
@@ -186,8 +214,8 @@ class CardHargaPerKata extends StatelessWidget {
               fontWeight: FontWeight.w700,
               shadows: [
                 Shadow(
-                  color: Color(0xff000000).withOpacity(0.25),
-                  offset: Offset(0, 4),
+                  color: const Color(0xff000000).withOpacity(0.25),
+                  offset: const Offset(0, 4),
                   blurRadius: 4,
                 ),
               ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:kaw_all/app/routes/app_pages.dart';
 
 import '../controllers/donasi_controller.dart';
 
@@ -110,38 +111,25 @@ class DonasiView extends GetView<DonasiController> {
                 ),
               ).paddingSymmetric(horizontal: 51.w),
               const Spacer(),
-              Container(
-                width: 165.w,
-                height: 60.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xffBE5F5F),
-                  borderRadius: BorderRadius.circular(30.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 0,
-                      blurRadius: 4,
-                      offset: const Offset(0, 4), // changes position of shadow
+              ElevatedButton(
+                onPressed: () => Get.toNamed(Routes.COMING_SOON),
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xffBE5F5F),
+                  minimumSize: Size(165.w, 60.h),
+                  elevation: 0,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30),
                     ),
-                  ],
+                  ),
                 ),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "Donate here",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: "Montserrat",
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
-                      shadows: [
-                        Shadow(
-                          blurRadius: 4,
-                          color: Colors.black.withOpacity(0.25),
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
+                child: Text(
+                  "Donate here",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Montserrat',
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),

@@ -7,8 +7,12 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 class ChatController extends GetxController {
   auth.User? user = auth.FirebaseAuth.instance.currentUser;
   final docRef = FirebaseFirestore.instance.collection('chats');
-  final chatId = Get.arguments.toString();
+  final chatId = Get.arguments['chatId'];
   final chatText = TextEditingController();
+
+  // data doctor
+  final doctorName = Get.arguments["name"].toString();
+  final doctorImage = Get.arguments["image"].toString();
 
   @override
   void onInit() async {

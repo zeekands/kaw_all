@@ -57,7 +57,7 @@ class ProfileRelawanView extends GetView<ProfileRelawanController> {
                   ),
                 ],
                 image: DecorationImage(
-                  image: NetworkImage(psikolog.image),
+                  image: AssetImage(psikolog.image),
                   fit: BoxFit.cover,
                 ),
               ),

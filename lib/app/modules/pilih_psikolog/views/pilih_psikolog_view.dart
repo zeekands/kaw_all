@@ -11,7 +11,7 @@ import '../models/psikolog_model.dart';
 class PilihPsikologView extends GetView<PilihPsikologController> {
   const PilihPsikologView({Key? key}) : super(key: key);
 
-  Widget _buildItemList(Psikolog psikolog, int index) {
+  Widget _buildItemList(Psikolog psikolog, int index, Color color) {
     return Container(
       padding: EdgeInsets.symmetric(
         vertical: 30.h,
@@ -29,7 +29,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
             offset: const Offset(0, 4), // changes position of shadow
           ),
         ],
-        color: controller.color.value,
+        color: color,
       ),
       child: Column(
         children: [
@@ -57,7 +57,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                   ),
                 ],
                 image: DecorationImage(
-                  image: NetworkImage(psikolog.image),
+                  image: AssetImage(psikolog.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -136,170 +136,177 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                         topRight: Radius.circular(50.r),
                       ),
                     ),
-                    child: Obx(() {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          50.verticalSpace,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    "Satisfied",
-                                    style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: const Color(0xffFAF3EB),
-                                    ),
-                                  ),
-                                  10.verticalSpace,
-                                  Container(
-                                    width: 90.w,
-                                    height: 90.h,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 0,
-                                          blurRadius: 4,
-                                          offset: const Offset(0,
-                                              4), // changes position of shadow
-                                        ),
-                                      ],
-                                      color: const Color(0xffFAF3EB),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Text(
-                                      "${((controller.satisfied.value / controller.totalFeedBack.value) * 100).round()}%",
+                    child: Obx(
+                      () {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            50.verticalSpace,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text(
+                                      "Satisfied",
                                       style: TextStyle(
                                         fontFamily: 'Montserrat',
-                                        fontSize: 20.sp,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.bold,
-                                        color: const Color(0xff5ABA2D),
+                                        color: const Color(0xffFAF3EB),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    "Unsatisfied",
-                                    style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: const Color(0xffFAF3EB),
-                                    ),
-                                  ),
-                                  10.verticalSpace,
-                                  Container(
-                                    width: 90.w,
-                                    height: 90.h,
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
-                                          spreadRadius: 0,
-                                          blurRadius: 4,
-                                          offset: const Offset(0,
-                                              4), // changes position of shadow
+                                    10.verticalSpace,
+                                    Container(
+                                      width: 90.w,
+                                      height: 90.h,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            spreadRadius: 0,
+                                            blurRadius: 4,
+                                            offset: const Offset(0,
+                                                4), // changes position of shadow
+                                          ),
+                                        ],
+                                        color: const Color(0xffFAF3EB),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Text(
+                                        "${((controller.satisfied.value / controller.totalFeedBack.value) * 100).round()}%",
+                                        style: TextStyle(
+                                          fontFamily: 'Montserrat',
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.bold,
+                                          color: const Color(0xff5ABA2D),
                                         ),
-                                      ],
-                                      color: const Color(0xffFAF3EB),
-                                      shape: BoxShape.circle,
+                                      ),
                                     ),
-                                    child: Text(
-                                      "${((controller.unsatisfied.value / controller.totalFeedBack.value) * 100).round()}%",
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      "Unsatisfied",
                                       style: TextStyle(
                                         fontFamily: 'Montserrat',
-                                        fontSize: 20.sp,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.bold,
-                                        color: const Color(0xffA70D03),
+                                        color: const Color(0xffFAF3EB),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          20.verticalSpace,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Umur: ${controller.age.value} Tahun",
-                                    style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: const Color(0xffFAF3EB),
+                                    10.verticalSpace,
+                                    Container(
+                                      width: 90.w,
+                                      height: 90.h,
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.5),
+                                            spreadRadius: 0,
+                                            blurRadius: 4,
+                                            offset: const Offset(0,
+                                                4), // changes position of shadow
+                                          ),
+                                        ],
+                                        color: const Color(0xffFAF3EB),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Text(
+                                        "${((controller.unsatisfied.value / controller.totalFeedBack.value) * 100).round()}%",
+                                        style: TextStyle(
+                                          fontFamily: 'Montserrat',
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.bold,
+                                          color: const Color(0xffA70D03),
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    "Spesialisasi: ${controller.specialist.value}",
-                                    style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: const Color(0xffFAF3EB),
-                                    ),
-                                  ),
-                                  Text(
-                                    "Pengalaman: ${controller.experience.value}",
-                                    style: TextStyle(
-                                      fontFamily: 'Montserrat',
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: const Color(0xffFAF3EB),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              5.horizontalSpace,
-                            ],
-                          ),
-                          20.verticalSpace,
-                          Material(
-                            color: const Color(0xff4E524C),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50.r),
+                                  ],
+                                ),
+                              ],
                             ),
-                            child: InkWell(
-                              onTap: () {
-                                Get.toNamed(Routes.TICKETING);
-                              },
-                              child: SizedBox(
-                                width: 246.w,
-                                height: 50.h,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    "Pesan Sekarang",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Montserrat',
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14.sp,
+                            20.verticalSpace,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Umur: ${controller.age.value} Tahun",
+                                      style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color(0xffFAF3EB),
+                                      ),
+                                    ),
+                                    Text(
+                                      "Spesialisasi: ${controller.specialist.value}",
+                                      style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color(0xffFAF3EB),
+                                      ),
+                                    ),
+                                    Text(
+                                      "Pengalaman: ${controller.experience.value}",
+                                      style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color(0xffFAF3EB),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            20.verticalSpace,
+                            Material(
+                              color: const Color(0xff4E524C),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50.r),
+                              ),
+                              child: InkWell(
+                                onTap: () {
+                                  Get.toNamed(
+                                    Routes.TICKETING,
+                                    arguments: {
+                                      'name': controller.name.value,
+                                      'image': controller.image.value,
+                                    },
+                                  );
+                                },
+                                child: SizedBox(
+                                  width: 246.w,
+                                  height: 50.h,
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "Pesan Sekarang",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14.sp,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ).paddingSymmetric(horizontal: 16.w),
-                          16.verticalSpace,
-                        ],
-                      );
-                    }),
+                            ).paddingSymmetric(horizontal: 16.w),
+                            16.verticalSpace,
+                          ],
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -330,19 +337,20 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                       },
                       itemBuilder: (_, index) {
                         // Change the selected card background color
-                        if (index % 3 == 1) {
-                          controller.color.value = firstColor;
-                        } else if (index % 3 == 2) {
-                          controller.color.value = secondColor;
-                        } else if (index % 3 == 0) {
-                          controller.color.value = thirdColor;
-                        }
+                        var color = [
+                          firstColor,
+                          secondColor,
+                          thirdColor,
+                        ];
 
-                        return Transform.scale(
-                          scale:
-                              controller.focusItemCard.value == index ? 1 : 0.7,
-                          child: _buildItemList(
-                              controller.data.value[index], index),
+                        return Obx(
+                          () => Transform.scale(
+                            scale: controller.focusItemCard.value == index
+                                ? 1
+                                : 0.7,
+                            child: _buildItemList(controller.data.value[index],
+                                index, color[index]),
+                          ),
                         );
                       },
                     ),

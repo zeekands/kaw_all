@@ -26,15 +26,16 @@ class ChatView extends GetView<ChatController> {
                     },
                     icon: const Icon(
                       Icons.arrow_back,
-                      color: Colors.black,
+                      color: Color(0xff3C5F5F),
                     ),
                   ),
                   const SizedBox(
                     width: 2,
                   ),
-                  const CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://randomuser.me/api/portraits/men/5.jpg"),
+                  CircleAvatar(
+                    backgroundImage: AssetImage(
+                      controller.doctorImage,
+                    ),
                     maxRadius: 20,
                   ),
                   const SizedBox(
@@ -45,25 +46,37 @@ class ChatView extends GetView<ChatController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        const Text(
-                          "dr. Muhammad Habibul Ihsan",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600),
-                        ),
+                        Flexible(
+                          child: Text(
+                            controller.doctorName,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Montserrat',
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ).paddingOnly(right: 10.w),
                         const SizedBox(
                           height: 6,
                         ),
                         Text(
                           "Online",
                           style: TextStyle(
-                              color: Colors.grey.shade600, fontSize: 13),
+                            color: Colors.white,
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 10,
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  const Icon(
-                    Icons.settings,
-                    color: Colors.black54,
+                  Image.asset(
+                    "assets/images/logo.png",
+                    width: 35.w,
+                    height: 35.h,
                   ),
                 ],
               ),
@@ -73,7 +86,7 @@ class ChatView extends GetView<ChatController> {
         body: Stack(
           children: [
             Image.asset(
-              'assets/images/fixbg.png',
+              'assets/images/background_chat.png',
               fit: BoxFit.cover,
               height: 1.sh,
               width: 1.sw,

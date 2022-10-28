@@ -33,15 +33,15 @@ class ProfileRelawanController extends GetxController {
 
   final data = [
     Psikolog(
-      name: "Dr. Habibul Ihsan, S.Ked",
-      price: 200000,
-      image: "https://picsum.photos/id/237/200/300",
+      name: "Example",
+      price: 21000,
+      image: "assets/images/default_profile_img.png",
       satisfied: 95,
-      unsatisfied: 10,
-      totalFeedBack: 105,
-      age: 30,
-      specialist: "Psikolog",
-      experience: "10 Tahun",
+      unsatisfied: 5,
+      totalFeedBack: 100,
+      age: 22,
+      specialist: "-",
+      experience: "Mahasiswa",
     ),
   ].obs;
 }

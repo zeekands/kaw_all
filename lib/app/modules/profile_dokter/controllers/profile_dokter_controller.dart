@@ -36,15 +36,15 @@ class ProfileDokterController extends GetxController {
 
   final data = [
     Psikolog(
-      name: "Dr. Habibul Ihsan, S.Ked",
-      price: 300000,
-      image: "https://picsum.photos/id/100/200/300",
-      satisfied: 35,
-      unsatisfied: 65,
+      name: "dr. Muhammad Habibul Ihsan",
+      price: 130000,
+      image: "assets/images/psikolog3.png",
+      satisfied: 95,
+      unsatisfied: 5,
       totalFeedBack: 100,
-      age: 20,
-      specialist: "Psikolog",
-      experience: "15 Tahun",
+      age: 30,
+      specialist: "Umum",
+      experience: "6 Tahun",
     ),
   ].obs;
 

@@ -57,7 +57,7 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
                   ),
                 ],
                 image: DecorationImage(
-                  image: NetworkImage(psikolog.image),
+                  image: AssetImage(psikolog.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -277,8 +277,14 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
                             child: InkWell(
                               onTap: () async {
                                 await controller.uploadChat();
-                                Get.toNamed(Routes.CHAT,
-                                    arguments: controller.chatId);
+                                Get.toNamed(
+                                  Routes.CHAT,
+                                  arguments: {
+                                    'chatId': controller.chatId.value,
+                                    'name': controller.name.value,
+                                    'image': controller.image.value,
+                                  },
+                                );
                               },
                               child: SizedBox(
                                 width: 246.w,
@@ -340,11 +346,14 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
                           controller.color.value = thirdColor;
                         }
 
-                        return Transform.scale(
-                          scale:
-                              controller.focusItemCard.value == index ? 1 : 0.7,
-                          child: _buildItemList(
-                              controller.data.value[index], index),
+                        return Obx(
+                          () => Transform.scale(
+                            scale: controller.focusItemCard.value == index
+                                ? 1
+                                : 0.7,
+                            child: _buildItemList(
+                                controller.data.value[index], index),
+                          ),
                         );
                       },
                     ),

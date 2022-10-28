@@ -1,9 +1,34 @@
 import 'package:get/get.dart';
 
 class BayarChatController extends GetxController {
-  //TODO: Implement BayarChatController
+  var selectedVal = 0.obs;
+  final data = [
+    {
+      "jmlKata": "75",
+      "harga": "Rp 24.000",
+    },
+    {
+      "jmlKata": "100",
+      "harga": "Rp 40.000",
+    },
+    {
+      "jmlKata": "125",
+      "harga": "Rp 56.000",
+    },
+    {
+      "jmlKata": "150",
+      "harga": "Rp 66.000",
+    },
+    {
+      "jmlKata": "175",
+      "harga": "Rp 82.000",
+    },
+    {
+      "jmlKata": "200",
+      "harga": "Rp 98.000",
+    },
+  ];
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +43,4 @@ class BayarChatController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }
