@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -132,7 +133,7 @@ class TicketingView extends GetView<TicketingController> {
             // Calendar Section
             HorizontalCalendar(
               date: DateTime.now().add(const Duration(days: 1)),
-              initialDate: DateTime.now().subtract(const Duration(days: 2)),
+              initialDate: DateTime.now(),
               textColor: Colors.black54,
               backgroundColor: const Color(0xffDCE3D9),
               selectedColor: const Color(0xffA39E9E),
