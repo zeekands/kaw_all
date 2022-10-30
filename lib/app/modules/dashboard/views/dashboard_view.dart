@@ -139,7 +139,8 @@ class DashboardView extends GetView<DashboardController> {
                   ).paddingOnly(left: 36.w, bottom: 10.h),
                   SizedBox(
                     height: 150.h,
-                    child: ListView(
+                    child: PageView(
+                      scrollDirection: Axis.vertical,
                       children: [
                         Container(
                           width: 370.w,
@@ -212,8 +213,7 @@ class DashboardView extends GetView<DashboardController> {
                               ),
                             ],
                           ),
-                        ).paddingSymmetric(horizontal: 16.w),
-                        20.verticalSpace,
+                        ).paddingOnly(left: 16.w, right: 16.w, bottom: 16.h),
                         Container(
                           width: 370.w,
                           height: 138.h,
@@ -290,8 +290,7 @@ class DashboardView extends GetView<DashboardController> {
                               ],
                             ),
                           ).paddingAll(15.w),
-                        ).paddingSymmetric(horizontal: 16.w),
-                        20.verticalSpace,
+                        ).paddingOnly(left: 16.w, right: 16.w, bottom: 16.h),
                         Container(
                           width: 370.w,
                           height: 138.h,
@@ -386,7 +385,7 @@ class DashboardView extends GetView<DashboardController> {
                         ),
                       ],
                     ),
-                  ).paddingOnly(top: 25.h, left: 36.w, bottom: 10.h),
+                  ).paddingOnly(top: 20.h, left: 36.w, bottom: 10.h),
                   SizedBox(
                     height: 160.h,
                     width: 1.sw,

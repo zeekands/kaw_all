@@ -6,8 +6,6 @@ class TicketingController extends GetxController {
   final day = "".obs;
   final dayName = "".obs;
 
-  final konselingTimeSelected = 0.obs;
-
   final name = Get.arguments["name"].toString();
   final image = Get.arguments["image"].toString();
   final consultTime = [

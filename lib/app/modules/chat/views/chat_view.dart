@@ -50,7 +50,7 @@ class ChatView extends GetView<ChatController> {
                           child: Text(
                             controller.doctorName,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontFamily: 'Montserrat',
                               fontSize: 16,
@@ -61,7 +61,7 @@ class ChatView extends GetView<ChatController> {
                         const SizedBox(
                           height: 6,
                         ),
-                        Text(
+                        const Text(
                           "Online",
                           style: TextStyle(
                             color: Colors.white,
