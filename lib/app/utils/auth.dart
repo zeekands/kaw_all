@@ -65,6 +65,7 @@ class Authentication {
         'sex': sex,
         'phoneNumber': phoneNumber,
         'userName': userName,
+        'wordChatCount': 0,
       }).then((value) => Get.snackbar('Success', 'User created successfully',
           snackStyle: SnackStyle.FLOATING,
           colorText: Colors.white,
@@ -135,6 +136,7 @@ class Authentication {
       'sex': "",
       'phoneNumber': user.phoneNumber,
       'userName': user.displayName,
+      'wordChatCount': 0,
     });
     Get.offAllNamed(Routes.LOGIN);
 
