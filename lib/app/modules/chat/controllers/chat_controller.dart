@@ -14,29 +14,64 @@ class ChatController extends GetxController {
   final doctorName = Get.arguments["name"].toString();
   final doctorImage = Get.arguments["image"].toString();
 
+  // wordCount
+  var wordChatCount = 0.obs;
+
   @override
   void onInit() async {
     super.onInit();
+    initWordChatCount();
+  }
+
+  void initWordChatCount() async {
+    // Get wordChatCount from user collection reference
+    FirebaseFirestore.instance.collection('users').doc(user!.uid).get().then(
+      (value) {
+        wordChatCount.value = int.parse(value.data()!['wordChatCount']);
+      },
+    );
   }
 
   uploadMessage(String message, String chatId) async {
-    final email = user?.email;
-    final name = user?.displayName;
-    final date = Timestamp.now().toDate();
+    if (message.isNotEmpty) {
+      // cek jumlah kata
+      message = message.trim();
+      final wordCount = message.split(' ').length;
+      if (wordCount <= wordChatCount.value) {
+        // kurangi jumlah kata
+        wordChatCount.value -= wordCount;
+        FirebaseFirestore.instance.collection('users').doc(user!.uid).update({
+          'wordChatCount': wordChatCount.value,
+        });
+      } else {
+        Get.snackbar(
+          "Gagal",
+          "SIlahkan top up terlebih dahulu",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+        );
+      }
 
-    final messageMap = {
-      'sender_email': email,
-      'sender_name': name,
-      'message': message,
-      'date': date,
-    };
-    var newMessage = FirebaseFirestore.instance.collection('chats').doc(chatId);
-    messageMap['id'] = newMessage.id;
-    newMessage.update(
-      {
-        'messages': FieldValue.arrayUnion([messageMap])
-      },
-    );
+      final email = user?.email;
+      final name = user?.displayName;
+      final date = Timestamp.now().toDate();
+
+      final messageMap = {
+        'sender_email': email,
+        'sender_name': name,
+        'message': message,
+        'date': date,
+      };
+      var newMessage =
+          FirebaseFirestore.instance.collection('chats').doc(chatId);
+      messageMap['id'] = newMessage.id;
+      newMessage.update(
+        {
+          'messages': FieldValue.arrayUnion([messageMap])
+        },
+      );
+    }
   }
 
   Stream<DocumentSnapshot<Map<String, dynamic>>> getChat() {

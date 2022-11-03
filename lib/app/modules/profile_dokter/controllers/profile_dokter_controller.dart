@@ -32,11 +32,13 @@ class ProfileDokterController extends GetxController {
     age.value = data[0].age;
     specialist.value = data[0].specialist;
     experience.value = data[0].experience;
+
+    initWordChatCount();
   }
 
   final data = [
     Psikolog(
-      name: "dr. Muhammad Habibul Ihsan",
+      name: "Dr. Muhammad Habibul Ihsan",
       price: 130000,
       image: "assets/images/psikolog3.png",
       satisfied: 95,
@@ -50,6 +52,19 @@ class ProfileDokterController extends GetxController {
 
   final docRef = FirebaseFirestore.instance.collection('users');
   User? user = FirebaseAuth.instance.currentUser;
+
+  // untuk cek apakah user sudah top up atau belum
+  var wordChatCount = 0.obs;
+
+  void initWordChatCount() async {
+    // Get wordChatCount from user collection reference
+    FirebaseFirestore.instance.collection('users').doc(user!.uid).get().then(
+      (value) {
+        wordChatCount.value = int.parse(value.data()!['wordChatCount']);
+      },
+    );
+  }
+
   uploadChat() async {
     List<dynamic> messages = [];
     List<String?> users = [];

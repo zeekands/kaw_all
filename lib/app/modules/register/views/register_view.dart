@@ -115,37 +115,49 @@ class RegisterView extends GetView<RegisterController> {
                                     ),
                                   ),
                                 ),
-                                Row(
-                                  children: [
-                                    Radio(
-                                      value: 1,
-                                      groupValue: 'null',
-                                      onChanged: (index) {},
-                                    ),
-                                    const Text(
-                                      'Female',
-                                      style: TextStyle(
-                                        fontFamily: "Montserrat",
-                                        fontSize: 14,
+                                Obx(
+                                  () => Row(
+                                    children: [
+                                      Radio(
+                                        value: "female",
+                                        groupValue:
+                                            controller.selectedSex.value,
+                                        onChanged: (value) {
+                                          controller.selectedSex.value =
+                                              value.toString();
+                                        },
                                       ),
-                                    )
-                                  ],
+                                      const Text(
+                                        'Female',
+                                        style: TextStyle(
+                                          fontFamily: "Montserrat",
+                                          fontSize: 14,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
-                                Row(
-                                  children: [
-                                    Radio(
-                                      value: 2,
-                                      groupValue: 'null',
-                                      onChanged: (index) {},
-                                    ),
-                                    const Text(
-                                      'Male',
-                                      style: TextStyle(
-                                        fontFamily: "Montserrat",
-                                        fontSize: 14,
+                                Obx(
+                                  () => Row(
+                                    children: [
+                                      Radio(
+                                        value: "male",
+                                        groupValue:
+                                            controller.selectedSex.value,
+                                        onChanged: (value) {
+                                          controller.selectedSex.value =
+                                              value.toString();
+                                        },
                                       ),
-                                    )
-                                  ],
+                                      const Text(
+                                        'Male',
+                                        style: TextStyle(
+                                          fontFamily: "Montserrat",
+                                          fontSize: 14,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
@@ -287,17 +299,16 @@ class RegisterView extends GetView<RegisterController> {
                             GestureDetector(
                               onTap: () {
                                 controller.register(
-                                    name: controller.nameController.text,
-                                    email: controller.emailController.text,
-                                    password:
-                                        controller.passwordController.text,
-                                    age: int.parse(
-                                        controller.ageController.text),
-                                    sex: controller.sexController.text,
-                                    phoneNumber:
-                                        controller.phoneNumberController.text,
-                                    userName:
-                                        controller.userNameController.text);
+                                  name: controller.nameController.text,
+                                  email: controller.emailController.text,
+                                  password: controller.passwordController.text,
+                                  age: int.parse(controller.ageController.text),
+                                  sex: controller.selectedSex.value,
+                                  phoneNumber:
+                                      controller.phoneNumberController.text,
+                                  userName: controller.userNameController.text,
+                                  wordChatCount: 0,
+                                );
                               },
                               child: Container(
                                 width: 1.sw,

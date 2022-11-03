@@ -85,7 +85,8 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () => Get.toNamed(Routes.RECEIPT),
+                onTap: () => Get.until(
+                    (route) => Get.currentRoute == Routes.PROFILE_DOKTER),
                 shape: const Border(
                   top: BorderSide(
                     color: Colors.black26,
@@ -108,7 +109,8 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () => Get.toNamed(Routes.RECEIPT),
+                onTap: () => Get.until(
+                    (route) => Get.currentRoute == Routes.PROFILE_DOKTER),
                 shape: const Border(
                   bottom: BorderSide(
                     color: Colors.black26,
@@ -134,7 +136,8 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () => Get.toNamed(Routes.RECEIPT),
+                onTap: () => Get.until(
+                    (route) => Get.currentRoute == Routes.PROFILE_DOKTER),
                 shape: const Border(
                   bottom: BorderSide(
                     color: Colors.black26,
@@ -147,8 +150,11 @@ class PaymentController extends GetxController {
       ),
       backgroundColor: Colors.white,
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
       ),
     );
   }

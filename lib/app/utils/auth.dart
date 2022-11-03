@@ -53,7 +53,8 @@ class Authentication {
       required int age,
       required String sex,
       required String phoneNumber,
-      required String userName}) async {
+      required String userName,
+      required int wordChatCount}) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -65,6 +66,7 @@ class Authentication {
         'sex': sex,
         'phoneNumber': phoneNumber,
         'userName': userName,
+        'wordChatCount': wordChatCount,
       }).then((value) => Get.snackbar('Success', 'User created successfully',
           snackStyle: SnackStyle.FLOATING,
           colorText: Colors.white,

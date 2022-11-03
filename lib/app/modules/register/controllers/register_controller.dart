@@ -8,9 +8,9 @@ class RegisterController extends GetxController {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   final ageController = TextEditingController();
-  final sexController = TextEditingController();
   final phoneNumberController = TextEditingController();
   final userNameController = TextEditingController();
+  var selectedSex = "female".obs;
 
   Future<void> register(
       {required String name,
@@ -19,7 +19,8 @@ class RegisterController extends GetxController {
       required int age,
       required String sex,
       required String phoneNumber,
-      required String userName}) async {
+      required String userName,
+      required int wordChatCount}) async {
     Authentication.signUpWithEmailAndPassword(
         name: name,
         email: email,
@@ -27,7 +28,8 @@ class RegisterController extends GetxController {
         age: age,
         sex: sex,
         phoneNumber: phoneNumber,
-        userName: userName);
+        userName: userName,
+        wordChatCount: wordChatCount);
   }
 
   @override
@@ -39,7 +41,6 @@ class RegisterController extends GetxController {
     passwordController.dispose();
     confirmPasswordController.dispose();
     ageController.dispose();
-    sexController.dispose();
     phoneNumberController.dispose();
     userNameController.dispose();
   }

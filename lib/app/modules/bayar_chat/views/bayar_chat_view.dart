@@ -99,7 +99,10 @@ class BayarChatView extends GetView<BayarChatController> {
                     ),
                     const Spacer(),
                     ElevatedButton(
-                      onPressed: () => Get.toNamed(Routes.PAYMENT),
+                      onPressed: () {
+                        controller.updateWordChatCount();
+                        Get.toNamed(Routes.PAYMENT);
+                      },
                       style: ElevatedButton.styleFrom(
                         primary: const Color(0xffBE5F5F),
                         minimumSize: Size(131.w, 50.h),
@@ -156,7 +159,7 @@ class CardHargaPerKata extends StatelessWidget {
         color: cardColor,
         border: Border.all(
           color: borderColor,
-          width: 1.w,
+          width: 1.5.w,
         ),
         borderRadius: const BorderRadius.all(
           Radius.circular(40),
@@ -182,7 +185,7 @@ class CardHargaPerKata extends StatelessWidget {
               shadows: [
                 Shadow(
                   color: const Color(0xff000000).withOpacity(0.25),
-                  offset: const Offset(0, 4),
+                  offset: const Offset(0, 3),
                   blurRadius: 4,
                 ),
               ],
@@ -198,7 +201,7 @@ class CardHargaPerKata extends StatelessWidget {
               shadows: [
                 Shadow(
                   color: const Color(0xff000000).withOpacity(0.25),
-                  offset: const Offset(0, 4),
+                  offset: const Offset(0, 2),
                   blurRadius: 4,
                 ),
               ],
@@ -206,16 +209,16 @@ class CardHargaPerKata extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            harga,
+            "Rp. $harga",
             style: TextStyle(
-              color: const Color(0xffC26161),
+              color: const Color(0xffF1774E),
               fontFamily: 'Montserrat',
               fontSize: 15.sp,
               fontWeight: FontWeight.w700,
               shadows: [
                 Shadow(
                   color: const Color(0xff000000).withOpacity(0.25),
-                  offset: const Offset(0, 4),
+                  offset: const Offset(0, 2),
                   blurRadius: 4,
                 ),
               ],
