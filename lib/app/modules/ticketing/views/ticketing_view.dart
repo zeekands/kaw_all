@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -132,7 +133,7 @@ class TicketingView extends GetView<TicketingController> {
             ),
             // Calendar Section
             HorizontalCalendar(
-              date: DateTime.now().add(const Duration(days: 1)),
+              date: DateTime.now(),
               initialDate: DateTime.now(),
               textColor: Colors.black54,
               backgroundColor: const Color(0xffDCE3D9),
@@ -168,116 +169,148 @@ class TicketingView extends GetView<TicketingController> {
             const Spacer(),
             // Ticket Section
             Obx(
-              () => Container(
-                height: 400.h,
-                width: 1.sw,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/images/bottom_ticketing.png',
-                    ),
-                    fit: BoxFit.fill,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                  ),
-                ),
-                child: (controller.dayName.value == "Sunday" ||
-                        controller.dayName.value == "Saturday")
-                    ? const Center(
-                        child: Text(
-                          "Tidak ada jadwal",
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontFamily: 'Montserrat',
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+              () => StreamBuilder<QuerySnapshot>(
+                  stream: FirebaseFirestore.instance
+                      .collection('konseling')
+                      .where('jadwal', isEqualTo: controller.day.value)
+                      .where('psikolog', isEqualTo: controller.name)
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    //print(snapshot.data?.docs.length);
+                    return Container(
+                      height: 400.h,
+                      width: 1.sw,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/bottom_ticketing.png',
                           ),
+                          fit: BoxFit.fill,
                         ),
-                      )
-                    : Column(
-                        children: [
-                          const Spacer(),
-                          // Schedule Section
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: () => controller.selectedVal.value = 0,
-                                child: ScheduleButton(
-                                  time: controller.consultTime[0],
-                                  color: controller.selectedVal.value == 0
-                                      ? const Color(0xffDCE3D9)
-                                      : const Color(0xff9ECC88),
-                                  textColor: controller.selectedVal.value == 0
-                                      ? const Color(0xff908784)
-                                      : Colors.black,
-                                ).paddingOnly(bottom: 15.h),
-                              ),
-                              GestureDetector(
-                                onTap: () => controller.selectedVal.value = 1,
-                                child: ScheduleButton(
-                                  time: controller.consultTime[1],
-                                  color: controller.selectedVal.value == 1
-                                      ? const Color(0xffDCE3D9)
-                                      : const Color(0xff9ECC88),
-                                  textColor: controller.selectedVal.value == 1
-                                      ? const Color(0xff908784)
-                                      : Colors.black,
-                                ).paddingOnly(bottom: 15.h),
-                              ),
-                              GestureDetector(
-                                onTap: () => controller.selectedVal.value = 2,
-                                child: ScheduleButton(
-                                  time: controller.consultTime[2],
-                                  color: controller.selectedVal.value == 2
-                                      ? const Color(0xffDCE3D9)
-                                      : const Color(0xff9ECC88),
-                                  textColor: controller.selectedVal.value == 2
-                                      ? const Color(0xff908784)
-                                      : Colors.black,
-                                ).paddingOnly(bottom: 15.h),
-                              ),
-                            ],
-                          ),
-                          const Spacer(),
-                          // Submit button
-                          GestureDetector(
-                            onTap: () => Get.toNamed(Routes.BAYAR_CHAT),
-                            child: Container(
-                              height: 53.h,
-                              width: 230.w,
-                              decoration: BoxDecoration(
-                                color: const Color(0xff647C59),
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(30),
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.25),
-                                    blurRadius: 4,
-                                    offset: const Offset(0, 3),
-                                  ),
-                                ],
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Schedule Now',
-                                  style: TextStyle(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const Spacer(),
-                        ],
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                        ),
                       ),
-              ),
+                      child: (controller.dayName.value == "Sunday" ||
+                              controller.dayName.value == "Saturday")
+                          ? const Center(
+                              child: Text(
+                                "Tidak ada jadwal",
+                                style: TextStyle(
+                                  color: Colors.black54,
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )
+                          : Column(
+                              children: [
+                                const Spacer(),
+                                // Schedule Section
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  itemBuilder: (context, index) {
+                                    try {
+                                      controller.isBooked[index] =
+                                          snapshot.data?.docs[index]['jam'] ==
+                                              controller.consultTime[index];
+                                      if (snapshot.data?.docs[index]['jam'] ==
+                                          controller.consultTime[2]) {
+                                        controller.isBooked[2] = true;
+                                      }
+                                    } catch (e) {
+                                      controller.isBooked[index] = false;
+                                    }
+                                    return GestureDetector(
+                                      onTap: () {
+                                        controller.selectedVal.value = index;
+                                      },
+                                      child: !controller.isBooked[index]
+                                          ? Obx(
+                                              () => ScheduleButton(
+                                                time: controller
+                                                    .consultTime[index],
+                                                color: controller.selectedVal
+                                                            .value ==
+                                                        index
+                                                    ? const Color.fromARGB(
+                                                        255, 212, 183, 103)
+                                                    : const Color(0xff9ECC88),
+                                                textColor: controller
+                                                            .selectedVal
+                                                            .value ==
+                                                        index
+                                                    ? const Color(0xff908784)
+                                                    : Colors.black,
+                                              ).paddingOnly(
+                                                  bottom: 15.h,
+                                                  left: 80.w,
+                                                  right: 80.w),
+                                            )
+                                          : ScheduleButton(
+                                              time: snapshot.data!.docs[index]
+                                                  ['jam'],
+                                              color: const Color(0xffDCE3D9),
+                                              textColor:
+                                                  const Color(0xff908784),
+                                            ).paddingOnly(
+                                              bottom: 15.h,
+                                              left: 80.w,
+                                              right: 80.w),
+                                    );
+                                  },
+                                  itemCount: controller.consultTime.length,
+                                ),
+
+                                const Spacer(),
+                                // Submit button
+                                GestureDetector(
+                                  onTap: () =>
+                                      Get.toNamed(Routes.PAYMENT, arguments: [
+                                    controller.name,
+                                    controller.date.value,
+                                    controller.day.value,
+                                    controller.consultTime[
+                                        controller.selectedVal.value],
+                                    controller.user?.email,
+                                    "psikolog"
+                                  ]),
+                                  child: Container(
+                                    height: 53.h,
+                                    width: 230.w,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xff647C59),
+                                      borderRadius: const BorderRadius.all(
+                                        Radius.circular(30),
+                                      ),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(0.25),
+                                          blurRadius: 4,
+                                          offset: const Offset(0, 3),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'Schedule Now',
+                                        style: TextStyle(
+                                          fontFamily: 'Montserrat',
+                                          fontSize: 16.sp,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const Spacer(),
+                              ],
+                            ),
+                    );
+                  }),
             )
           ],
         ),

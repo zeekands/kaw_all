@@ -137,6 +137,7 @@ class Authentication {
       'sex': "",
       'phoneNumber': user.phoneNumber,
       'userName': user.displayName,
+      'wordChatCount': 0,
     });
     Get.offAllNamed(Routes.LOGIN);
 

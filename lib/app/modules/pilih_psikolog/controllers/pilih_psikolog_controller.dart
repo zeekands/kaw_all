@@ -34,7 +34,7 @@ class PilihPsikologController extends GetxController {
     Psikolog(
       name: "Letkol Kes Aryanto, M.Psi.",
       price: 130000,
-      image: "assets/images/psikolog1.png",
+      image: "assets/images/psikolog2.png",
       satisfied: 95,
       unsatisfied: 5,
       totalFeedBack: 100,
@@ -45,7 +45,7 @@ class PilihPsikologController extends GetxController {
     Psikolog(
       name: "Tri Heniyati Subekti, S.Psi.",
       price: 130000,
-      image: "assets/images/psikolog2.png",
+      image: "assets/images/psikolog1.png",
       satisfied: 95,
       unsatisfied: 5,
       totalFeedBack: 100,

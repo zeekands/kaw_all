@@ -321,6 +321,7 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                       onPageChanged: (int index) {
                         // Update current data psikolog
                         controller.focusItemCard(index);
+                        controller.name.value = controller.data[index].name;
                         controller.price.value = controller.data[index].price;
                         controller.specialist.value =
                             controller.data[index].specialist;
