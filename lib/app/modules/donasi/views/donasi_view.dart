@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:kaw_all/app/routes/app_pages.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/donasi_controller.dart';
 
@@ -112,7 +112,11 @@ class DonasiView extends GetView<DonasiController> {
               ).paddingSymmetric(horizontal: 51.w),
               const Spacer(),
               ElevatedButton(
-                onPressed: () => Get.toNamed(Routes.COMING_SOON),
+                onPressed: () {
+                  launchUrl(
+                    Uri.parse("https://sociabuzz.com/dyanettanr/tribe"),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   primary: const Color(0xffBE5F5F),
                   minimumSize: Size(165.w, 60.h),
