@@ -162,28 +162,28 @@ class PaymentController extends GetxController {
 
   final konselingRef = FirebaseFirestore.instance.collection('konseling');
 
-  final isPsikolog = Get.arguments[5] == 'psikolog';
-  final jadwal = Get.arguments[2];
-  final psikolog = Get.arguments[0];
-  final user = Get.arguments[4];
-  final jam = Get.arguments[3];
+  // final isPsikolog = Get.arguments[5] == 'psikolog';
+  // final jadwal = Get.arguments[2];
+  // final psikolog = Get.arguments[0];
+  // final user = Get.arguments[4];
+  // final jam = Get.arguments[3];
 
-  void createKonseling() {
-    var chatId = konselingRef.doc().id;
-    konselingRef.doc(chatId).set({
-      'chatId': chatId,
-      'jadwal': jadwal,
-      'jam': jam,
-      'pemesan': user,
-      'psikolog': psikolog,
-      'status': 'paid',
-    });
-  }
+  // void createKonseling() {
+  //   var chatId = konselingRef.doc().id;
+  //   konselingRef.doc(chatId).set({
+  //     'chatId': chatId,
+  //     'jadwal': jadwal,
+  //     'jam': jam,
+  //     'pemesan': user,
+  //     'psikolog': psikolog,
+  //     'status': 'paid',
+  //   });
+  // }
 
   @override
   void onInit() {
     super.onInit();
-    print(Get.arguments[2]);
+    // print(Get.arguments[2]);
   }
 
   @override

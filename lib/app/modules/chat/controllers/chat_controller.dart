@@ -43,6 +43,23 @@ class ChatController extends GetxController {
         FirebaseFirestore.instance.collection('users').doc(user!.uid).update({
           'wordChatCount': wordChatCount.value,
         });
+
+        final email = user?.email;
+        final name = user?.displayName;
+        final date = Timestamp.now().toDate();
+
+        final messageMap = {
+          'sender_email': email,
+          'sender_name': name,
+          'message': message,
+          'date': date,
+        };
+        var newMessage =
+            FirebaseFirestore.instance.collection('chats').doc(chatId);
+        messageMap['id'] = newMessage.id;
+        newMessage.update({
+          'messages': FieldValue.arrayUnion([messageMap])
+        });
       } else {
         Get.snackbar(
           "Gagal",
@@ -52,25 +69,6 @@ class ChatController extends GetxController {
           colorText: Colors.white,
         );
       }
-
-      final email = user?.email;
-      final name = user?.displayName;
-      final date = Timestamp.now().toDate();
-
-      final messageMap = {
-        'sender_email': email,
-        'sender_name': name,
-        'message': message,
-        'date': date,
-      };
-      var newMessage =
-          FirebaseFirestore.instance.collection('chats').doc(chatId);
-      messageMap['id'] = newMessage.id;
-      newMessage.update(
-        {
-          'messages': FieldValue.arrayUnion([messageMap])
-        },
-      );
     }
   }
 

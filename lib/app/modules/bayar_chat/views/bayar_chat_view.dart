@@ -173,58 +173,60 @@ class CardHargaPerKata extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        children: [
-          Text(
-            jmlKata,
-            style: TextStyle(
-              color: const Color(0xffB55D5D),
-              fontFamily: 'Montserrat',
-              fontSize: 40.sp,
-              fontWeight: FontWeight.w700,
-              shadows: [
-                Shadow(
-                  color: const Color(0xff000000).withOpacity(0.25),
-                  offset: const Offset(0, 3),
-                  blurRadius: 4,
-                ),
-              ],
+      child: Flexible(
+        child: Column(
+          children: [
+            Text(
+              jmlKata,
+              style: TextStyle(
+                color: const Color(0xffB55D5D),
+                fontFamily: 'Montserrat',
+                fontSize: 34.sp,
+                fontWeight: FontWeight.w700,
+                shadows: [
+                  Shadow(
+                    color: const Color(0xff000000).withOpacity(0.25),
+                    offset: const Offset(0, 3),
+                    blurRadius: 4,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Text(
-            "Kata",
-            style: TextStyle(
-              color: const Color(0xffB55D5D),
-              fontFamily: 'Montserrat',
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w700,
-              shadows: [
-                Shadow(
-                  color: const Color(0xff000000).withOpacity(0.25),
-                  offset: const Offset(0, 2),
-                  blurRadius: 4,
-                ),
-              ],
+            Text(
+              "Kata",
+              style: TextStyle(
+                color: const Color(0xffB55D5D),
+                fontFamily: 'Montserrat',
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w700,
+                shadows: [
+                  Shadow(
+                    color: const Color(0xff000000).withOpacity(0.25),
+                    offset: const Offset(0, 2),
+                    blurRadius: 4,
+                  ),
+                ],
+              ),
             ),
-          ),
-          const Spacer(),
-          Text(
-            "Rp. $harga",
-            style: TextStyle(
-              color: const Color(0xffF1774E),
-              fontFamily: 'Montserrat',
-              fontSize: 15.sp,
-              fontWeight: FontWeight.w700,
-              shadows: [
-                Shadow(
-                  color: const Color(0xff000000).withOpacity(0.25),
-                  offset: const Offset(0, 2),
-                  blurRadius: 4,
-                ),
-              ],
+            const Spacer(),
+            Text(
+              "Rp. $harga",
+              style: TextStyle(
+                color: const Color(0xffF1774E),
+                fontFamily: 'Montserrat',
+                fontSize: 15.sp,
+                fontWeight: FontWeight.w500,
+                shadows: [
+                  Shadow(
+                    color: const Color(0xff000000).withOpacity(0.25),
+                    offset: const Offset(0, 2),
+                    blurRadius: 4,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ).paddingOnly(bottom: 10.h, left: 10.w, right: 10.w);
   }

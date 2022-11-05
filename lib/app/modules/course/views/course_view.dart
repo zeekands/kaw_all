@@ -216,35 +216,39 @@ class CourseView extends GetView<CourseController> {
                         ),
                       ],
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Ingin tahu cara meng-smackdown predator? Yuk kita simak video di bawah!",
-                          style: TextStyle(
-                            color: const Color(0xffB6411C),
-                            fontSize: 12.sp,
-                            fontFamily: 'JosefinSans',
+                    child: FittedBox(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Ingin tahu cara meng-smackdown predator? \nYuk kita simak video di bawah!",
+                            style: TextStyle(
+                              color: const Color(0xffB6411C),
+                              fontSize: 12.sp,
+                              fontFamily: 'JosefinSans',
+                            ),
+                          ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
+                          FittedBox(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image.asset(
+                                  "assets/images/video_play_placeholder.png",
+                                  height: 120.w,
+                                ).paddingOnly(right: 20.w),
+                                Image.asset(
+                                  "assets/images/maskot_dashboard.png",
+                                  width: 59.w,
+                                ).paddingOnly(right: 14.w),
+                                Image.asset(
+                                  "assets/images/img_dot_three.png",
+                                  width: 10.w,
+                                ).paddingOnly(right: 7.w),
+                              ],
+                            ),
                           ),
-                        ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Image.asset(
-                              "assets/images/video_play_placeholder.png",
-                              height: 120.w,
-                            ).paddingOnly(right: 20.w),
-                            Image.asset(
-                              "assets/images/maskot_dashboard.png",
-                              width: 59.w,
-                            ).paddingOnly(right: 14.w),
-                            Image.asset(
-                              "assets/images/img_dot_three.png",
-                              width: 10.w,
-                            ).paddingOnly(right: 7.w),
-                          ],
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ).paddingOnly(bottom: 29.h),
                 ),
@@ -278,42 +282,44 @@ class CourseView extends GetView<CourseController> {
                       onTap: () {
                         Get.toNamed(Routes.PROFILE_DOKTER);
                       },
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Dok, jadi gini...",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.sp,
-                                  fontFamily: 'JosefinSans',
-                                  shadows: [
-                                    Shadow(
-                                      color: const Color(0xff000000)
-                                          .withOpacity(0.25),
-                                      offset: const Offset(1, 2),
-                                      blurRadius: 4.r,
-                                    ),
-                                  ],
+                      child: FittedBox(
+                        child: Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Dok, jadi gini...",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20.sp,
+                                    fontFamily: 'JosefinSans',
+                                    shadows: [
+                                      Shadow(
+                                        color: const Color(0xff000000)
+                                            .withOpacity(0.25),
+                                        offset: const Offset(1, 2),
+                                        blurRadius: 4.r,
+                                      ),
+                                    ],
+                                  ),
+                                ).paddingOnly(top: 30.h, bottom: 16.h),
+                                Text(
+                                  "Dari pada bingung, yuk tanya\nlangsung ke ahlinya!",
+                                  style: TextStyle(
+                                    color: const Color(0xffB6411C),
+                                    fontSize: 10.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
                                 ),
-                              ).paddingOnly(top: 30.h, bottom: 16.h),
-                              Text(
-                                "Dari pada bingung, yuk tanya\nlangsung ke ahlinya!",
-                                style: TextStyle(
-                                  color: const Color(0xffB6411C),
-                                  fontSize: 10.sp,
-                                  fontFamily: 'JosefinSans',
-                                ),
-                              ),
-                            ],
-                          ),
-                          Image.asset(
-                            "assets/images/arrow_2.png",
-                          ).paddingOnly(top: 30.h, left: 10.w),
-                        ],
-                      ).paddingOnly(left: 215.w),
+                              ],
+                            ),
+                            Image.asset(
+                              "assets/images/arrow_2.png",
+                            ).paddingOnly(top: 30.h, left: 10.w),
+                          ],
+                        ).paddingOnly(left: 215.w),
+                      ),
                     ),
                   ],
                 ).paddingOnly(bottom: 5.h),
