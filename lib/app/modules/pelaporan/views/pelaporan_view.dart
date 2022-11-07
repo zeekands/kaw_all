@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/pelaporan_controller.dart';
 
 class PelaporanView extends GetView<PelaporanController> {
@@ -176,7 +177,7 @@ class CustomCard extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Get.toNamed(Routes.COMING_SOON),
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xffEC9F87),
                 minimumSize: Size(106.w, 40.h),

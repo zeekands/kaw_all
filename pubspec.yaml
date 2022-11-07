@@ -23,6 +23,7 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^6.1.6
+  audioplayers: ^0.20.1
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -32,6 +33,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
+    - assets/audios/
   fonts:
     - family: Montserrat
       fonts:

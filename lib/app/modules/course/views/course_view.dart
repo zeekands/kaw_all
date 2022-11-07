@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../utils/color.dart';
+import '../../selfdefense/selfdefense_menu/selfdefense_menu_page.dart';
 import '../controllers/course_controller.dart';
 
 class CourseView extends GetView<CourseController> {
@@ -138,7 +139,11 @@ class CourseView extends GetView<CourseController> {
                     scrollDirection: Axis.horizontal,
                     itemCount: controller.courseList.length,
                     itemBuilder: (context, index) {
-                      return Container(
+                      return InkWell(
+                        onTap: (){
+                          Get.to(controller.courseList[index]['page']);
+                        },
+                        child: Container(
                         padding: EdgeInsets.only(left: 10.w, right: 10.w),
                         width: 130.w,
                         height: 159.h,
@@ -178,7 +183,8 @@ class CourseView extends GetView<CourseController> {
                             ).paddingOnly(top: 10.h),
                           ],
                         ),
-                      ).paddingOnly(left: 5.w, right: 5.w);
+                      ).paddingOnly(left: 5.w, right: 5.w),
+                      );
                     },
                   ),
                 ).paddingOnly(left: 10.w, right: 10.w, bottom: 15.h),

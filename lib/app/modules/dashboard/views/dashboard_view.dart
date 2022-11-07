@@ -2,9 +2,11 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../utils/color.dart';
+import '../../fake_call/fake_call_menu/fake_call_menu_page.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
@@ -80,7 +82,11 @@ class DashboardView extends GetView<DashboardController> {
                             height: 145.h,
                           ).paddingOnly(top: 64.h, left: 30.w),
                           30.horizontalSpace,
-                          Column(
+                          GestureDetector(
+                            onTap: () => launchUrl(
+                              Uri.parse("https://74eiy4z0wez.typeform.com/to/Lbm0P2oW"),
+                            ),
+                          child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               70.verticalSpace,
@@ -116,7 +122,7 @@ class DashboardView extends GetView<DashboardController> {
                                 height: 20.h,
                               ),
                             ],
-                          ),
+                          ),),
                         ],
                       ),
                     ],
@@ -139,10 +145,14 @@ class DashboardView extends GetView<DashboardController> {
                   ).paddingOnly(left: 36.w, bottom: 10.h),
                   SizedBox(
                     height: 150.h,
-                    child: PageView(
+                     child: PageView(
                       scrollDirection: Axis.vertical,
                       children: [
-                        Container(
+                        GestureDetector(
+                          onTap: (){
+                            Get.to(FakeCallMenu());
+                          },
+                        child: Container(
                           width: 370.w,
                           height: 138.h,
                           decoration: BoxDecoration(
@@ -214,7 +224,12 @@ class DashboardView extends GetView<DashboardController> {
                             ],
                           ),
                         ).paddingOnly(left: 16.w, right: 16.w, bottom: 16.h),
-                        Container(
+                      ),
+                       GestureDetector(
+                         onTap: () => launchUrl(
+                           Uri.parse("https://app.sli.do/event/sbYeqP86DZudiZKcQ1Qqkr/live/polls"),
+                         ),
+                        child: Container(
                           width: 370.w,
                           height: 138.h,
                           decoration: BoxDecoration(
@@ -291,7 +306,10 @@ class DashboardView extends GetView<DashboardController> {
                             ),
                           ).paddingAll(15.w),
                         ).paddingOnly(left: 16.w, right: 16.w, bottom: 16.h),
-                        Container(
+                        ),
+                        GestureDetector(
+                          onTap: () => Get.toNamed(Routes.PELAPORAN),
+                        child: Container(
                           width: 370.w,
                           height: 138.h,
                           decoration: BoxDecoration(
@@ -368,6 +386,7 @@ class DashboardView extends GetView<DashboardController> {
                             ),
                           ).paddingAll(15.w),
                         ).paddingOnly(right: 16.w, left: 16.w, bottom: 10.h),
+                      ),
                       ],
                     ),
                   ),

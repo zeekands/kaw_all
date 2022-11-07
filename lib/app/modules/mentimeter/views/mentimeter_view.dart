@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../routes/app_pages.dart';
+import '../../fake_call/fake_call_menu/fake_call_menu_page.dart';
 import '../controllers/mentimeter_controller.dart';
 
 class MentimeterView extends GetView<MentimeterController> {
   const MentimeterView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +73,11 @@ class MentimeterView extends GetView<MentimeterController> {
                           ],
                         ).paddingOnly(left: 12.w, right: 12.w, top: 12.h),
                         const Spacer(),
-                        Container(
+                        GestureDetector(
+                          onTap: () => launchUrl(
+                            Uri.parse("https://app.sli.do/event/sbYeqP86DZudiZKcQ1Qqkr/live/polls"),
+                          ),
+                        child: Container(
                           width: 328.w,
                           height: 130.h,
                           decoration: BoxDecoration(
@@ -150,6 +157,7 @@ class MentimeterView extends GetView<MentimeterController> {
                             ],
                           ),
                         ),
+                        ),
                         const Spacer(),
                       ],
                     ),
@@ -157,40 +165,45 @@ class MentimeterView extends GetView<MentimeterController> {
                 ],
               ),
               const Spacer(),
-              Container(
-                width: 355.w,
-                height: 235.h,
-                decoration: BoxDecoration(
-                  color: const Color(0xffF7F7F7),
-                  borderRadius: BorderRadius.circular(25),
+              GestureDetector(
+                onTap: () => launchUrl(
+                  Uri.parse("https://app.sli.do/event/sbYeqP86DZudiZKcQ1Qqkr/live/polls"),
                 ),
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: ClipRRect(
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(25),
-                          bottomRight: Radius.circular(25),
-                        ),
-                        child: Image.asset(
-                          'assets/images/img_card_danger_zone.png',
-                          width: 370.w,
-                          height: 180.h,
-                          fit: BoxFit.fill,
+                child: Container(
+                  width: 355.w,
+                  height: 235.h,
+                  decoration: BoxDecoration(
+                    color: const Color(0xffF7F7F7),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          ),
+                          child: Image.asset(
+                            'assets/images/img_card_danger_zone.png',
+                            width: 370.w,
+                            height: 180.h,
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
-                    ),
-                    Text(
-                      "Danger Zones",
-                      style: TextStyle(
-                        color: const Color(0xffA14D4D),
-                        fontFamily: 'JosefinSans',
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ).paddingOnly(top: 20.h, left: 30.w),
-                  ],
+                      Text(
+                        "Danger Zones",
+                        style: TextStyle(
+                          color: const Color(0xffA14D4D),
+                          fontFamily: 'JosefinSans',
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ).paddingOnly(top: 20.h, left: 30.w),
+                    ],
+                  ),
                 ),
               ),
               const Spacer(),
@@ -234,7 +247,11 @@ class MentimeterView extends GetView<MentimeterController> {
                           ),
                         ).paddingOnly(left: 29.w, top: 15.h),
                         10.verticalSpace,
-                        Container(
+                        GestureDetector(
+                        onTap: (){
+                          Get.to(FakeCallMenu());
+                        },
+                        child: Container(
                           width: 142.w,
                           height: 185.h,
                           decoration: BoxDecoration(
@@ -273,12 +290,12 @@ class MentimeterView extends GetView<MentimeterController> {
                                 ),
                               ).paddingAll(10),
                               Image.asset(
-                                'assets/images/call_dashboard.png',
-                                width: 65.w,
-                              ),
+                                  'assets/images/call_dashboard.png',
+                                  width: 65.w,
+                                ),
                             ],
                           ),
-                        ).paddingOnly(left: 29.w),
+                        ).paddingOnly(left: 29.w),),
                       ],
                     ),
                     Expanded(

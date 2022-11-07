@@ -17,12 +17,12 @@ class PaymentController extends GetxController {
       'descColor': const Color(0xFF877878),
     },
     {
-      'title': 'Yuk Volunteer!',
-      'description': 'Ingin Ikut Berkontribusi?',
-      'image': 'assets/images/img_volunteer_dashboard.png',
-      'onTap': Routes.VOLUNTEER_HIRING,
-      'bgColor': const Color(0xFFDCE3D9),
-      'titleColor': const Color(0xFF4B4848),
+      'title': 'PaNaS',
+      'description': 'Paket Nanya Sepuasnya',
+      'image': 'assets/images/img_panas_dashboard.png',
+      'onTap': Routes.PANAS, // Routes.COMING_SOON
+      'bgColor': const Color(0xFFEDD4D4),
+      'titleColor': const Color(0xFFB6411C),
       'descColor': const Color(0xFF877878),
     },
   ];
