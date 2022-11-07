@@ -85,7 +85,7 @@ class PaymentController extends GetxController {
                   ),
                 ),
                 onTap: () {
-                  if (psikolog != null) {
+                  if (psikolog != "") {
                     createKonseling();
                     Get.toNamed(Routes.RECEIPT);
                   } else {
@@ -117,7 +117,7 @@ class PaymentController extends GetxController {
                 ),
                 //jangan dirubah
                 onTap: () {
-                  if (psikolog != null) {
+                  if (psikolog != "") {
                     createKonseling();
                     Get.toNamed(Routes.RECEIPT);
                   } else {
@@ -151,7 +151,7 @@ class PaymentController extends GetxController {
                   ),
                 ),
                 onTap: () {
-                  if (psikolog != null) {
+                  if (psikolog != "") {
                     createKonseling();
                     Get.toNamed(Routes.RECEIPT);
                   } else {
@@ -182,11 +182,11 @@ class PaymentController extends GetxController {
 
   final konselingRef = FirebaseFirestore.instance.collection('konseling');
 
-  final isPsikolog = Get.arguments[5] == 'psikolog';
-  final jadwal = Get.arguments[2];
-  final psikolog = Get.arguments[0];
-  final user = Get.arguments[4];
-  final jam = Get.arguments[3];
+  late bool isPsikolog;
+  late String jadwal;
+  late String psikolog = "";
+  late String user;
+  late String jam;
 
   void createKonseling() {
     var chatId = konselingRef.doc().id;
@@ -198,6 +198,18 @@ class PaymentController extends GetxController {
       'psikolog': psikolog,
       'status': 'paid',
     });
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    if (Get.arguments != null) {
+      isPsikolog = Get.arguments[5] == 'psikolog';
+      jadwal = Get.arguments[2];
+      psikolog = Get.arguments[0];
+      user = Get.arguments[4];
+      jam = Get.arguments[3];
+    }
   }
 
   @override

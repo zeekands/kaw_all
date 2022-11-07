@@ -13,7 +13,7 @@ class ReceiptView extends GetView<ReceiptController> {
     return Scaffold(
       body: SafeArea(
         child: GestureDetector(
-          onTap: () => Get.toNamed(Routes.NAVIGATION_BAR),
+          onTap: () => Get.offAllNamed(Routes.NAVIGATION_BAR),
           child: Container(
             width: 1.sw,
             height: 1.sh,
