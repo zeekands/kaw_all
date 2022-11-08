@@ -180,7 +180,7 @@ class CardHargaPerKata extends StatelessWidget {
             style: TextStyle(
               color: const Color(0xffB55D5D),
               fontFamily: 'Montserrat',
-              fontSize: 40.sp,
+              fontSize: 30.sp,
               fontWeight: FontWeight.w700,
               shadows: [
                 Shadow(
@@ -192,11 +192,11 @@ class CardHargaPerKata extends StatelessWidget {
             ),
           ),
           Text(
-            "Kata",
+            "kata",
             style: TextStyle(
               color: const Color(0xffB55D5D),
               fontFamily: 'Montserrat',
-              fontSize: 20.sp,
+              fontSize: 15.sp,
               fontWeight: FontWeight.w700,
               shadows: [
                 Shadow(
@@ -207,9 +207,9 @@ class CardHargaPerKata extends StatelessWidget {
               ],
             ),
           ),
-          const Spacer(),
+          SizedBox(height: 10.h,),
           Text(
-            "Rp. $harga",
+            "Rp $harga",
             style: TextStyle(
               color: const Color(0xffF1774E),
               fontFamily: 'Montserrat',

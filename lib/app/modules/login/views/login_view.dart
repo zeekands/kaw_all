@@ -215,7 +215,7 @@ class LoginView extends GetView<LoginController> {
                                 GestureDetector(
                                   onTap: () => Get.toNamed(Routes.REGISTER),
                                   child: const Text(
-                                    " Create new account",
+                                    " Create new",
                                     style: TextStyle(
                                       color: Color(0xFFEC9F87),
                                       fontWeight: FontWeight.bold,

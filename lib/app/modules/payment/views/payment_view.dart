@@ -77,7 +77,7 @@ class PaymentView extends GetView<PaymentController> {
                     Text(
                       'Rp. 750.000',
                       style: TextStyle(
-                        fontSize: 35.sp,
+                        fontSize: 30.sp,
                         fontFamily: 'JosefinSans',
                         fontWeight: FontWeight.w700,
                         shadows: [

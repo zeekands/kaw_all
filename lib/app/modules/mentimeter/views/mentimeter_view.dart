@@ -121,7 +121,7 @@ class MentimeterView extends GetView<MentimeterController> {
                                       "Rawan, Kawan!",
                                       style: TextStyle(
                                         fontFamily: 'JosefinSans',
-                                        fontSize: 20.sp,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.bold,
                                         shadows: [
                                           Shadow(
@@ -339,7 +339,7 @@ class MentimeterView extends GetView<MentimeterController> {
                             onTap: () => Get.toNamed(Routes.PELAPORAN),
                             child: Container(
                               width: 200.w,
-                              height: 145.h,
+                              height: 125.h,
                               decoration: BoxDecoration(
                                 color: const Color(0xffF2E9C8),
                                 borderRadius: const BorderRadius.only(

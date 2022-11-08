@@ -14,7 +14,7 @@ class SupportSystemDetail extends StatelessWidget {
       body: CustomScrollView(
           slivers: [
             SliverAppBar(
-              toolbarHeight: 100,
+              toolbarHeight: 120,
               bottom: PreferredSize(
                   preferredSize: Size.fromHeight(20),
                   child: Container(

@@ -164,7 +164,7 @@ class CourseView extends GetView<CourseController> {
                                   .toString(),
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 12,
                                 fontFamily: 'JosefinSans',
                                 shadows: [
                                   Shadow(
@@ -279,7 +279,7 @@ class CourseView extends GetView<CourseController> {
                     Image.asset(
                       "assets/images/img_course_konsul.png",
                       height: 195.h,
-                    ).paddingOnly(left: 115.w),
+                    ).paddingOnly(left: 95.w),
                     GestureDetector(
                       onTap: () {
                         Get.toNamed(Routes.PROFILE_DOKTER);
@@ -306,7 +306,7 @@ class CourseView extends GetView<CourseController> {
                                 ),
                               ).paddingOnly(top: 30.h, bottom: 16.h),
                               Text(
-                                "Dari pada bingung, yuk tanya\nlangsung ke ahlinya!",
+                                "Dari pada bingung, yuk\ntanyalangsung ke ahlinya!",
                                 style: TextStyle(
                                   color: const Color(0xffB6411C),
                                   fontSize: 10.sp,
@@ -319,7 +319,7 @@ class CourseView extends GetView<CourseController> {
                             "assets/images/arrow_2.png",
                           ).paddingOnly(top: 30.h, left: 10.w),
                         ],
-                      ).paddingOnly(left: 215.w),
+                      ).paddingOnly(left: 190.w,),
                     ),
                   ],
                 ).paddingOnly(bottom: 5.h),
