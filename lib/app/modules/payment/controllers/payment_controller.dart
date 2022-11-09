@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,8 +84,15 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () => Get.until(
-                    (route) => Get.currentRoute == Routes.PROFILE_DOKTER),
+                onTap: () {
+                  if (psikolog != null) {
+                    createKonseling();
+                    Get.toNamed(Routes.RECEIPT);
+                  } else {
+                    Get.until(
+                        (route) => Get.currentRoute == Routes.PROFILE_DOKTER);
+                  }
+                },
                 shape: const Border(
                   top: BorderSide(
                     color: Colors.black26,
@@ -110,8 +115,16 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () => Get.until(
-                    (route) => Get.currentRoute == Routes.PROFILE_DOKTER),
+                //jangan dirubah
+                onTap: () {
+                  if (psikolog != null) {
+                    createKonseling();
+                    Get.toNamed(Routes.RECEIPT);
+                  } else {
+                    Get.until(
+                        (route) => Get.currentRoute == Routes.PROFILE_DOKTER);
+                  }
+                },
                 shape: const Border(
                   bottom: BorderSide(
                     color: Colors.black26,
@@ -137,8 +150,15 @@ class PaymentController extends GetxController {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                onTap: () => Get.until(
-                    (route) => Get.currentRoute == Routes.PROFILE_DOKTER),
+                onTap: () {
+                  if (psikolog != null) {
+                    createKonseling();
+                    Get.toNamed(Routes.RECEIPT);
+                  } else {
+                    Get.until(
+                        (route) => Get.currentRoute == Routes.PROFILE_DOKTER);
+                  }
+                },
                 shape: const Border(
                   bottom: BorderSide(
                     color: Colors.black26,
@@ -190,10 +210,5 @@ class PaymentController extends GetxController {
   void onReady() {
     super.onReady();
     openBottomSheet();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 }
