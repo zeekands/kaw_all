@@ -50,8 +50,15 @@ class BayarChatController extends GetxController {
   User? user = FirebaseAuth.instance.currentUser;
 
   void updateWordChatCount() {
-    docRef.doc(user!.uid).update({
-      'wordChatCount': data[selectedVal.value]['jmlKata'],
+    var oldWordChatCount = 0;
+
+    docRef.doc(user!.uid).get().then((value) {
+      oldWordChatCount = value.data()!['wordChatCount'];
+
+      docRef.doc(user!.uid).update({
+        'wordChatCount':
+            oldWordChatCount + int.parse(data[selectedVal.value]['jmlKata']!)
+      });
     });
   }
 }
