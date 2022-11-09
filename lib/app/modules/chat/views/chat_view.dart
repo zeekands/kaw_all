@@ -137,7 +137,7 @@ class ChatView extends GetView<ChatController> {
                 child: CircularProgressIndicator(),
               );
             },
-          ),
+          ).marginOnly(bottom: 60),
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
@@ -163,7 +163,7 @@ class ChatView extends GetView<ChatController> {
                       ),
                       child: Obx(
                         () => Text(
-                          controller.wordChatCount.value.toString(),
+                          controller.wordChatLimit.value.toString(),
                           style: TextStyle(
                             color: Colors.lightBlue,
                             fontSize: 14.sp,

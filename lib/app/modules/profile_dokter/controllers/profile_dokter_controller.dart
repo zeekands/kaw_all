@@ -33,7 +33,7 @@ class ProfileDokterController extends GetxController {
     specialist.value = data[0].specialist;
     experience.value = data[0].experience;
 
-    initWordChatCount();
+    // initWordChatCount();
   }
 
   final data = [
@@ -50,20 +50,20 @@ class ProfileDokterController extends GetxController {
     ),
   ].obs;
 
-  final docRef = FirebaseFirestore.instance.collection('users');
+  // final docRef = FirebaseFirestore.instance.collection('users');
   User? user = FirebaseAuth.instance.currentUser;
 
-  // untuk cek apakah user sudah top up atau belum
-  var wordChatCount = 0.obs;
+  // // untuk cek apakah user sudah top up atau belum
+  // var wordChatCount = 0.obs;
 
-  void initWordChatCount() async {
-    // Get wordChatCount from user collection reference
-    FirebaseFirestore.instance.collection('users').doc(user!.uid).get().then(
-      (value) {
-        wordChatCount.value = int.parse(value.data()!['wordChatCount']);
-      },
-    );
-  }
+  // void initWordChatCount() {
+  //   // Get wordChatCount from user collection reference
+  //   FirebaseFirestore.instance.collection('users').doc(user!.uid).get().then(
+  //     (value) {
+  //       wordChatCount.value = int.parse(value.data()!['wordChatCount']);
+  //     },
+  //   );
+  // }
 
   uploadChat() async {
     List<dynamic> messages = [];

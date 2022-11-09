@@ -15,19 +15,19 @@ class ChatController extends GetxController {
   final doctorImage = Get.arguments["image"].toString();
 
   // wordCount
-  var wordChatCount = 0.obs;
+  var wordChatLimit = 0.obs;
 
   @override
-  void onInit() async {
+  void onInit() {
     super.onInit();
-    initWordChatCount();
+    initwordChatLimit();
   }
 
-  void initWordChatCount() async {
-    // Get wordChatCount from user collection reference
+  void initwordChatLimit() {
+    // Get wordChatLimit from user collection reference
     FirebaseFirestore.instance.collection('users').doc(user!.uid).get().then(
       (value) {
-        wordChatCount.value = int.parse(value.data()!['wordChatCount']);
+        wordChatLimit.value = value.data()!['wordChatCount'];
       },
     );
   }
@@ -37,11 +37,11 @@ class ChatController extends GetxController {
       // cek jumlah kata
       message = message.trim();
       final wordCount = message.split(' ').length;
-      if (wordCount <= wordChatCount.value) {
+      if (wordCount <= wordChatLimit.value) {
         // kurangi jumlah kata
-        wordChatCount.value -= wordCount;
+        wordChatLimit.value -= wordCount;
         FirebaseFirestore.instance.collection('users').doc(user!.uid).update({
-          'wordChatCount': wordChatCount.value,
+          'wordChatCount': wordChatLimit.value,
         });
 
         final email = user?.email;
