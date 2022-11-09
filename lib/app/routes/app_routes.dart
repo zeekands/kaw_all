@@ -27,6 +27,7 @@ abstract class Routes {
   static const PELAPORAN = _Paths.PELAPORAN;
   static const RECEIPT = _Paths.RECEIPT;
   static const BAYAR_CHAT = _Paths.BAYAR_CHAT;
+  static const SUPPORTSYSTEM_DETAILSCREEN = _Paths.SUPPORTSYSTEM_DETAILSCREEN;
 }
 
 abstract class _Paths {
@@ -55,4 +56,5 @@ abstract class _Paths {
   static const PELAPORAN = '/pelaporan';
   static const RECEIPT = '/receipt';
   static const BAYAR_CHAT = '/bayar-chat';
+  static const SUPPORTSYSTEM_DETAILSCREEN = '/supportsystem-detailscreen';
 }

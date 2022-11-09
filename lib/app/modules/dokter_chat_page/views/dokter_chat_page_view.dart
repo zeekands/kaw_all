@@ -33,8 +33,7 @@ class DokterChatPageView extends GetView<DokterChatPageController> {
                   width: 2,
                 ),
                 const CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      "https://randomuser.me/api/portraits/men/5.jpg"),
+                  backgroundImage: AssetImage('assets/images/foto_profil_dokter.png'),
                   maxRadius: 20,
                 ),
                 const SizedBox(

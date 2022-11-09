@@ -39,7 +39,7 @@ class PilihPsikologController extends GetxController {
       unsatisfied: 5,
       totalFeedBack: 100,
       age: 44,
-      specialist: "Psikologi Industri dan Organisasi",
+      specialist: "\nPsikologi Industri dan Organisasi",
       experience: "18 Tahun",
     ),
     Psikolog(
@@ -50,7 +50,7 @@ class PilihPsikologController extends GetxController {
       unsatisfied: 5,
       totalFeedBack: 100,
       age: 45,
-      specialist: "Psikolog Umum (Profesi)",
+      specialist: "\nPsikolog Umum (Profesi)",
       experience: "15 Tahun",
     ),
   ].obs;

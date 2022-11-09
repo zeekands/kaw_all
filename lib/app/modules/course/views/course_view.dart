@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../utils/color.dart';
+import '../../selfdefense/selfdefense_menu/selfdefense_menu_page.dart';
 import '../controllers/course_controller.dart';
 
 class CourseView extends GetView<CourseController> {
@@ -138,47 +139,52 @@ class CourseView extends GetView<CourseController> {
                     scrollDirection: Axis.horizontal,
                     itemCount: controller.courseList.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        padding: EdgeInsets.only(left: 10.w, right: 10.w),
-                        width: 130.w,
-                        height: 159.h,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              controller.courseList[index]['courseBackground']
-                                  .toString(),
-                            ),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              controller.courseList[index]['courseTitle']
-                                  .toString(),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'JosefinSans',
-                                shadows: [
-                                  Shadow(
-                                    color: const Color(0xff000000)
-                                        .withOpacity(0.25),
-                                    offset: const Offset(1, 2),
-                                    blurRadius: 4,
-                                  ),
-                                ],
+                      return InkWell(
+                        onTap: () {
+                          Get.to(controller.courseList[index]['page']);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                          width: 130.w,
+                          height: 159.h,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                controller.courseList[index]['courseBackground']
+                                    .toString(),
                               ),
-                            ).paddingOnly(left: 15.w, right: 30.w),
-                            Image.asset(
-                              controller.courseList[index]['courseIcon']
-                                  .toString(),
-                              height: 110.h,
-                            ).paddingOnly(top: 10.h),
-                          ],
-                        ),
-                      ).paddingOnly(left: 5.w, right: 5.w);
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                controller.courseList[index]['courseTitle']
+                                    .toString(),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'JosefinSans',
+                                  shadows: [
+                                    Shadow(
+                                      color: const Color(0xff000000)
+                                          .withOpacity(0.25),
+                                      offset: const Offset(1, 2),
+                                      blurRadius: 4,
+                                    ),
+                                  ],
+                                ),
+                              ).paddingOnly(left: 15.w, right: 30.w),
+                              Image.asset(
+                                controller.courseList[index]['courseIcon']
+                                    .toString(),
+                                height: 110.h,
+                              ).paddingOnly(top: 10.h),
+                            ],
+                          ),
+                        ).paddingOnly(left: 5.w, right: 5.w),
+                      );
                     },
                   ),
                 ).paddingOnly(left: 10.w, right: 10.w, bottom: 15.h),
@@ -277,7 +283,7 @@ class CourseView extends GetView<CourseController> {
                     Image.asset(
                       "assets/images/img_course_konsul.png",
                       height: 195.h,
-                    ).paddingOnly(left: 115.w),
+                    ).paddingOnly(left: 95.w),
                     GestureDetector(
                       onTap: () {
                         Get.toNamed(Routes.PROFILE_DOKTER);

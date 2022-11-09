@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:kaw_all/app/modules/payment/views/payment_view.dart';
+import '../../../routes/app_pages.dart';
 
 import 'package:get/get.dart';
 
@@ -186,6 +188,8 @@ class KolakView extends GetView<KolakController> {
                             ),
                             Align(
                               alignment: Alignment.centerRight,
+                              child: GestureDetector(
+                                onTap: () => Get.toNamed(Routes.COMING_SOON),
                               child: Container(
                                 alignment: Alignment.center,
                                 width: 115.w,
@@ -212,6 +216,7 @@ class KolakView extends GetView<KolakController> {
                                   ),
                                 ),
                               ).paddingOnly(right: 23.w),
+                            ),
                             ),
                           ],
                         ),

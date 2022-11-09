@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../controllers/panas_controller.dart';
 
 class PanasView extends GetView<PanasController> {
@@ -211,6 +212,8 @@ class PanasView extends GetView<PanasController> {
                             ),
                             Align(
                               alignment: Alignment.centerRight,
+                              child: GestureDetector(
+                                onTap: () => Get.toNamed(Routes.COMING_SOON),
                               child: Container(
                                 alignment: Alignment.center,
                                 width: 115.w,
@@ -237,6 +240,7 @@ class PanasView extends GetView<PanasController> {
                                   ),
                                 ),
                               ).paddingOnly(right: 23.w),
+                            ),
                             ),
                           ],
                         ),
