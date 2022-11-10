@@ -231,42 +231,39 @@ class PilihPsikologView extends GetView<PilihPsikologController> {
                               ],
                             ),
                             20.verticalSpace,
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Umur: ${controller.age.value} Tahun",
-                                      style: TextStyle(
-                                        fontFamily: 'Montserrat',
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
-                                        color: const Color(0xffFAF3EB),
-                                      ),
+                            FittedBox(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Umur: ${controller.age.value} Tahun",
+                                    style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color(0xffFAF3EB),
                                     ),
-                                    Text(
-                                      "Spesialisasi: ${controller.specialist.value}",
-                                      style: TextStyle(
-                                        fontFamily: 'Montserrat',
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
-                                        color: const Color(0xffFAF3EB),
-                                      ),
+                                  ),
+                                  Text(
+                                    "Spesialisasi: ${controller.specialist.value}",
+                                    style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color(0xffFAF3EB),
                                     ),
-                                    Text(
-                                      "Pengalaman: ${controller.experience.value}",
-                                      style: TextStyle(
-                                        fontFamily: 'Montserrat',
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
-                                        color: const Color(0xffFAF3EB),
-                                      ),
+                                  ),
+                                  Text(
+                                    "Pengalaman: ${controller.experience.value}",
+                                    style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color(0xffFAF3EB),
                                     ),
-                                  ],
-                                ),
-                              ],
+                                  ),
+                                ],
+                              ),
                             ),
                             20.verticalSpace,
                             Material(

@@ -17,7 +17,7 @@ class DokterHomeView extends GetView<DokterHomeController> {
     ));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat Dokter'),
+        title: const Text('Chat Dokter '),
         centerTitle: true,
       ),
       body: Stack(
@@ -53,13 +53,14 @@ class DokterHomeView extends GetView<DokterHomeController> {
                                   },
                                   title: Text(
                                     snapshot.data!.docs[index]['users'][0],
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ),
                                   subtitle: Text(lastMessage.last['message']),
-                                  leading: CircleAvatar(
-                                    backgroundImage: AssetImage("assets/images/foto_profil_pasien.png"),
+                                  leading: const CircleAvatar(
+                                    backgroundImage: NetworkImage(
+                                        "https://picsum.photos/id/100/200/300"),
                                   ),
                                 ),
                               );
@@ -75,7 +76,7 @@ class DokterHomeView extends GetView<DokterHomeController> {
             onTap: () {
               Authentication.signOut();
             },
-            child: Center(
+            child: const Center(
               child: Text(
                 'logout',
                 style: TextStyle(fontSize: 20),

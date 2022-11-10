@@ -46,16 +46,14 @@ class ChatView extends GetView<ChatController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Flexible(
-                        child: Text(
-                          controller.doctorName,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Montserrat',
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      Text(
+                        controller.doctorName,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Montserrat',
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
                       ).paddingOnly(right: 10.w),
                       const SizedBox(
@@ -137,7 +135,7 @@ class ChatView extends GetView<ChatController> {
                 child: CircularProgressIndicator(),
               );
             },
-          ),
+          ).marginOnly(bottom: 60),
           Align(
             alignment: Alignment.bottomLeft,
             child: Container(
@@ -163,7 +161,7 @@ class ChatView extends GetView<ChatController> {
                       ),
                       child: Obx(
                         () => Text(
-                          controller.wordChatCount.value.toString(),
+                          controller.wordChatLimit.value.toString(),
                           style: TextStyle(
                             color: Colors.lightBlue,
                             fontSize: 14.sp,

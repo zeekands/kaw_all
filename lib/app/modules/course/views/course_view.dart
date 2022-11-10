@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'package:get/get.dart';
 
@@ -141,50 +140,50 @@ class CourseView extends GetView<CourseController> {
                     itemCount: controller.courseList.length,
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: (){
+                        onTap: () {
                           Get.to(controller.courseList[index]['page']);
                         },
                         child: Container(
-                        padding: EdgeInsets.only(left: 10.w, right: 10.w),
-                        width: 130.w,
-                        height: 159.h,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              controller.courseList[index]['courseBackground']
-                                  .toString(),
-                            ),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              controller.courseList[index]['courseTitle']
-                                  .toString(),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontFamily: 'JosefinSans',
-                                shadows: [
-                                  Shadow(
-                                    color: const Color(0xff000000)
-                                        .withOpacity(0.25),
-                                    offset: const Offset(1, 2),
-                                    blurRadius: 4,
-                                  ),
-                                ],
+                          padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                          width: 130.w,
+                          height: 159.h,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                controller.courseList[index]['courseBackground']
+                                    .toString(),
                               ),
-                            ).paddingOnly(left: 15.w, right: 30.w),
-                            Image.asset(
-                              controller.courseList[index]['courseIcon']
-                                  .toString(),
-                              height: 110.h,
-                            ).paddingOnly(top: 10.h),
-                          ],
-                        ),
-                      ).paddingOnly(left: 5.w, right: 5.w),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                controller.courseList[index]['courseTitle']
+                                    .toString(),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: 'JosefinSans',
+                                  shadows: [
+                                    Shadow(
+                                      color: const Color(0xff000000)
+                                          .withOpacity(0.25),
+                                      offset: const Offset(1, 2),
+                                      blurRadius: 4,
+                                    ),
+                                  ],
+                                ),
+                              ).paddingOnly(left: 15.w, right: 30.w),
+                              Image.asset(
+                                controller.courseList[index]['courseIcon']
+                                    .toString(),
+                                height: 110.h,
+                              ).paddingOnly(top: 10.h),
+                            ],
+                          ),
+                        ).paddingOnly(left: 5.w, right: 5.w),
                       );
                     },
                   ),
@@ -208,172 +207,56 @@ class CourseView extends GetView<CourseController> {
                   ).paddingOnly(
                       left: 30.w, right: 30.w, top: 5.h, bottom: 15.h),
                 ),
-                SizedBox(
-                  height: 250.h,
-                  child: PageView(
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      Center(
-                        child: Container(
-                          width: 380.w,
-                          height: 210.h,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffF5C3B3),
-                            borderRadius: BorderRadius.circular(20.r),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xff000000).withOpacity(0.25),
-                                offset: const Offset(2, 4),
-                                blurRadius: 4.r,
-                              ),
-                            ],
+                Center(
+                  child: Container(
+                    width: 381.w,
+                    height: 210.h,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffF5C3B3),
+                      borderRadius: BorderRadius.circular(20.r),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color(0xff000000).withOpacity(0.25),
+                          offset: const Offset(2, 4),
+                          blurRadius: 4.r,
+                        ),
+                      ],
+                    ),
+                    child: FittedBox(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Ingin tahu cara meng-smackdown predator? \nYuk kita simak video di bawah!",
+                            style: TextStyle(
+                              color: const Color(0xffB6411C),
+                              fontSize: 12.sp,
+                              fontFamily: 'JosefinSans',
+                            ),
+                          ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
+                          FittedBox(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image.asset(
+                                  "assets/images/video_play_placeholder.png",
+                                  height: 120.w,
+                                ).paddingOnly(right: 20.w),
+                                Image.asset(
+                                  "assets/images/maskot_dashboard.png",
+                                  width: 59.w,
+                                ).paddingOnly(right: 14.w),
+                                Image.asset(
+                                  "assets/images/img_dot_three.png",
+                                  width: 10.w,
+                                ).paddingOnly(right: 7.w),
+                              ],
+                            ),
                           ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Ingin tahu cara meng-smackdown predator? Yuk kita simak video di bawah!",
-                                style: TextStyle(
-                                  color: const Color(0xffB6411C),
-                                  fontSize: 12.sp,
-                                  fontFamily: 'JosefinSans',
-                                ),
-                              ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () => launchUrl(
-                                      Uri.parse("https://youtu.be/k9Jn0eP-ZVg"),
-                                    ),
-                                    child: Image.asset(
-                                      "assets/images/thumbnail_self_defense.png",
-                                      height: 120.w,
-                                    ).paddingOnly(right: 20.w),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/maskot_dashboard.png",
-                                    width: 59.w,
-                                  ).paddingOnly(right: 14.w),
-                                  Image.asset(
-                                    "assets/images/dot_first.png",
-                                    width: 10.w,
-                                  ).paddingOnly(right: 7.w),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ).paddingOnly(bottom: 15.h),
+                        ],
                       ),
-                      Center(
-                        child: Container(
-                          width: 380.w,
-                          height: 210.h,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffD8E6D2),
-                            borderRadius: BorderRadius.circular(20.r),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xff000000).withOpacity(0.25),
-                                offset: const Offset(2, 4),
-                                blurRadius: 4.r,
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Mana mungkin laki-laki jadi korban pelecehan seksual? Eits, mending nonton video ini dulu deh!",
-                                style: TextStyle(
-                                  color: const Color(0xff5B6656),
-                                  fontSize: 12.sp,
-                                  fontFamily: 'JosefinSans',
-                                ),
-                              ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () => launchUrl(
-                                      Uri.parse("https://youtu.be/_PfI26tytPI"),
-                                    ),
-                                    child: Image.asset(
-                                      "assets/images/thumbnail_mitos_fakta.png",
-                                      height: 120.w,
-                                    ).paddingOnly(right: 20.w),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/maskot_ngumpet.png",
-                                    width: 59.w,
-                                  ).paddingOnly(right: 14.w),
-                                  Image.asset(
-                                    "assets/images/dot_middle.png",
-                                    width: 10.w,
-                                  ).paddingOnly(right: 7.w),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ).paddingOnly(bottom: 15.h),
-                      ),
-                      Center(
-                        child: Container(
-                          width: 380.w,
-                          height: 210.h,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffF2E9C8),
-                            borderRadius: BorderRadius.circular(20.r),
-                            boxShadow: [
-                              BoxShadow(
-                                color: const Color(0xff000000).withOpacity(0.25),
-                                offset: const Offset(2, 4),
-                                blurRadius: 4.r,
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Gimana sih, cara melatih respons dalam menghadapi situasi mengagetkan seperti pelecehan? Check this out!",
-                                style: TextStyle(
-                                  color: const Color(0xffAB9445),
-                                  fontSize: 12.sp,
-                                  fontFamily: 'JosefinSans',
-                                ),
-                              ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () => launchUrl(
-                                      Uri.parse("https://youtube.com/playlist?list=PLNycW8wRAlHd5KDEYozg1CU7sxnpCSaIP"),
-                                    ),
-                                    child: Image.asset(
-                                      "assets/images/thumbnail_freeze_response.png",
-                                      height: 120.w,
-                                    ).paddingOnly(right: 20.w),
-                                  ),
-                                  Image.asset(
-                                    "assets/images/maskot_freeze.png",
-                                    width: 59.w,
-                                  ).paddingOnly(right: 14.w),
-                                  Image.asset(
-                                    "assets/images/dot_last.png",
-                                    width: 10.w,
-                                  ).paddingOnly(right: 7.w),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ).paddingOnly(bottom: 15.h),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                 height: 15.h,
+                    ),
+                  ).paddingOnly(bottom: 29.h),
                 ),
                 Stack(
                   children: [
@@ -405,43 +288,44 @@ class CourseView extends GetView<CourseController> {
                       onTap: () {
                         Get.toNamed(Routes.PROFILE_DOKTER);
                       },
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Dok, jadi gini...",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'JosefinSans',
-                                  shadows: [
-                                    Shadow(
-                                      color: const Color(0xff000000)
-                                          .withOpacity(0.25),
-                                      offset: const Offset(1, 2),
-                                      blurRadius: 4.r,
-                                    ),
-                                  ],
+                      child: FittedBox(
+                        child: Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Dok, jadi gini...",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20.sp,
+                                    fontFamily: 'JosefinSans',
+                                    shadows: [
+                                      Shadow(
+                                        color: const Color(0xff000000)
+                                            .withOpacity(0.25),
+                                        offset: const Offset(1, 2),
+                                        blurRadius: 4.r,
+                                      ),
+                                    ],
+                                  ),
+                                ).paddingOnly(top: 30.h, bottom: 16.h),
+                                Text(
+                                  "Dari pada bingung, yuk tanya\nlangsung ke ahlinya!",
+                                  style: TextStyle(
+                                    color: const Color(0xffB6411C),
+                                    fontSize: 10.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
                                 ),
-                              ).paddingOnly(top: 30.h, bottom: 16.h),
-                              Text(
-                                "Dari pada bingung, yuk\ntanyalangsung ke ahlinya!",
-                                style: TextStyle(
-                                  color: const Color(0xffB6411C),
-                                  fontSize: 10.sp,
-                                  fontFamily: 'JosefinSans',
-                                ),
-                              ),
-                            ],
-                          ),
-                          Image.asset(
-                            "assets/images/arrow_2.png",
-                          ).paddingOnly(top: 30.h, left: 10.w),
-                        ],
-                      ).paddingOnly(left: 190.w,),
+                              ],
+                            ),
+                            Image.asset(
+                              "assets/images/arrow_2.png",
+                            ).paddingOnly(top: 30.h, left: 10.w),
+                          ],
+                        ).paddingOnly(left: 215.w),
+                      ),
                     ),
                   ],
                 ).paddingOnly(bottom: 5.h),

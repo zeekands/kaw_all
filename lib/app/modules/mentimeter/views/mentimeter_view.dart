@@ -75,88 +75,91 @@ class MentimeterView extends GetView<MentimeterController> {
                         const Spacer(),
                         GestureDetector(
                           onTap: () => launchUrl(
-                            Uri.parse("https://app.sli.do/event/sbYeqP86DZudiZKcQ1Qqkr/live/polls"),
+                            Uri.parse(
+                                "https://app.sli.do/event/sbYeqP86DZudiZKcQ1Qqkr/live/polls"),
                           ),
-                        child: Container(
-                          width: 328.w,
-                          height: 130.h,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffF7F7F7),
-                            borderRadius: BorderRadius.circular(25),
-                            boxShadow: [
-                              BoxShadow(
-                                color:
-                                    const Color(0xff000000).withOpacity(0.25),
-                                spreadRadius: 0,
-                                blurRadius: 2,
-                                offset: const Offset(
-                                    0, 2), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                flex: 1,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                    color: Color(0xffACBCA5),
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(25),
-                                      bottomLeft: Radius.circular(25),
+                          child: Container(
+                            width: 328.w,
+                            height: 130.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffF7F7F7),
+                              borderRadius: BorderRadius.circular(25),
+                              boxShadow: [
+                                BoxShadow(
+                                  color:
+                                      const Color(0xff000000).withOpacity(0.25),
+                                  spreadRadius: 0,
+                                  blurRadius: 2,
+                                  offset: const Offset(
+                                      0, 2), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xffACBCA5),
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(25),
+                                        bottomLeft: Radius.circular(25),
+                                      ),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/img_card_daerah_rawan.png',
                                     ),
                                   ),
-                                  child: Image.asset(
-                                    'assets/images/img_card_daerah_rawan.png',
-                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 2,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Rawan, Kawan!",
-                                      style: TextStyle(
-                                        fontFamily: 'JosefinSans',
-                                        fontSize: 16.sp,
-                                        fontWeight: FontWeight.bold,
-                                        shadows: [
-                                          Shadow(
-                                            color: const Color(0xff000000)
-                                                .withOpacity(0.25),
-                                            offset: const Offset(1, 3),
-                                            blurRadius: 4,
+                                Expanded(
+                                  flex: 2,
+                                  child: FittedBox(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Rawan, Kawan!",
+                                          style: TextStyle(
+                                            fontFamily: 'JosefinSans',
+                                            fontSize: 20.sp,
+                                            fontWeight: FontWeight.bold,
+                                            shadows: [
+                                              Shadow(
+                                                color: const Color(0xff000000)
+                                                    .withOpacity(0.25),
+                                                offset: const Offset(1, 3),
+                                                blurRadius: 4,
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                        5.verticalSpace,
+                                        Text(
+                                          "Tau daerah yang rawan? \nShare it here!",
+                                          style: TextStyle(
+                                            fontFamily: 'JosefinSans',
+                                            fontSize: 14.sp,
+                                          ),
+                                        ),
+                                        10.verticalSpace,
+                                        Image.asset(
+                                          'assets/images/arrow_2.png',
+                                          width: 24.w,
+                                        ),
+                                      ],
+                                    ).paddingOnly(
+                                      top: 10.h,
+                                      bottom: 10.h,
+                                      left: 15.w,
+                                      right: 25.w,
                                     ),
-                                    10.verticalSpace,
-                                    Text(
-                                      "Tau daerah yang rawan? Share it here!",
-                                      style: TextStyle(
-                                        fontFamily: 'JosefinSans',
-                                        fontSize: 14.sp,
-                                      ),
-                                    ),
-                                    10.verticalSpace,
-                                    Image.asset(
-                                      'assets/images/arrow_2.png',
-                                      width: 24.w,
-                                    ),
-                                  ],
-                                ).paddingOnly(
-                                  top: 10.h,
-                                  bottom: 10.h,
-                                  left: 15.w,
-                                  right: 25.w,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
                         ),
                         const Spacer(),
                       ],
@@ -167,7 +170,8 @@ class MentimeterView extends GetView<MentimeterController> {
               const Spacer(),
               GestureDetector(
                 onTap: () => launchUrl(
-                  Uri.parse("https://app.sli.do/event/sbYeqP86DZudiZKcQ1Qqkr/live/polls"),
+                  Uri.parse(
+                      "https://app.sli.do/event/sbYeqP86DZudiZKcQ1Qqkr/live/polls"),
                 ),
                 child: Container(
                   width: 355.w,
@@ -193,15 +197,17 @@ class MentimeterView extends GetView<MentimeterController> {
                           ),
                         ),
                       ),
-                      Text(
-                        "Danger Zones",
-                        style: TextStyle(
-                          color: const Color(0xffA14D4D),
-                          fontFamily: 'JosefinSans',
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ).paddingOnly(top: 20.h, left: 30.w),
+                      FittedBox(
+                        child: Text(
+                          "Danger Zones",
+                          style: TextStyle(
+                            color: const Color(0xffA14D4D),
+                            fontFamily: 'JosefinSans',
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ).paddingOnly(top: 20.h, left: 30.w),
+                      ),
                     ],
                   ),
                 ),
@@ -229,81 +235,9 @@ class MentimeterView extends GetView<MentimeterController> {
                   children: [
                     Column(
                       children: [
-                        Text(
-                          "Need a friend?",
-                          style: TextStyle(
-                            color: const Color(0xff585656),
-                            fontFamily: 'JosefinSans',
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold,
-                            shadows: [
-                              Shadow(
-                                color:
-                                    const Color(0xff000000).withOpacity(0.25),
-                                offset: const Offset(0, 2),
-                                blurRadius: 4,
-                              ),
-                            ],
-                          ),
-                        ).paddingOnly(left: 29.w, top: 15.h),
-                        10.verticalSpace,
-                        GestureDetector(
-                        onTap: (){
-                          Get.to(FakeCallMenu());
-                        },
-                        child: Container(
-                          width: 142.w,
-                          height: 185.h,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffF4DFD9),
-                            borderRadius: BorderRadius.circular(25),
-                            boxShadow: [
-                              BoxShadow(
-                                color:
-                                    const Color(0xff000000).withOpacity(0.25),
-                                spreadRadius: 0,
-                                blurRadius: 2,
-                                offset: const Offset(
-                                    0, 2), // changes position of shadow
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Just call us with Fake Call",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: const Color(0xffFFFEFE),
-                                  fontFamily: 'JosefinSans',
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.bold,
-                                  shadows: [
-                                    Shadow(
-                                      color: const Color(0xff000000)
-                                          .withOpacity(0.25),
-                                      offset: const Offset(0, 2),
-                                      blurRadius: 2,
-                                    ),
-                                  ],
-                                ),
-                              ).paddingAll(10),
-                              Image.asset(
-                                  'assets/images/call_dashboard.png',
-                                  width: 65.w,
-                                ),
-                            ],
-                          ),
-                        ).paddingOnly(left: 29.w),),
-                      ],
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            "Berani melapor",
+                        FittedBox(
+                          child: Text(
+                            "Need a friend?",
                             style: TextStyle(
                               color: const Color(0xff585656),
                               fontFamily: 'JosefinSans',
@@ -318,7 +252,100 @@ class MentimeterView extends GetView<MentimeterController> {
                                 ),
                               ],
                             ),
-                          ).paddingOnly(right: 19.w, top: 35.h),
+                          ).paddingOnly(left: 29.w, top: 15.h),
+                        ),
+                        10.verticalSpace,
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(FakeCallMenu());
+                          },
+                          child: Container(
+                            width: 142.w,
+                            height: 185.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffF4DFD9),
+                              borderRadius: BorderRadius.circular(25),
+                              boxShadow: [
+                                BoxShadow(
+                                  color:
+                                      const Color(0xff000000).withOpacity(0.25),
+                                  spreadRadius: 0,
+                                  blurRadius: 2,
+                                  offset: const Offset(
+                                      0, 2), // changes position of shadow
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Just call us with Fake Call",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: const Color(0xffFFFEFE),
+                                    fontFamily: 'JosefinSans',
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.bold,
+                                    shadows: [
+                                      Shadow(
+                                        color: const Color(0xff000000)
+                                            .withOpacity(0.25),
+                                        offset: const Offset(0, 2),
+                                        blurRadius: 2,
+                                      ),
+                                    ],
+                                  ),
+                                ).paddingAll(10),
+                                Image.asset(
+                                  'assets/images/call_dashboard.png',
+                                  width: 65.w,
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(left: 29.w),
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              "Berani melapor",
+                              style: TextStyle(
+                                color: const Color(0xff585656),
+                                fontFamily: 'JosefinSans',
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.bold,
+                                shadows: [
+                                  Shadow(
+                                    color: const Color(0xff000000)
+                                        .withOpacity(0.25),
+                                    offset: const Offset(0, 2),
+                                    blurRadius: 4,
+                                  ),
+                                ],
+                              ),
+                            ).paddingOnly(right: 19.w, top: 35.h),
+                          ),
+                          Text(
+                            "bersama UPT PPA",
+                            style: TextStyle(
+                              color: const Color(0xff585656),
+                              fontFamily: 'JosefinSans',
+                              fontSize: 8.sp,
+                              shadows: [
+                                Shadow(
+                                  color:
+                                      const Color(0xff000000).withOpacity(0.25),
+                                  offset: const Offset(0, 2),
+                                  blurRadius: 4,
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(right: 19.w, top: 5.h, bottom: 10.h),
                           GestureDetector(
                             onTap: () => Get.toNamed(Routes.PELAPORAN),
                             child: Container(
@@ -343,7 +370,7 @@ class MentimeterView extends GetView<MentimeterController> {
                               ),
                               child: Image.asset(
                                       "assets/images/img_card_berani_melapor.png")
-                                  .paddingOnly(top: 30.h, right: 50.w),
+                                  .paddingOnly(top: 25.h),
                             ),
                           ),
                         ],

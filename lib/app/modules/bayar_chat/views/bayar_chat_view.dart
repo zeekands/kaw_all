@@ -104,7 +104,7 @@ class BayarChatView extends GetView<BayarChatController> {
                         Get.toNamed(Routes.PAYMENT);
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: const Color(0xffBE5F5F),
+                        backgroundColor: const Color(0xffBE5F5F),
                         minimumSize: Size(131.w, 50.h),
                         elevation: 0,
                         shape: const RoundedRectangleBorder(
@@ -138,8 +138,8 @@ class BayarChatView extends GetView<BayarChatController> {
 class CardHargaPerKata extends StatelessWidget {
   final String jmlKata;
   final String harga;
-  final cardColor;
-  final borderColor;
+  final Color cardColor;
+  final Color borderColor;
 
   const CardHargaPerKata({
     Key? key,
@@ -180,7 +180,7 @@ class CardHargaPerKata extends StatelessWidget {
             style: TextStyle(
               color: const Color(0xffB55D5D),
               fontFamily: 'Montserrat',
-              fontSize: 30.sp,
+              fontSize: 34.sp,
               fontWeight: FontWeight.w700,
               shadows: [
                 Shadow(
@@ -192,11 +192,11 @@ class CardHargaPerKata extends StatelessWidget {
             ),
           ),
           Text(
-            "kata",
+            "Kata",
             style: TextStyle(
               color: const Color(0xffB55D5D),
               fontFamily: 'Montserrat',
-              fontSize: 15.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w700,
               shadows: [
                 Shadow(
@@ -207,14 +207,14 @@ class CardHargaPerKata extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 10.h,),
+          const Spacer(),
           Text(
-            "Rp $harga",
+            "Rp. $harga",
             style: TextStyle(
               color: const Color(0xffF1774E),
               fontFamily: 'Montserrat',
               fontSize: 15.sp,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w500,
               shadows: [
                 Shadow(
                   color: const Color(0xff000000).withOpacity(0.25),

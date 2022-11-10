@@ -280,9 +280,7 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
                                 onTap: () async {
                                   await controller.uploadChat();
                                   Get.toNamed(
-                                    controller.wordChatCount.value == 0
-                                        ? Routes.BAYAR_CHAT
-                                        : Routes.CHAT,
+                                    Routes.CHAT,
                                     arguments: {
                                       'chatId': controller.chatId.value,
                                       'name': controller.name.value,
@@ -308,16 +306,16 @@ class ProfileDokterView extends GetView<ProfileDokterController> {
                                 ),
                               ),
                             ).paddingSymmetric(horizontal: 16.w),
-                            // IconButton(
-                            //   onPressed: () {
-                            //     Get.toNamed(Routes.BAYAR_CHAT);
-                            //   },
-                            //   icon: Icon(
-                            //     Icons.shopping_cart_rounded,
-                            //     color: Colors.white,
-                            //     size: 30.sp,
-                            //   ),
-                            // ),
+                            IconButton(
+                              onPressed: () {
+                                Get.toNamed(Routes.BAYAR_CHAT);
+                              },
+                              icon: Icon(
+                                Icons.shopping_cart_rounded,
+                                color: Colors.white,
+                                size: 30.sp,
+                              ),
+                            ),
                           ],
                         ),
                         16.verticalSpace,

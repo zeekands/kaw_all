@@ -200,32 +200,35 @@ class LoginView extends GetView<LoginController> {
                                 ),
                               ),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Text(
-                                  "Don’t have an account?",
-                                  style: TextStyle(
-                                    color: Color(0xFF585656),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12,
-                                    fontFamily: 'Montserrat',
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () => Get.toNamed(Routes.REGISTER),
-                                  child: const Text(
-                                    " Create new",
-                                    style: TextStyle(
-                                      color: Color(0xFFEC9F87),
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 12,
-                                      fontFamily: 'Montserrat',
+                            Center(
+                              child: FittedBox(
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Don’t have an account?",
+                                      style: TextStyle(
+                                        color: const Color(0xFF585656),
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12.sp,
+                                        fontFamily: 'Montserrat',
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              ],
-                            ).paddingOnly(top: 45.h),
+                                    GestureDetector(
+                                      onTap: () => Get.toNamed(Routes.REGISTER),
+                                      child: Text(
+                                        " Create new account",
+                                        style: TextStyle(
+                                          color: const Color(0xFFEC9F87),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12.sp,
+                                          fontFamily: 'Montserrat',
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ).paddingOnly(top: 45.h),
+                              ),
+                            ),
                           ],
                         ),
                       ),
