@@ -104,7 +104,7 @@ class BayarChatView extends GetView<BayarChatController> {
                         Get.toNamed(Routes.PAYMENT);
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: const Color(0xffBE5F5F),
+                        backgroundColor: const Color(0xffBE5F5F),
                         minimumSize: Size(131.w, 50.h),
                         elevation: 0,
                         shape: const RoundedRectangleBorder(
@@ -138,8 +138,8 @@ class BayarChatView extends GetView<BayarChatController> {
 class CardHargaPerKata extends StatelessWidget {
   final String jmlKata;
   final String harga;
-  final cardColor;
-  final borderColor;
+  final Color cardColor;
+  final Color borderColor;
 
   const CardHargaPerKata({
     Key? key,
@@ -173,60 +173,58 @@ class CardHargaPerKata extends StatelessWidget {
           ),
         ],
       ),
-      child: Flexible(
-        child: Column(
-          children: [
-            Text(
-              jmlKata,
-              style: TextStyle(
-                color: const Color(0xffB55D5D),
-                fontFamily: 'Montserrat',
-                fontSize: 34.sp,
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0xff000000).withOpacity(0.25),
-                    offset: const Offset(0, 3),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
+      child: Column(
+        children: [
+          Text(
+            jmlKata,
+            style: TextStyle(
+              color: const Color(0xffB55D5D),
+              fontFamily: 'Montserrat',
+              fontSize: 34.sp,
+              fontWeight: FontWeight.w700,
+              shadows: [
+                Shadow(
+                  color: const Color(0xff000000).withOpacity(0.25),
+                  offset: const Offset(0, 3),
+                  blurRadius: 4,
+                ),
+              ],
             ),
-            Text(
-              "Kata",
-              style: TextStyle(
-                color: const Color(0xffB55D5D),
-                fontFamily: 'Montserrat',
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w700,
-                shadows: [
-                  Shadow(
-                    color: const Color(0xff000000).withOpacity(0.25),
-                    offset: const Offset(0, 2),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
+          ),
+          Text(
+            "Kata",
+            style: TextStyle(
+              color: const Color(0xffB55D5D),
+              fontFamily: 'Montserrat',
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w700,
+              shadows: [
+                Shadow(
+                  color: const Color(0xff000000).withOpacity(0.25),
+                  offset: const Offset(0, 2),
+                  blurRadius: 4,
+                ),
+              ],
             ),
-            const Spacer(),
-            Text(
-              "Rp. $harga",
-              style: TextStyle(
-                color: const Color(0xffF1774E),
-                fontFamily: 'Montserrat',
-                fontSize: 15.sp,
-                fontWeight: FontWeight.w500,
-                shadows: [
-                  Shadow(
-                    color: const Color(0xff000000).withOpacity(0.25),
-                    offset: const Offset(0, 2),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
+          ),
+          const Spacer(),
+          Text(
+            "Rp. $harga",
+            style: TextStyle(
+              color: const Color(0xffF1774E),
+              fontFamily: 'Montserrat',
+              fontSize: 15.sp,
+              fontWeight: FontWeight.w500,
+              shadows: [
+                Shadow(
+                  color: const Color(0xff000000).withOpacity(0.25),
+                  offset: const Offset(0, 2),
+                  blurRadius: 4,
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     ).paddingOnly(bottom: 10.h, left: 10.w, right: 10.w);
   }
