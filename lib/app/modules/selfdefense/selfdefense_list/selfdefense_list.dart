@@ -23,14 +23,14 @@ var selfDefenseCourseList = [
     imageCover: "assets/images/cover_five_common.png",
     ytlink: "https://youtu.be/k9Jn0eP-ZVg",
     buttontext: 'Watch Video',
-    material: "Insting merupakan satu-satunya cara yang bisa dilakukan tubuhmu untuk berkomunikasi denganmu. Pelecehan seksual menghadapkan seseorang kepada situasi asing, dan peka terhadap sinyal yang disampaikan tubuhmu dapat membantumu untuk lebih waspada terhadap situasi yang dihadapi. Secara praktikal, tentu tidak mudah. Tetapi kami tak akan menyerah dalam mengawalmu dengan mengantisipasi setiap celah. Tak bisa dipungkiri, melawan juga perlu ilmu. Kamu tak perlu khawatir jika masih ‘asing’ terhadap seni bela diri. Kunci utamanya adalah memulai. Ini dia  5ß gerakan bela diri ala Janice Hung yang harus kamu tahu!",
+    material: "Insting merupakan satu-satunya cara yang bisa dilakukan tubuhmu untuk berkomunikasi denganmu. Pelecehan seksual menghadapkan seseorang kepada situasi asing, dan peka terhadap sinyal yang disampaikan tubuhmu dapat membantumu untuk lebih waspada terhadap situasi yang dihadapi. Secara praktikal, tentu tidak mudah. Tetapi kami tak akan menyerah dalam mengawalmu dengan mengantisipasi setiap celah. Tak bisa dipungkiri, melawan juga perlu ilmu. Kamu tak perlu khawatir jika masih ‘asing’ terhadap seni bela diri. Kunci utamanya adalah memulai. Ini dia  5 gerakan bela diri ala Janice Hung yang harus kamu tahu!",
   ),
   CourseList(
     title: "Kalau Bukan Kita, Siapa Lagi?",
     imageList: "assets/images/list_kalau_bukan_kita.png",
     imageCover: "assets/images/cover_kalau_bukan_kita.png",
-    ytlink: "https://youtube.com/playlist?list=PLNycW8wRAlHflXPANi5WkjuwoRvWibfaI",
-    buttontext: 'Watch Playlist',
+    ytlink: "https://youtu.be/AaTYHDI-o1w",
+    buttontext: 'Watch Video',
     material: "Siapa sih yang mau hal buruk terjadi? Pasti nggak ada kan. Memang, kita tak bisa menebak apa yang akan terjadi pada diri kita, bahkan dalam satu detik kedepan. Lantas, apa yang bisa kita lakukan untuk mempersiapkan diri dari segala kemungkinan pelecehan seksual yang bisa terjadi? Kuy langsung saja dibaca!\n\n "
         "1. Waspada, bukan curiga\n\n "
         "Sobat KawAll, kita tak pernah tahu kapan dan bagaimana pelaku pelecehan seksual akan menyerang korbannya. Jadi, usahakan untuk selalu waspada di manapun dan kapanpun. Bukan berarti kita harus jadi super was-was dan curigaan, namun kita perlu tahu apa yang harus kita lakukan ketika ada 'serangan'. Selain itu, mensenjatai diri dengan peralatan bela diri seperti pepper spray yang setia menunggu di tas juga salah satu ide cemerlang.\n\n"

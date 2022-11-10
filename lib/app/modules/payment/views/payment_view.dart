@@ -96,7 +96,7 @@ class PaymentView extends GetView<PaymentController> {
             Center(
               child: Container(
                   child: Image.asset(
-                      "assets/images/before_payment.png"
+                      "assets/images/before_payment_review.png"
                   )
               ),
             ).paddingOnly(bottom: 30.h,),

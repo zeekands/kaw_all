@@ -21,8 +21,8 @@ var supportSystemCourseList = [
     title: "Korban Pelecehan Tak Melawan? Yuk, Kenali Istilah Tonic Immobility",
     imageList: "assets/images/list_tonic_immobility.png",
     imageCover: "assets/images/cover_tonic_immobility.png",
-    ytlink: "https://youtube.com/playlist?list=PLNycW8wRAlHd5KDEYozg1CU7sxnpCSaIP",
-    buttontext: 'Watch Playlist',
+    ytlink: "https://youtu.be/pes7H4ECTdw",
+    buttontext: 'Watch Video',
     material: "Korban pelecehan seksual kerap merasa bersalah karena tak dapat melakukan apa-apa disaat pelecehan seksual terjadi. Masyarakat awam masih terjebak dalam anggapan bahwa melawan, berteriak dan berlari adalah cara untuk menunjukkan ‘ketidakterimaan’ terhadap pelecehan seksual dan mereka yang tidak dapat melakukan hal-hal itu berarti pasrah dan suka rela menerima pelecehan yang dialami. Pada kenyataannya, seseorang yang menghadapi ancaman pertama-tama akan membeku, walaupun hanya sepersekian detik, untuk memproses situasi. Respon ini dikenal dengan istilah Tonic Immobility, keadaan kaku dan tidak bergerak sebagai respons terhadap rasa takut yang intens. \n\n"
         "Reference: mcasa.org\n\n"
         "Yuk, pelajari lebih dalam kondisi ini dan cari tahu kiat-kiat mengatasinya dengan menekan tombol playlist berikut!",

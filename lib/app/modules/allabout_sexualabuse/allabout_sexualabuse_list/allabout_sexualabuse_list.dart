@@ -21,8 +21,8 @@ var allAboutSexualAbuseList = [
     title: "Kekerasan Seksual? Kenali dan Pelajari Ciri Cirinya",
     imageList: "assets/images/list_allabout_sexualabuse.png",
     imageCover: "assets/images/cover_sexual_assault.png",
-    ytlink: "https://youtube.com/playlist?list=PLNycW8wRAlHd2SvAQo7R5mHZwURS4vqSE",
-    buttontext: 'Watch Playlist',
+    ytlink: "https://youtu.be/NZzMrQsHs3g",
+    buttontext: 'Watch Video',
     material: "SGBV atau Sexual and Gender Based Violence adalah kekerasan fisik dan emosional baik dalam bentuk pemaksaan, pemaksaan, ancaman, dan penipuan terhadap orang lain karena jenis kelamin atau gendernya. Walaupun kebanyakan korban dan penyintas adalah perempuan, ketahuilah bahwa laki-laki juga dapat menderita SGBV loh..\n\n"
         "Yuk kenali jenis-jenisnya!\n\n"
         "Jenis-Jenis SGBV:\n\n"

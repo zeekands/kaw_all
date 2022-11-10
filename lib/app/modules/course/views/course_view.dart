@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../utils/color.dart';
@@ -89,7 +90,7 @@ class CourseView extends GetView<CourseController> {
                             boxShadow: [
                               BoxShadow(
                                 color:
-                                    const Color(0xff000000).withOpacity(0.25),
+                                const Color(0xff000000).withOpacity(0.25),
                                 offset: const Offset(1, 1),
                                 blurRadius: 2.r,
                               ),
@@ -105,7 +106,7 @@ class CourseView extends GetView<CourseController> {
                                 "Search Course",
                                 style: TextStyle(
                                   color:
-                                      const Color.fromARGB(255, 172, 162, 162),
+                                  const Color.fromARGB(255, 172, 162, 162),
                                   fontSize: 16.sp,
                                   fontFamily: 'JosefinSans',
                                 ),
@@ -208,55 +209,176 @@ class CourseView extends GetView<CourseController> {
                       left: 30.w, right: 30.w, top: 5.h, bottom: 15.h),
                 ),
                 Center(
-                  child: Container(
-                    width: 381.w,
-                    height: 210.h,
-                    decoration: BoxDecoration(
-                      color: const Color(0xffF5C3B3),
-                      borderRadius: BorderRadius.circular(20.r),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xff000000).withOpacity(0.25),
-                          offset: const Offset(2, 4),
-                          blurRadius: 4.r,
+                  child: SizedBox(
+                    height: 250.h,
+                    child: PageView(
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        GestureDetector(
+                          onTap: () => launchUrl(
+                            Uri.parse("https://youtu.be/k9Jn0eP-ZVg"),
+                          ),
+                          child: Container(
+                            width: 370.w,
+                            height: 138.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffF5C3B3),
+                              borderRadius: BorderRadius.circular(20.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 0,
+                                  blurRadius: 4,
+                                  offset: const Offset(1, 4),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Ingin tahu cara meng-smackdown predator? \nYuk kita simak video di bawah!",
+                                  style: TextStyle(
+                                    color: const Color(0xffB6411C),
+                                    fontSize: 12.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
+                                FittedBox(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/thumbnail_self_defense.png",
+                                        height: 120.w,
+                                      ).paddingOnly(right: 20.w),
+                                      Image.asset(
+                                        "assets/images/maskot_dashboard.png",
+                                        width: 59.w,
+                                      ).paddingOnly(right: 14.w),
+                                      Image.asset(
+                                        "assets/images/dot_first.png",
+                                        width: 10.w,
+                                      ).paddingOnly(right: 7.w),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(left: 16.w, right: 16.w, bottom: 16.h),
+                        ),
+                        GestureDetector(
+                          onTap: () => launchUrl(
+                            Uri.parse("https://youtu.be/_PfI26tytPI"),
+                          ),
+                          child: Container(
+                            width: 370.w,
+                            height: 138.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffDCE3D9),
+                              borderRadius: BorderRadius.circular(20.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 0,
+                                  blurRadius: 4,
+                                  offset: const Offset(1, 4),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Mungkinkah laki-laki jadi korban pelecehan? Eits, mending tonton video ini dulu deh!",
+                                  style: TextStyle(
+                                    color: const Color(0xff8D9688),
+                                    fontSize: 12.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
+                                FittedBox(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/thumbnail_mitos_fakta.png",
+                                        height: 120.w,
+                                      ).paddingOnly(right: 20.w),
+                                      Image.asset(
+                                        "assets/images/maskot_ngumpet.png",
+                                        width: 59.w,
+                                      ).paddingOnly(right: 14.w),
+                                      Image.asset(
+                                        "assets/images/dot_middle.png",
+                                        width: 10.w,
+                                      ).paddingOnly(right: 7.w),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(left: 16.w, right: 16.w, bottom: 16.h),
+                        ),
+                        GestureDetector(
+                          onTap: () => launchUrl(
+                            Uri.parse("https://youtu.be/s0l25LNmYT8"),
+                          ),
+                          child: Container(
+                            width: 370.w,
+                            height: 138.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffF2E9C8),
+                              borderRadius: BorderRadius.circular(20.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 0,
+                                  blurRadius: 4,
+                                  offset: const Offset(1, 4),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Gimana sih, cara melatih response dalam menghadapi situasi mengagetkan seperti pelecehan? Check this out!",
+                                  style: TextStyle(
+                                    color: const Color(0xffAB9445),
+                                    fontSize: 12.sp,
+                                    fontFamily: 'JosefinSans',
+                                  ),
+                                ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
+                                FittedBox(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/thumbnail_freeze_response.png",
+                                        height: 120.w,
+                                      ).paddingOnly(right: 20.w),
+                                      Image.asset(
+                                        "assets/images/maskot_freeze.png",
+                                        width: 59.w,
+                                      ).paddingOnly(right: 14.w),
+                                      Image.asset(
+                                        "assets/images/dot_last.png",
+                                        width: 10.w,
+                                      ).paddingOnly(right: 7.w),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(left: 16.w, right: 16.w, bottom: 16.h),
                         ),
                       ],
                     ),
-                    child: FittedBox(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Ingin tahu cara meng-smackdown predator? \nYuk kita simak video di bawah!",
-                            style: TextStyle(
-                              color: const Color(0xffB6411C),
-                              fontSize: 12.sp,
-                              fontFamily: 'JosefinSans',
-                            ),
-                          ).paddingOnly(left: 36.w, right: 36.w, top: 18.h),
-                          FittedBox(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Image.asset(
-                                  "assets/images/video_play_placeholder.png",
-                                  height: 120.w,
-                                ).paddingOnly(right: 20.w),
-                                Image.asset(
-                                  "assets/images/maskot_dashboard.png",
-                                  width: 59.w,
-                                ).paddingOnly(right: 14.w),
-                                Image.asset(
-                                  "assets/images/img_dot_three.png",
-                                  width: 10.w,
-                                ).paddingOnly(right: 7.w),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ).paddingOnly(bottom: 29.h),
+                  ),
+                ),
+                SizedBox(
+                  height: 15.h,
                 ),
                 Stack(
                   children: [

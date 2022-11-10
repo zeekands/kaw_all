@@ -51,9 +51,9 @@ class NavigationBarView extends GetView<NavigationBarController> {
                     text: 'Home',
                   ),
                   GButton(
-                    icon: Icons.roller_skating_rounded,
+                    icon: Icons.add_road_outlined,
                     iconColor: Color(0xff5B6656),
-                    text: 'Jalan Yuk!',
+                    text: 'KawAll Zone',
                   ),
                   GButton(
                     icon: Icons.search_rounded,

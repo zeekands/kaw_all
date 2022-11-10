@@ -75,7 +75,7 @@ class BayarChatView extends GetView<BayarChatController> {
                     const Spacer(),
                     SizedBox(
                       width: 1.sw,
-                      height: 160.h,
+                      height: 180.h,
                       child: ListView.builder(
                         itemCount: 5,
                         itemBuilder: (context, index) => Obx(
