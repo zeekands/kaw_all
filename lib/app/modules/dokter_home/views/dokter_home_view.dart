@@ -17,7 +17,7 @@ class DokterHomeView extends GetView<DokterHomeController> {
     ));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat Dokter '),
+        title: const Text('Chat Dokter'),
         centerTitle: true,
       ),
       body: Stack(
@@ -59,8 +59,7 @@ class DokterHomeView extends GetView<DokterHomeController> {
                                   ),
                                   subtitle: Text(lastMessage.last['message']),
                                   leading: CircleAvatar(
-                                    backgroundImage: NetworkImage(
-                                        "https://picsum.photos/id/100/200/300"),
+                                    backgroundImage: AssetImage("assets/images/foto_profil_pasien.png"),
                                   ),
                                 ),
                               );

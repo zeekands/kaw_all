@@ -17,30 +17,12 @@ class DashboardController extends GetxController {
   final docRef = FirebaseFirestore.instance.collection('users');
   final whatsNewList = <Map<String, dynamic>>[
     {
-      'title': 'KoLaK',
-      'description': 'Konseling Serasa Jajan Ayam Geprek',
-      'image': 'assets/images/img_kolak_dashboard.png',
-      'onTap': Routes.KOLAK,
-      'bgColor': const Color(0xFFFAEBE6),
-      'titleColor': const Color(0xFFB6411C),
-      'descColor': const Color(0xFF877878),
-    },
-    {
       'title': 'Yuk Volunteer!',
       'description': 'Ingin Ikut Berkontribusi?',
       'image': 'assets/images/img_volunteer_dashboard.png',
       'onTap': Routes.VOLUNTEER_HIRING,
       'bgColor': const Color(0xFFDCE3D9),
       'titleColor': const Color(0xFF4B4848),
-      'descColor': const Color(0xFF877878),
-    },
-    {
-      'title': 'PaNaS',
-      'description': 'Paket Nanya Sepuasnya',
-      'image': 'assets/images/img_panas_dashboard.png',
-      'onTap': Routes.PANAS, // Routes.COMING_SOON
-      'bgColor': const Color(0xFFEDD4D4),
-      'titleColor': const Color(0xFFB6411C),
       'descColor': const Color(0xFF877878),
     },
     {
@@ -51,6 +33,24 @@ class DashboardController extends GetxController {
       'bgColor': const Color(0xFFDA8383),
       'titleColor': const Color(0xFF4B4848),
       'descColor': const Color(0xFFFFFEFE),
+    },
+    {
+      'title': 'KoLaK',
+      'description': 'Konseling Serasa Jajan Ayam Geprek',
+      'image': 'assets/images/img_kolak_dashboard.png',
+      'onTap': Routes.KOLAK,
+      'bgColor': const Color(0xFFFAEBE6),
+      'titleColor': const Color(0xFFB6411C),
+      'descColor': const Color(0xFF877878),
+    },
+    {
+      'title': 'PaNaS',
+      'description': 'Paket Nanya Sepuasnya',
+      'image': 'assets/images/img_panas_dashboard.png',
+      'onTap': Routes.PANAS, // Routes.COMING_SOON
+      'bgColor': const Color(0xFFEDD4D4),
+      'titleColor': const Color(0xFFB6411C),
+      'descColor': const Color(0xFF877878),
     },
   ];
 

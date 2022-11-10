@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../routes/app_pages.dart';
@@ -11,6 +12,7 @@ import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
   const DashboardView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
@@ -100,12 +102,6 @@ class DashboardView extends GetView<DashboardController> {
                                 );
                               }),
                               15.verticalSpace,
-                              Image.asset(
-                                'assets/images/dots_dashboard.png',
-                                width: 36.w,
-                                height: 20.h,
-                              ),
-                              5.verticalSpace,
                               Text(
                                 "Take our quiz here to express\nyourself!",
                                 style: TextStyle(
@@ -221,6 +217,9 @@ class DashboardView extends GetView<DashboardController> {
                                   right: 59.w,
                                 ),
                               ),
+                               Container(
+                                child: Image.asset('assets/images/dot_first.png'),
+                              ).paddingOnly(right: 20.w,),
                             ],
                           ),
                         ).paddingOnly(left: 16.w, right: 16.w, bottom: 16.h),
@@ -233,7 +232,7 @@ class DashboardView extends GetView<DashboardController> {
                           width: 370.w,
                           height: 138.h,
                           decoration: BoxDecoration(
-                            color: const Color(0xffB7E3A2),
+                            color: const Color(0xffBDE0A7),
                             borderRadius: BorderRadius.circular(20.r),
                             boxShadow: [
                               BoxShadow(
@@ -302,6 +301,9 @@ class DashboardView extends GetView<DashboardController> {
                                     right: 20.w,
                                   ),
                                 ),
+                                Container(
+                                  child: Image.asset('assets/images/dot_middle.png'),
+                                ).paddingOnly(right: 20.w,),
                               ],
                             ),
                           ).paddingAll(15.w),
@@ -382,103 +384,15 @@ class DashboardView extends GetView<DashboardController> {
                                     right: 20.w,
                                   ),
                                 ),
+                                Container(
+                                  child: Image.asset('assets/images/dot_last.png'),
+                                ).paddingOnly(right: 20.w,),
                               ],
                             ),
                           ).paddingAll(15.w),
                         ).paddingOnly(right: 16.w, left: 16.w, bottom: 10.h),
                       ),
                       ],
-                    ),
-                  ),
-                  Text(
-                    "What's New?",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.sp,
-                      fontFamily: 'JosefinSans',
-                      shadows: [
-                        Shadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          offset: const Offset(1, 2),
-                          blurRadius: 4,
-                        ),
-                      ],
-                    ),
-                  ).paddingOnly(top: 20.h, left: 36.w, bottom: 10.h),
-                  SizedBox(
-                    height: 160.h,
-                    width: 1.sw,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: controller.whatsNewList.length,
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            Get.toNamed(
-                              controller.whatsNewList[index]['onTap'],
-                            );
-                          },
-                          child: Container(
-                            width: 120.w,
-                            height: 150.h,
-                            decoration: BoxDecoration(
-                              color: controller.whatsNewList[index]['bgColor'],
-                              borderRadius: BorderRadius.circular(30.r),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 0,
-                                  blurRadius: 4,
-                                  offset: const Offset(2, 4),
-                                ),
-                              ],
-                            ),
-                            child: Stack(
-                              alignment: Alignment.center,
-                              children: [
-                                Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Image.asset(
-                                    controller.whatsNewList[index]['image']
-                                        .toString(),
-                                    height: 88.h,
-                                  ),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      controller.whatsNewList[index]['title']
-                                          .toString(),
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: controller.whatsNewList[index]
-                                            ['titleColor'],
-                                        fontSize: 14.sp,
-                                        fontFamily: 'JosefinSans',
-                                      ),
-                                    ).paddingOnly(top: 15.h, bottom: 7.h),
-                                    Text(
-                                      controller.whatsNewList[index]
-                                              ['description']
-                                          .toString(),
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: controller.whatsNewList[index]
-                                            ['descColor'],
-                                        fontSize: 8.sp,
-                                        fontFamily: 'JosefinSans',
-                                      ),
-                                    ).paddingOnly(
-                                        bottom: 15.h, left: 10.w, right: 10.w),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ).paddingOnly(right: 10.w, bottom: 10.h),
-                        );
-                      },
                     ),
                   ),
                   Text(
@@ -549,6 +463,97 @@ class DashboardView extends GetView<DashboardController> {
                         ],
                       ).paddingOnly(top: 10.h),
                     ],
+                  ),
+                  Text(
+                    "What's New?",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.sp,
+                      fontFamily: 'JosefinSans',
+                      shadows: [
+                        Shadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          offset: const Offset(1, 2),
+                          blurRadius: 4,
+                        ),
+                      ],
+                    ),
+                  ).paddingOnly(top: 20.h, left: 36.w, bottom: 10.h),
+                  SizedBox(
+                    height: 160.h,
+                    width: 1.sw,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: controller.whatsNewList.length,
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            Get.toNamed(
+                              controller.whatsNewList[index]['onTap'],
+                            );
+                          },
+                          child: Container(
+                            width: 120.w,
+                            height: 150.h,
+                            decoration: BoxDecoration(
+                              color: controller.whatsNewList[index]['bgColor'],
+                              borderRadius: BorderRadius.circular(30.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 0,
+                                  blurRadius: 4,
+                                  offset: const Offset(2, 4),
+                                ),
+                              ],
+                            ),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Image.asset(
+                                    controller.whatsNewList[index]['image']
+                                        .toString(),
+                                    height: 88.h,
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      controller.whatsNewList[index]['title']
+                                          .toString(),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: controller.whatsNewList[index]
+                                        ['titleColor'],
+                                        fontSize: 14.sp,
+                                        fontFamily: 'JosefinSans',
+                                      ),
+                                    ).paddingOnly(top: 15.h, bottom: 7.h),
+                                    Text(
+                                      controller.whatsNewList[index]
+                                      ['description']
+                                          .toString(),
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: controller.whatsNewList[index]
+                                        ['descColor'],
+                                        fontSize: 8.sp,
+                                        fontFamily: 'JosefinSans',
+                                      ),
+                                    ).paddingOnly(
+                                        bottom: 15.h, left: 10.w, right: 10.w),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ).paddingOnly(right: 10.w, bottom: 10.h),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),

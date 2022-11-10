@@ -108,7 +108,7 @@ class VolunteerHiringView extends GetView<VolunteerHiringController> {
               const Spacer(),
               ElevatedButton(
                 onPressed: () => launchUrl(
-                  Uri.parse("https://www.instagram.com/kawall_ares/"),
+                  Uri.parse("https://nffoq0ghbqu.typeform.com/to/fmMMUMrk"),
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: const Color(0xffBE5F5F),

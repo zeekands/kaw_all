@@ -319,22 +319,6 @@ class MentimeterView extends GetView<MentimeterController> {
                               ],
                             ),
                           ).paddingOnly(right: 19.w, top: 35.h),
-                          Text(
-                            "bersama UPT PPA",
-                            style: TextStyle(
-                              color: const Color(0xff585656),
-                              fontFamily: 'JosefinSans',
-                              fontSize: 8.sp,
-                              shadows: [
-                                Shadow(
-                                  color:
-                                      const Color(0xff000000).withOpacity(0.25),
-                                  offset: const Offset(0, 2),
-                                  blurRadius: 4,
-                                ),
-                              ],
-                            ),
-                          ).paddingOnly(right: 19.w, top: 5.h, bottom: 10.h),
                           GestureDetector(
                             onTap: () => Get.toNamed(Routes.PELAPORAN),
                             child: Container(
@@ -359,7 +343,7 @@ class MentimeterView extends GetView<MentimeterController> {
                               ),
                               child: Image.asset(
                                       "assets/images/img_card_berani_melapor.png")
-                                  .paddingOnly(top: 25.h),
+                                  .paddingOnly(top: 30.h, right: 50.w),
                             ),
                           ),
                         ],

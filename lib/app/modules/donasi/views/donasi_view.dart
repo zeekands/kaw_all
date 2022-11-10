@@ -46,7 +46,7 @@ class DonasiView extends GetView<DonasiController> {
                 ],
               ).paddingSymmetric(horizontal: 12.w, vertical: 14.h),
               Text(
-                "Let’s Donate to Support!",
+                "Let’s Donate to Support Us!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Montserrat',
@@ -99,11 +99,20 @@ class DonasiView extends GetView<DonasiController> {
                       ),
                     ),
                     TextSpan(
-                      text: "donasimu!",
+                      text: "donasimu",
                       style: TextStyle(
                         fontFamily: 'Montserrat',
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
+                        color: const Color(0xff292D32),
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                      " untuk bersama kembangkan KawAll!",
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 14.sp,
                         color: const Color(0xff292D32),
                       ),
                     ),

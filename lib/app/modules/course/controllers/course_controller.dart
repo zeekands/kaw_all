@@ -13,7 +13,7 @@ class CourseController extends GetxController {
     },
     {
       'courseBackground': 'assets/images/second_course_card.png',
-      'courseTitle': 'All about\nsexual abuse',
+      'courseTitle': 'All About\nSexual Abuse',
       'courseIcon': 'assets/images/second_course_icon.png',
       'page': AllAboutSexualAbuseMenu(),
     },

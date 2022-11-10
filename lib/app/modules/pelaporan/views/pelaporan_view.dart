@@ -104,6 +104,11 @@ class PelaporanView extends GetView<PelaporanController> {
                         description: controller.listDataCard[2]["description"],
                         bgColor: controller.listDataCard[2]["bgColor"],
                       ),
+                      CustomCard(
+                        title: controller.listDataCard[3]["title"],
+                        description: controller.listDataCard[3]["description"],
+                        bgColor: controller.listDataCard[3]["bgColor"],
+                      ),
                     ],
                   ),
                 ).paddingOnly(top: 220.h),

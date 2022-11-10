@@ -19,12 +19,9 @@ class ReceiptView extends GetView<ReceiptController> {
             height: 1.sh,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/background_receipt.png'),
+                image: AssetImage('assets/images/receipt_after_payment.png'),
                 fit: BoxFit.fill,
               ),
-            ),
-            child: Center(
-              child: Image.asset('assets/images/receipt_illustration.png'),
             ),
           ),
         ),

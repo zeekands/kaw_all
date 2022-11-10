@@ -65,7 +65,20 @@ class _FakeCallAudioFileState extends State<FakeCallAudioFile> {
   @override
   Widget build(BuildContext context) {
     final double screenDivision=MediaQuery.of(context).size.height*(2/5);
-    return Column(
+    return WillPopScope (
+      onWillPop: () async {
+        if(isplaying || audioplayed) {
+          int result = await widget.player.stop();
+          if(result == 1){
+            setState(() {
+              isplaying = false;
+              audioplayed = false;
+            });
+          }
+        }
+        return new Future.value(true);
+      },
+      child: Column(
       children: [
         Container(
           height: screenDivision/5,
@@ -163,6 +176,7 @@ class _FakeCallAudioFileState extends State<FakeCallAudioFile> {
           ),
         ),
       ],
+    ),
     );
   }
 }

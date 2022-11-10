@@ -43,7 +43,7 @@ class PaymentController extends GetxController {
                 child: Align(
                   alignment: Alignment.center,
                   child: Text(
-                    'Metode Pembayaran Lain',
+                    'Metode Pembayaran',
                     style: TextStyle(
                       color: Color(0xff5B6656),
                       fontFamily: 'Montserrat',
@@ -56,18 +56,39 @@ class PaymentController extends GetxController {
             ],
           ).paddingOnly(top: 15, left: 15, right: 15),
           20.verticalSpace,
-          const Text(
-            'Transfer Bank',
-            style: TextStyle(
-              color: Color(0xff5B6656),
-              fontFamily: 'Montserrat',
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ).paddingOnly(top: 10, left: 15, right: 15),
-          20.verticalSpace,
           Column(
             children: [
+              ListTile(
+                leading: Image.asset(
+                  'assets/images/gopay_logo.png',
+                  width: 90.w,
+                  height: 33.h,
+                ),
+                trailing: const Icon(Icons.arrow_forward_ios),
+                title: const Text(
+                  'Gopay',
+                  style: TextStyle(
+                    color: Color(0xff5B6656),
+                    fontFamily: 'Montserrat',
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                onTap: () {
+                  if (psikolog != "") {
+                    createKonseling();
+                    Get.toNamed(Routes.RECEIPT);
+                  } else {
+                    Get.until(
+                            (route) => Get.currentRoute == Routes.PROFILE_DOKTER);
+                  }
+                },
+                shape: const Border(
+                  top: BorderSide(
+                    color: Colors.black26,
+                  ),
+                ),
+              ),
               ListTile(
                 leading: Image.asset(
                   'assets/images/bri_logo.png',

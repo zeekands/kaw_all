@@ -49,7 +49,7 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
-				<key>CFBundleTypeRole</key>
+		<key>CFBundleTypeRole</key>
 		<string>Editor</string>
 		<key>CFBundleURLSchemes</key>
 		<array>

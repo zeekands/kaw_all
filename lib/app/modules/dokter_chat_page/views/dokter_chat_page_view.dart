@@ -45,7 +45,7 @@ class DokterChatPageView extends GetView<DokterChatPageController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       const Text(
-                        "dr. Muhammad Habibul Ihsan",
+                        "dr. Habib",
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w600),
                       ),
