@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:kaw_all/app/modules/addition/page_information.dart';
 
 import '../../../routes/app_pages.dart';
 import '../../../utils/color.dart';
@@ -40,7 +41,7 @@ class HomeView extends GetView<HomeController> {
                   Image.asset('assets/images/welcome_message.png'),
                   GestureDetector(
                     child: Image.asset('assets/images/arrow.png'),
-                    onTap: () => Get.toNamed(Routes.WELCOME),
+                    onTap: () => Get.to(InformationPage()),
                   ),
                 ],
               ),

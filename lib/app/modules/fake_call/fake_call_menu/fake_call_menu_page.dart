@@ -76,7 +76,8 @@ class _FakeCallMenuState extends State<FakeCallMenu> {
                               return InkWell(
                                   onTap: (){
                                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                      return FakeCallDetail(audioasset: fakeCallAudioResources[index].audiooke, imageasset: fakeCallAudioResources[index].background,);
+                                      return FakeCallDetail(audioasset: fakeCallAudioResources[index].audiooke,
+                                        imageasset: fakeCallAudioResources[index].background,);
                                     }));
                                   },
                                   child: Padding(
